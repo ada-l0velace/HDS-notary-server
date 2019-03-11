@@ -29,7 +29,7 @@ public class HdsServer implements Runnable {
             }
             catch (Exception e){}
             TimeStamp = new java.util.Date().toString();
-            String returnCode = "MultipleSocketServer repsonded at "+ TimeStamp + (char) 13;
+            String returnCode = "MultipleSocketServer responded at "+ TimeStamp + (char) 13;
             BufferedOutputStream os = new BufferedOutputStream(connection.getOutputStream());
             OutputStreamWriter osw = new OutputStreamWriter(os, "US-ASCII");
             osw.write(returnCode);
