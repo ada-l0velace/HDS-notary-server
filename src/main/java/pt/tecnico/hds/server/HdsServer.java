@@ -15,7 +15,6 @@ public class HdsServer implements Runnable {
     private DataInputStream dis;
     private DataOutputStream dos;
 
-
     private Connection connect() {
         // SQLite connection string
         Connection conn = null;
@@ -37,6 +36,7 @@ public class HdsServer implements Runnable {
     public void run() {
         String received;
         String toreturn;
+        System.out.println("Server " + this.connection + " Opens...");
         while (true) {
             try {
 
@@ -86,10 +86,12 @@ public class HdsServer implements Runnable {
             }
             catch (java.io.EOFException e0) {
                 e0.printStackTrace();
+                System.out.println(e0.getMessage());
                 break;
             }
-            catch (java.net.SocketException socketEx) {
+            catch (java.net.SocketException socketEx) { // Client Socket closed
                 socketEx.printStackTrace();
+                System.out.println(socketEx.getMessage());
                 break;
             }
             catch (Exception e) {
