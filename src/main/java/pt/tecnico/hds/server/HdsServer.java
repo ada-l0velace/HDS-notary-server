@@ -2,13 +2,29 @@ package pt.tecnico.hds.server;
 
 import java.io.*;
 import java.net.Socket;
+import java.sql.*;
 
 public class HdsServer implements Runnable {
+
+    private static final String url = "jdbc:sqlite:db/hds.db";
+
     private Socket connection;
     private String TimeStamp;
     private int ID;
     private DataInputStream dis;
     private DataOutputStream dos;
+
+
+    private Connection connect() {
+        // SQLite connection string
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
 
     HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos) {
         this.connection = s;
@@ -52,7 +68,7 @@ public class HdsServer implements Runnable {
                         break;
 
                     case "intentionToSell" :
-                        toreturn = "intentionToSell";
+                        toreturn = intentionToSell();
                         dos.writeUTF(toreturn);
                         break;
 
@@ -75,5 +91,43 @@ public class HdsServer implements Runnable {
             }
         }
     }
+
+    public String intentionToSell(String goodsId){
+        String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setBoolean(1, true);
+            pstmt.setString(2, "goodsId");
+            // update
+            pstmt.executeUpdate();
+            query();
+            return "yay";
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "nay";
+    }
+
+    public void query() {
+        try {
+            Connection conn = this.connect();
+            String sql = "SELECT goodsId, userId, onSale FROM notary";
+
+            Statement stmt  = conn.createStatement();
+            ResultSet rs    = stmt.executeQuery(sql);
+            // Only expecting a single result
+            while (rs.next()) {
+                System.out.println(rs.getString("goodsId") +  "\t" +
+                        rs.getString("userId") + "\t" +
+                        rs.getBoolean("onSale"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
