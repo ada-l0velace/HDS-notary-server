@@ -10,6 +10,7 @@ public class Main {
         int count = 0;
         try{
             ServerSocket socket1 = new ServerSocket(port);
+            socket1.setReuseAddress(true);
             System.out.println("HDS Notary Server Initialized");
             while (true) {
                 Socket connection = socket1.accept();
