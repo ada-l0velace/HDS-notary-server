@@ -1,5 +1,7 @@
 package pt.tecnico.hds.server;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
@@ -19,7 +21,11 @@ public class Main {
             System.out.println("HDS Notary Server Initialized");
             while (true) {
                 Socket connection = socket1.accept();
-                Runnable runnable = new HdsServer(connection, ++count);
+
+                // obtaining input and out streams
+                DataInputStream dis = new DataInputStream(connection.getInputStream());
+                DataOutputStream dos = new DataOutputStream(connection.getOutputStream());
+                Runnable runnable = new HdsServer(connection, ++count, dis, dos);
                 Thread thread = new Thread(runnable);
                 thread.start();
             }

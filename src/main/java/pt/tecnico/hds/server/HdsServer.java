@@ -7,42 +7,72 @@ public class HdsServer implements Runnable {
     private Socket connection;
     private String TimeStamp;
     private int ID;
+    private DataInputStream dis;
+    private DataOutputStream dos;
 
-    HdsServer(Socket s, int i) {
+    HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos) {
         this.connection = s;
         this.ID = i;
+        this.dis = dis;
+        this.dos = dos;
     }
 
     public void run() {
-        try {
-            BufferedInputStream is = new BufferedInputStream(connection.getInputStream());
-            InputStreamReader isr = new InputStreamReader(is);
-            int character;
-            StringBuffer process = new StringBuffer();
-            while((character = isr.read()) != 13) {
-                process.append((char)character);
-            }
-            System.out.println(process);
-            //need to wait 10 seconds to pretend that we're processing something
+        String received;
+        String toreturn;
+        while (true) {
             try {
-                Thread.sleep(10000);
+
+                // Ask user what he wants
+                dos.writeUTF("What do you want?[transferGood | intentionToSell | buyGood | getStateOfGood]..\n" +
+                        "Type Exit to terminate connection.");
+
+                // receive the answer from client
+                received = dis.readUTF();
+
+                if (received.equals("Exit")) {
+                    System.out.println("Client " + this.connection + " sends exit...");
+                    System.out.println("Closing this connection.");
+                    this.connection.close();
+                    System.out.println("Connection closed");
+                    this.dis.close();
+                    this.dos.close();
+                    break;
+                }
+
+                this.TimeStamp = new java.util.Date().toString();
+
+                // write on output stream based on the
+                // answer from the client
+                switch (received) {
+
+                    case "transferGood" :
+                        toreturn = "transferGood";
+                        dos.writeUTF(toreturn);
+                        break;
+
+                    case "intentionToSell" :
+                        toreturn = "intentionToSell";
+                        dos.writeUTF(toreturn);
+                        break;
+
+                    case "buyGood" :
+                        toreturn = "buyGood";
+                        dos.writeUTF(toreturn);
+                        break;
+
+                    case "getStateOfGood" :
+                        toreturn = "getStateOfGood";
+                        dos.writeUTF(toreturn);
+                        break;
+
+                    default:
+                        dos.writeUTF("Invalid input");
+                        break;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            catch (Exception e){}
-            TimeStamp = new java.util.Date().toString();
-            String returnCode = "MultipleSocketServer responded at "+ TimeStamp + (char) 13;
-            BufferedOutputStream os = new BufferedOutputStream(connection.getOutputStream());
-            OutputStreamWriter osw = new OutputStreamWriter(os, "US-ASCII");
-            osw.write(returnCode);
-            osw.flush();
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        finally {
-            try {
-                connection.close();
-            }
-            catch (IOException e){}
         }
     }
 
