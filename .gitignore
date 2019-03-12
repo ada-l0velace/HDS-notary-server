@@ -108,3 +108,6 @@ hs_err_pid*
 
 #Target files from Maven
 target
+
+#Databases
+db/*
