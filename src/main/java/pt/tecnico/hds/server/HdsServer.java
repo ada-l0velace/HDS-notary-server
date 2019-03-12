@@ -2,6 +2,7 @@ package pt.tecnico.hds.server;
 
 import java.io.*;
 import java.net.Socket;
+import org.json.JSONObject;
 
 public class HdsServer implements Runnable {
     private Socket connection;
@@ -44,25 +45,32 @@ public class HdsServer implements Runnable {
 
                 // write on output stream based on the
                 // answer from the client
+                JSONObject jsonObj = new JSONObject(received);
+                /*if (jsonObj.isNull("Action"))
+                    received = jsonObj.get("Action").toString();
+                else
+                    received = "";*/
+                received = jsonObj.get("Action").toString();
+                toreturn = jsonObj.toString();
                 switch (received) {
 
                     case "transferGood" :
-                        toreturn = "transferGood";
+                        //toreturn = "transferGood";
                         dos.writeUTF(toreturn);
                         break;
 
                     case "intentionToSell" :
-                        toreturn = "intentionToSell";
+                        //toreturn = "intentionToSell";
                         dos.writeUTF(toreturn);
                         break;
 
                     case "buyGood" :
-                        toreturn = "buyGood";
+                        //toreturn = "buyGood";
                         dos.writeUTF(toreturn);
                         break;
 
                     case "getStateOfGood" :
-                        toreturn = "getStateOfGood";
+                        //toreturn = "getStateOfGood";
                         dos.writeUTF(toreturn);
                         break;
 
@@ -70,8 +78,19 @@ public class HdsServer implements Runnable {
                         dos.writeUTF("Invalid input");
                         break;
                 }
-            } catch (IOException e) {
+            }
+            catch (java.net.SocketException socketEx) {
+                socketEx.printStackTrace();
+                break;
+            }
+            catch (Exception e) {
                 e.printStackTrace();
+                try {
+                    dos.writeUTF("Invalid input");
+                }
+                catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     }
