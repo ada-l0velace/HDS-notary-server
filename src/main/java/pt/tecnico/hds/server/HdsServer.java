@@ -25,7 +25,7 @@ public class HdsServer implements Runnable {
             try {
 
                 // Ask user what he wants
-                dos.writeUTF("What do you want?[transferGood | intentionToSell | buyGood | getStateOfGood]..\n" +
+                dos.writeUTF("What do you want?[transferGood | intentionToSell | sendMessageToClient | getStateOfGood]..\n" +
                         "Type Exit to terminate connection.");
 
                 // receive the answer from client
@@ -61,11 +61,6 @@ public class HdsServer implements Runnable {
 
                     case "intentionToSell" :
                         //toreturn = "intentionToSell";
-                        dos.writeUTF(toreturn);
-                        break;
-
-                    case "buyGood" :
-                        //toreturn = "buyGood";
                         dos.writeUTF(toreturn);
                         break;
 
