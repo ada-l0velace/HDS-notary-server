@@ -25,19 +25,13 @@ public class HdsServer implements Runnable {
             try {
 
                 // Ask user what he wants
-                dos.writeUTF("What do you want?[transferGood | intentionToSell | sendMessageToClient | getStateOfGood]..\n" +
-                        "Type Exit to terminate connection.");
+                //dos.writeUTF("What do you want?[transferGood | intentionToSell | sendMessageToClient | getStateOfGood]..\n" +
+                //        "Type Exit to terminate connection.");
 
                 // receive the answer from client
                 received = dis.readUTF();
 
                 if (received.equals("Exit")) {
-                    System.out.println("Client " + this.connection + " sends exit...");
-                    System.out.println("Closing this connection.");
-                    this.connection.close();
-                    System.out.println("Connection closed");
-                    this.dis.close();
-                    this.dos.close();
                     break;
                 }
 
@@ -74,6 +68,10 @@ public class HdsServer implements Runnable {
                         break;
                 }
             }
+            catch (java.io.EOFException e0) {
+                e0.printStackTrace();
+                break;
+            }
             catch (java.net.SocketException socketEx) {
                 socketEx.printStackTrace();
                 break;
@@ -87,6 +85,17 @@ public class HdsServer implements Runnable {
                     e1.printStackTrace();
                 }
             }
+        }
+        try {
+            System.out.println("Client " + this.connection + " sends exit...");
+            System.out.println("Closing this connection.");
+            this.connection.close();
+            System.out.println("Connection closed");
+            this.dis.close();
+            this.dos.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
