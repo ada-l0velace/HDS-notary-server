@@ -26,7 +26,7 @@ public class HdsServer implements Runnable {
         return conn;
     }
 
-    HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos) {
+    public HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos) {
         this.connection = s;
         this.ID = i;
         this.dis = dis;
@@ -34,8 +34,8 @@ public class HdsServer implements Runnable {
     }
 
     public void run() {
-        String received;
-        String toreturn;
+        String received = "";
+        String toreturn = "";
         System.out.println("Server " + this.connection + " Opens...");
         while (true) {
             try {
@@ -61,7 +61,6 @@ public class HdsServer implements Runnable {
                 else
                     received = "";*/
                 received = jsonObj.get("Action").toString();
-                toreturn = jsonObj.toString();
                 switch (received) {
 
                     case "transferGood" :
@@ -84,16 +83,19 @@ public class HdsServer implements Runnable {
                         break;
                 }
             }
-            catch (java.io.EOFException e0) {
-                e0.printStackTrace();
-                System.out.println(e0.getMessage());
+
+            catch (java.io.EOFException eofError) { // Normally Occurs when the client socket dies
+                eofError.printStackTrace();
+                //System.out.println(e0.getMessage());
                 break;
             }
-            catch (java.net.SocketException socketEx) { // Client Socket closed
-                socketEx.printStackTrace();
-                System.out.println(socketEx.getMessage());
+
+            catch (java.net.SocketException socketError) { // Client Socket closed
+                socketError.printStackTrace();
+                //System.out.println(socketEx.getMessage());
                 break;
             }
+
             catch (Exception e) {
                 e.printStackTrace();
                 try {
@@ -168,7 +170,7 @@ public class HdsServer implements Runnable {
             pstmt.setBoolean(1, true);
             pstmt.setString(2, goodsId);
             pstmt.executeUpdate();
-            query();
+            //query();
             return "YES";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
