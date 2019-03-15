@@ -39,11 +39,6 @@ public class HdsServer implements Runnable {
         System.out.println("Server " + this.connection + " Opens...");
         while (true) {
             try {
-
-                // Ask user what he wants
-                //dos.writeUTF("What do you want?[transferGood | intentionToSell | sendMessageToClient | getStateOfGood]..\n" +
-                //        "Type Exit to terminate connection.");
-
                 // receive the answer from client
                 received = dis.readUTF();
 
@@ -55,26 +50,26 @@ public class HdsServer implements Runnable {
 
                 // write on output stream based on the
                 // answer from the client
+
                 JSONObject jsonObj = new JSONObject(received);
-                /*if (jsonObj.isNull("Action"))
-                    received = jsonObj.get("Action").toString();
-                else
-                    received = "";*/
-                received = jsonObj.get("Action").toString();
+                jsonObj = new JSONObject(jsonObj.getString("Message"));
+                received = jsonObj.getString("Action");
+
                 switch (received) {
 
                     case "transferGood" :
-                        toreturn = transferGood(jsonObj.get("Buyer").toString(), jsonObj.get("Seller").toString(), jsonObj.get("Good").toString());
+                        toreturn = transferGood(jsonObj.getString("Buyer"), jsonObj.getString("Seller"), jsonObj.getString("Good"));
                         dos.writeUTF(toreturn);
                         break;
 
                     case "intentionToSell" :
-                        toreturn = intentionToSell(jsonObj.get("Good").toString());
+                        toreturn = intentionToSell(jsonObj.getString("Good"));
+                        //System.out.println(toreturn);
                         dos.writeUTF(toreturn);
                         break;
 
                     case "getStateOfGood" :
-                        toreturn = getStateOfGood(jsonObj.get("Good").toString());
+                        toreturn = getStateOfGood(jsonObj.getString("Good"));
                         dos.writeUTF(toreturn);
                         break;
 
@@ -98,6 +93,7 @@ public class HdsServer implements Runnable {
 
             catch (Exception e) {
                 e.printStackTrace();
+                System.out.println(received);
                 try {
                     dos.writeUTF("Invalid input");
                 }
@@ -132,7 +128,7 @@ public class HdsServer implements Runnable {
             System.out.println("Shit Happened");
             if (rs.next()){
                 result = rs.getBoolean("onSale");
-                query();
+                //query();
             }
         } catch (SQLException e) {
             System.out.println("Fodeu");
@@ -153,7 +149,7 @@ public class HdsServer implements Runnable {
             pstmt.setString(1, buyer);
             pstmt.setString(2, good);
             pstmt.executeUpdate();
-            query();
+            //query();
             return "YES";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
