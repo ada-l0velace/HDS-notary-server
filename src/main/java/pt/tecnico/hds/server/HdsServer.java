@@ -2,6 +2,7 @@ package pt.tecnico.hds.server;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.sql.*;
 import org.json.JSONObject;
 
@@ -63,9 +64,11 @@ public class HdsServer implements Runnable {
                         break;
 
                     case "intentionToSell" :
-                        toreturn = intentionToSell(jsonObj.getString("Good"));
+                        JSONObject message = intentionToSell(jsonObj.getString("Good"));
                         //System.out.println(toreturn);
+                        toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
+                        System.out.println(toreturn);
                         break;
 
                     case "getStateOfGood" :
@@ -79,17 +82,14 @@ public class HdsServer implements Runnable {
                 }
             }
 
-            catch (java.io.EOFException eofError) { // Normally Occurs when the client socket dies
+            catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
                 eofError.printStackTrace();
                 //System.out.println(e0.getMessage());
                 break;
             }
 
-            catch (java.net.SocketException socketError) { // Client Socket closed
-                socketError.printStackTrace();
-                //System.out.println(socketEx.getMessage());
-                break;
-            }
+            // Client Socket closed
+            //System.out.println(socketEx.getMessage());
 
             catch (Exception e) {
                 e.printStackTrace();
@@ -115,6 +115,13 @@ public class HdsServer implements Runnable {
         }
     }
 
+    public JSONObject buildReply(JSONObject j){
+        JSONObject reply = new JSONObject();
+        reply.put("Message", j.toString());
+        reply.put("Hash", Utils.getSHA256(j.toString()));
+        return reply;
+    }
+
     public String getStateOfGood(String good){
         String sql = "SELECT onSale FROM notary WHERE goodsId = ?";
         Boolean result = false;
@@ -123,15 +130,12 @@ public class HdsServer implements Runnable {
              PreparedStatement pstmt  = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, good);
-            System.out.println("Shit Happens");
             ResultSet rs = pstmt.executeQuery();
-            System.out.println("Shit Happened");
             if (rs.next()){
                 result = rs.getBoolean("onSale");
                 //query();
             }
         } catch (SQLException e) {
-            System.out.println("Fodeu");
             System.out.println(e.getMessage());
         }
         if (result)
@@ -157,8 +161,9 @@ public class HdsServer implements Runnable {
         return "NO";
     }
 
-    public String intentionToSell(String goodsId){
+    public JSONObject intentionToSell(String goodsId){
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
+        JSONObject reply = new JSONObject();
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -167,11 +172,14 @@ public class HdsServer implements Runnable {
             pstmt.setString(2, goodsId);
             pstmt.executeUpdate();
             //query();
-            return "YES";
+            reply.put("Action", "YES");
+
         } catch (SQLException e) {
+            reply.put("Action","NO");
             System.out.println(e.getMessage());
         }
-        return "NO";
+        reply.put("Timestamp", new java.util.Date().toString());
+        return reply;
     }
 
     public void query() {
