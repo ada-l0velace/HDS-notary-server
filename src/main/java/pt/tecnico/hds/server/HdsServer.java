@@ -55,16 +55,19 @@ public class HdsServer implements Runnable {
                 JSONObject jsonObj = new JSONObject(received);
                 jsonObj = new JSONObject(jsonObj.getString("Message"));
                 received = jsonObj.getString("Action");
+                JSONObject message;
 
                 switch (received) {
 
                     case "transferGood" :
-                        toreturn = transferGood(jsonObj.getString("Buyer"), jsonObj.getString("Seller"), jsonObj.getString("Good"));
+                        message = transferGood(jsonObj.getString("Buyer"), jsonObj.getString("Seller"), jsonObj.getString("Good"));
+                        toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
+                        System.out.println(toreturn);
                         break;
 
                     case "intentionToSell" :
-                        JSONObject message = intentionToSell(jsonObj.getString("Good"));
+                        message = intentionToSell(jsonObj.getString("Good"));
                         //System.out.println(toreturn);
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
@@ -72,12 +75,15 @@ public class HdsServer implements Runnable {
                         break;
 
                     case "getStateOfGood" :
-                        toreturn = getStateOfGood(jsonObj.getString("Good"));
+                        message = getStateOfGood(jsonObj.getString("Good"));
+                        toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
+                        System.out.println(toreturn);
                         break;
 
                     default:
                         dos.writeUTF("Invalid input");
+                        System.out.println(toreturn);
                         break;
                 }
             }
@@ -122,8 +128,9 @@ public class HdsServer implements Runnable {
         return reply;
     }
 
-    public String getStateOfGood(String good){
-        String sql = "SELECT onSale FROM notary WHERE goodsId = ?";
+    public JSONObject getStateOfGood(String good){
+        String sql = "SELECT userId, onSale FROM notary WHERE goodsId = ?";
+        JSONObject reply = new JSONObject();
         Boolean result = false;
 
         try (Connection conn = this.connect();
@@ -133,19 +140,21 @@ public class HdsServer implements Runnable {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()){
                 result = rs.getBoolean("onSale");
-                //query();
+                String user = rs.getString("userId");
+                reply.put("OnSale", result.toString());
+                reply.put("Owner", user);
+                reply.put("Good", good);
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        if (result)
-            return "FOR SALE";
-        else
-            return "NOT FOR SALE";
+        return reply;
     }
 
-    public String transferGood(String buyer, String seller, String good){
+    public JSONObject transferGood(String buyer, String seller, String good){
         String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
+        JSONObject reply = new JSONObject();
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -154,11 +163,12 @@ public class HdsServer implements Runnable {
             pstmt.setString(2, good);
             pstmt.executeUpdate();
             //query();
-            return "YES";
+            reply.put("Action", "YES");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            reply.put("Action", "NO");
         }
-        return "NO";
+        return reply;
     }
 
     public JSONObject intentionToSell(String goodsId){
