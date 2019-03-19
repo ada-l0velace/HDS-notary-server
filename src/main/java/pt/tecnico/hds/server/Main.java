@@ -53,8 +53,8 @@ public class Main {
                 + "	onSale boolean NOT NULL\n"
                 + ");";
 
-        String users = "CREATE TABLE IF NOT EXISTS users (userId text NOT NULL);";
-        String goods = "CREATE TABLE IF NOT EXISTS goods (goodsId text NOT NULL);";
+        String users = "CREATE TABLE IF NOT EXISTS users (userId text PRIMARY KEY);";
+        String goods = "CREATE TABLE IF NOT EXISTS goods (goodsId text PRIMARY KEY);";
         try {
             if (!Files.exists(Paths.get("db/hds.db"))) {
                 conn = DriverManager.getConnection(url);
