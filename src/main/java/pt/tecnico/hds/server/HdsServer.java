@@ -203,7 +203,7 @@ public class HdsServer implements Runnable {
     public JSONObject transferGood(String buyer, String seller, String good){
         String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
         JSONObject reply = new JSONObject();
-
+        System.out.println(buyer + " "+ seller);
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             if (isReal("userId", "users", buyer, conn) &&
