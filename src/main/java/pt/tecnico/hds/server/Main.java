@@ -47,18 +47,24 @@ public class Main {
     public static void createDatabase(){
 
 
-        // SQL statement for creating a new table
-        String sql = "CREATE TABLE IF NOT EXISTS notary (\n"
+        String notary = "CREATE TABLE IF NOT EXISTS notary (\n"
                 + "	goodsId text PRIMARY KEY ,\n"
                 + "	userId text NOT NULL,\n"
                 + "	onSale boolean NOT NULL\n"
                 + ");";
+
+        String users = "CREATE TABLE IF NOT EXISTS users (userId text NOT NULL);";
+        String goods = "CREATE TABLE IF NOT EXISTS goods (goodsId text NOT NULL);";
         try {
             if (!Files.exists(Paths.get("db/hds.db"))) {
                 conn = DriverManager.getConnection(url);
-                Statement stmt = conn.createStatement();
+                Statement stmt1 = conn.createStatement();
+                Statement stmt2 = conn.createStatement();
+                Statement stmt3 = conn.createStatement();
                 // create a new table
-                stmt.execute(sql);
+                stmt1.execute(notary);
+                stmt2.execute(users);
+                stmt3.execute(goods);
                 populate();
              }
              else{
@@ -68,6 +74,7 @@ public class Main {
                 System.out.println(e.getMessage());
         }
     }
+
 
     public static void populate(){
 
@@ -92,6 +99,37 @@ public class Main {
         insert("good19", "user3");
         insert("good20", "user2");
         insert("good21", "user1");
+        insert("user1", "userId", "users");
+        insert("user2", "userId", "users");
+        insert("user3", "userId", "users");
+        insert("user4", "userId", "users");
+        insert("user5", "userId", "users");
+        insert("user6", "userId", "users");
+        insert("user7", "userId", "users");
+        insert("user8", "userId", "users");
+        insert("user9", "userId", "users");
+        insert("user10", "userId", "users");
+        insert("good1", "goodsId", "goods");
+        insert("good2", "goodsId", "goods");
+        insert("good3", "goodsId", "goods");
+        insert("good4", "goodsId", "goods");
+        insert("good5", "goodsId", "goods");
+        insert("good6", "goodsId", "goods");
+        insert("good7", "goodsId", "goods");
+        insert("good8", "goodsId", "goods");
+        insert("good9", "goodsId", "goods");
+        insert("good10", "goodsId", "goods");
+        insert("good11", "goodsId", "goods");
+        insert("good12", "goodsId", "goods");
+        insert("good13", "goodsId", "goods");
+        insert("good14", "goodsId", "goods");
+        insert("good15", "goodsId", "goods");
+        insert("good16", "goodsId", "goods");
+        insert("good17", "goodsId", "goods");
+        insert("good18", "goodsId", "goods");
+        insert("good19", "goodsId", "goods");
+        insert("good20", "goodsId", "goods");
+        insert("good21", "goodsId", "goods");
     }
 
     public static void insert(String goodsId, String userId){
@@ -107,5 +145,15 @@ public class Main {
         }
     }
 
+    public static void insert(String id, String type, String table){
+        String sql = "INSERT INTO " + table + "(" + type + ") Values (?)";
+        try{
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

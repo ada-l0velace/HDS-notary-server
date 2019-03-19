@@ -67,7 +67,7 @@ public class HdsServer implements Runnable {
                         break;
 
                     case "intentionToSell" :
-                        message = intentionToSell(jsonObj.getString("Good"));
+                        message = intentionToSell(jsonObj.getString("Good"), jsonObj.getString("Seller"));
                         //System.out.println(toreturn);
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
@@ -83,6 +83,7 @@ public class HdsServer implements Runnable {
 
                     default:
                         dos.writeUTF("Invalid input");
+
                         System.out.println(toreturn);
                         break;
                 }
@@ -119,6 +120,53 @@ public class HdsServer implements Runnable {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isReal(String type, String table, String id, Connection conn){
+        String sql = "SELECT " + type + " FROM " + table + " WHERE " + type + " = ?";
+        try{
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next())
+                return true;
+            System.out.println(type + " " + id + " nonexistent");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean isOwner(String owner, String good, Connection conn){
+        String sql = "SELECT userId FROM notary WHERE goodsId = ?";
+        try{
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, good);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next() && rs.getString("userId").equals(owner))
+                return true;
+            System.out.println(owner + " IS NOT OWNER OF " + good);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean isOnSale(String good, Connection conn){
+        String sql = "SELECT onSale FROM notary WHERE goodsId = ?";
+
+        try {
+            PreparedStatement pstmt  = conn.prepareStatement(sql);
+
+            pstmt.setString(1, good);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()){
+                return rs.getBoolean("onSale");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     public JSONObject buildReply(JSONObject j){
@@ -158,31 +206,41 @@ public class HdsServer implements Runnable {
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, buyer);
-            pstmt.setString(2, good);
-            pstmt.executeUpdate();
-            //query();
-            reply.put("Action", "YES");
+            if (isReal("userId", "users", buyer, conn) &&
+                isReal("userId", "users", seller, conn) &&
+                isReal("goodsId", "goods", good, conn) &&
+                isOnSale(good, conn) &&
+                !buyer.equals(seller)) {
+                pstmt.setString(1, buyer);
+                pstmt.setString(2, good);
+                pstmt.executeUpdate();
+                reply.put("Action", "YES");
+            } else {
+                reply.put("Action", "NO");
+            }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            reply.put("Action", "NO");
-        }
+                System.out.println(e.getMessage());
+                reply.put("Action", "NO");
+            }
         return reply;
     }
 
-    public JSONObject intentionToSell(String goodsId){
+    public JSONObject intentionToSell(String goodsId, String seller){
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
         JSONObject reply = new JSONObject();
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            if (isReal("goodsId", "goods", goodsId, conn) &&
+                isOwner(seller, goodsId, conn)){
 
-            pstmt.setBoolean(1, true);
-            pstmt.setString(2, goodsId);
-            pstmt.executeUpdate();
-            //query();
-            reply.put("Action", "YES");
+                pstmt.setBoolean(1, true);
+                pstmt.setString(2, goodsId);
+                pstmt.executeUpdate();
+                //query();
+                reply.put("Action", "YES");
+            } else
+                reply.put("Action", "NO");
 
         } catch (SQLException e) {
             reply.put("Action","NO");
@@ -195,15 +253,17 @@ public class HdsServer implements Runnable {
     public void query() {
         try {
             Connection conn = this.connect();
-            String sql = "SELECT goodsId, userId, onSale FROM notary";
+//            String sql = "SELECT goodsId, userId, onSale FROM notary";
+            String sql = "SELECT userId FROM users";
 
             Statement stmt  = conn.createStatement();
             ResultSet rs    = stmt.executeQuery(sql);
             // Only expecting a single result
             while (rs.next()) {
-                System.out.println(rs.getString("goodsId") +  "\t" +
-                        rs.getString("userId") + "\t" +
-                        rs.getBoolean("onSale"));
+//                System.out.println(rs.getString("goodsId") +  "\t" +
+//                        rs.getString("userId") + "\t" +
+//                        rs.getBoolean("onSale"));
+                System.out.println(rs.getString("userId"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
