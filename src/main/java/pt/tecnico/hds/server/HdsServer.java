@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
 import java.sql.*;
+import java.text.DateFormat;
+
 import org.json.JSONObject;
 
 public class HdsServer implements Runnable {
@@ -38,6 +40,7 @@ public class HdsServer implements Runnable {
         String received = "";
         String toreturn = "";
         System.out.println("Server " + this.connection + " Opens...");
+
         while (true) {
             try {
                 // receive the answer from client
@@ -48,19 +51,18 @@ public class HdsServer implements Runnable {
                 }
 
                 this.TimeStamp = new java.util.Date().toString();
-
                 // write on output stream based on the
                 // answer from the client
 
                 JSONObject jsonObj = new JSONObject(received);
+                String hash = jsonObj.getString("Hash");
                 jsonObj = new JSONObject(jsonObj.getString("Message"));
                 received = jsonObj.getString("Action");
                 JSONObject message;
-
                 switch (received) {
 
                     case "transferGood" :
-                        message = transferGood(jsonObj.getString("Buyer"), jsonObj.getString("Seller"), jsonObj.getString("Good"));
+                        message = transferGood(jsonObj, hash);
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
@@ -200,34 +202,47 @@ public class HdsServer implements Runnable {
         return reply;
     }
 
-    public JSONObject transferGood(String buyer, String seller, String good){
-        String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
+    public JSONObject transferGood(JSONObject message, String hash){
+        String seller = message.getString("Seller");
         JSONObject reply = new JSONObject();
-        System.out.println(buyer + " "+ seller);
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            if (isReal("userId", "users", buyer, conn) &&
-                isReal("userId", "users", seller, conn) &&
-                isReal("goodsId", "goods", good, conn) &&
-                isOnSale(good, conn) &&
-                !buyer.equals(seller)) {
-                pstmt.setString(1, buyer);
-                pstmt.setString(2, good);
-                pstmt.executeUpdate();
-                reply.put("Action", "YES");
-            } else {
-                reply.put("Action", "NO");
-            }
-        } catch (SQLException e) {
+        if (Utils.verifySignWithPubKey(message.toString(), hash, seller + ".pub")) {
+            String buyer = message.getString("Buyer");
+            String good = message.getString("Good");
+
+            String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
+            System.out.println(buyer + " " + seller);
+
+            try (Connection conn = this.connect();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                if (isReal("userId", "users", buyer, conn) &&
+                        isReal("userId", "users", seller, conn) &&
+                        isReal("goodsId", "goods", good, conn) &&
+                        isOnSale(good, conn) &&
+                        !buyer.equals(seller)) {
+                    pstmt.setString(1, buyer);
+                    pstmt.setString(2, good);
+                    pstmt.executeUpdate();
+                    reply.put("Action", "YES");
+                } else {
+                    reply.put("Action", "NO");
+                }
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 reply.put("Action", "NO");
             }
+        }
+        else{
+            reply.put("Action", "NO");
+            System.out.println("Got Here");
+        }
         return reply;
     }
 
     public JSONObject intentionToSell(String goodsId, String seller){
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
         JSONObject reply = new JSONObject();
+
+
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
