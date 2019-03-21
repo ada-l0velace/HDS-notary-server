@@ -61,22 +61,22 @@ public class HdsServer implements Runnable {
                 JSONObject message;
                 switch (received) {
 
-                    case "transferGood" :
+                    case "transferGood":
                         message = transferGood(jsonObj, hash);
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
 
-                    case "intentionToSell" :
-                        message = intentionToSell(jsonObj.getString("Good"), jsonObj.getString("Seller"));
+                    case "intentionToSell":
+                        message = intentionToSell(jsonObj, hash);
                         //System.out.println(toreturn);
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
 
-                    case "getStateOfGood" :
+                    case "getStateOfGood":
                         message = getStateOfGood(jsonObj.getString("Good"));
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
@@ -89,9 +89,7 @@ public class HdsServer implements Runnable {
                         System.out.println(toreturn);
                         break;
                 }
-            }
-
-            catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
+            } catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
                 eofError.printStackTrace();
                 //System.out.println(e0.getMessage());
                 break;
@@ -105,8 +103,7 @@ public class HdsServer implements Runnable {
                 System.out.println(received);
                 try {
                     dos.writeUTF("Invalid input");
-                }
-                catch (IOException e1) {
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
@@ -118,15 +115,14 @@ public class HdsServer implements Runnable {
             System.out.println("Connection closed");
             this.dis.close();
             this.dos.close();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public boolean isReal(String type, String table, String id, Connection conn){
+    public boolean isReal(String type, String table, String id, Connection conn) {
         String sql = "SELECT " + type + " FROM " + table + " WHERE " + type + " = ?";
-        try{
+        try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, id);
             ResultSet rs = pstmt.executeQuery();
@@ -139,9 +135,9 @@ public class HdsServer implements Runnable {
         return false;
     }
 
-    public boolean isOwner(String owner, String good, Connection conn){
+    public boolean isOwner(String owner, String good, Connection conn) {
         String sql = "SELECT userId FROM notary WHERE goodsId = ?";
-        try{
+        try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, good);
             ResultSet rs = pstmt.executeQuery();
@@ -154,15 +150,15 @@ public class HdsServer implements Runnable {
         return false;
     }
 
-    public boolean isOnSale(String good, Connection conn){
+    public boolean isOnSale(String good, Connection conn) {
         String sql = "SELECT onSale FROM notary WHERE goodsId = ?";
 
         try {
-            PreparedStatement pstmt  = conn.prepareStatement(sql);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, good);
             ResultSet rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 return rs.getBoolean("onSale");
             }
         } catch (SQLException e) {
@@ -171,24 +167,24 @@ public class HdsServer implements Runnable {
         return false;
     }
 
-    public JSONObject buildReply(JSONObject j){
+    public JSONObject buildReply(JSONObject j) {
         JSONObject reply = new JSONObject();
         reply.put("Message", j.toString());
         reply.put("Hash", Utils.getSHA256(j.toString()));
         return reply;
     }
 
-    public JSONObject getStateOfGood(String good){
+    public JSONObject getStateOfGood(String good) {
         String sql = "SELECT userId, onSale FROM notary WHERE goodsId = ?";
         JSONObject reply = new JSONObject();
         Boolean result = false;
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt  = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, good);
             ResultSet rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 result = rs.getBoolean("onSale");
                 String user = rs.getString("userId");
                 reply.put("OnSale", result.toString());
@@ -202,10 +198,10 @@ public class HdsServer implements Runnable {
         return reply;
     }
 
-    public JSONObject transferGood(JSONObject message, String hash){
+    public JSONObject transferGood(JSONObject message, String hash) {
         String seller = message.getString("Seller");
         JSONObject reply = new JSONObject();
-        if (Utils.verifySignWithPubKey(message.toString(), hash, seller + ".pub")) {
+        if (Utils.verifySignWithPubKey(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
             String buyer = message.getString("Buyer");
             String good = message.getString("Good");
 
@@ -230,36 +226,50 @@ public class HdsServer implements Runnable {
                 System.out.println(e.getMessage());
                 reply.put("Action", "NO");
             }
-        }
-        else{
+        } else {
             reply.put("Action", "NO");
-            System.out.println("Got Here");
         }
         return reply;
     }
 
-    public JSONObject intentionToSell(String goodsId, String seller){
-        String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
+    public JSONObject intentionToSell(JSONObject message, String hash) {
+        String seller = message.getString("Seller");
         JSONObject reply = new JSONObject();
 
+        if (Utils.verifySignWithPubKey(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
 
 
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            if (isReal("goodsId", "goods", goodsId, conn) &&
-                isOwner(seller, goodsId, conn)){
+            String goodsId = message.getString("Good");
 
-                pstmt.setBoolean(1, true);
-                pstmt.setString(2, goodsId);
-                pstmt.executeUpdate();
-                //query();
-                reply.put("Action", "YES");
-            } else
+            String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
+
+
+            try (Connection conn = this.connect();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                if (verifyReplay(hash, conn)) {
+                    System.out.println("Hash verified");
+                    query();
+                    addToRequests(hash, conn);
+                    if (isReal("goodsId", "goods", goodsId, conn) &&
+                            isOwner(seller, goodsId, conn)) {
+
+                        pstmt.setBoolean(1, true);
+                        pstmt.setString(2, goodsId);
+                        pstmt.executeUpdate();
+                        //query();
+                        reply.put("Action", "YES");
+                    } else
+                        reply.put("Action", "NO");
+                } else {
+                    reply.put("Action", "NO");
+                }
+
+            } catch (SQLException e) {
                 reply.put("Action", "NO");
-
-        } catch (SQLException e) {
-            reply.put("Action","NO");
-            System.out.println(e.getMessage());
+                System.out.println(e.getMessage());
+            }
+        } else {
+            reply.put("Action", "NO");
         }
         reply.put("Timestamp", new java.util.Date().toString());
         return reply;
@@ -269,21 +279,47 @@ public class HdsServer implements Runnable {
         try {
             Connection conn = this.connect();
 //            String sql = "SELECT goodsId, userId, onSale FROM notary";
-            String sql = "SELECT userId FROM users";
+            String sql = "SELECT requestId FROM requests";
 
-            Statement stmt  = conn.createStatement();
-            ResultSet rs    = stmt.executeQuery(sql);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
             // Only expecting a single result
             while (rs.next()) {
 //                System.out.println(rs.getString("goodsId") +  "\t" +
 //                        rs.getString("userId") + "\t" +
 //                        rs.getBoolean("onSale"));
-                System.out.println(rs.getString("userId"));
+                System.out.println(rs.getString("requestId"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    public static boolean verifyReplay(String hash, Connection conn) {
+        String sql = "SELECT requestId FROM requests WHERE requestId=?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, hash);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 
+    public static void addToRequests(String hash, Connection conn){
+        String sql = "INSERT INTO requests(requestId) Values(?)";
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, hash);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

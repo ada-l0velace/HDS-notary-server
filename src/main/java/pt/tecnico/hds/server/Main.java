@@ -55,16 +55,20 @@ public class Main {
 
         String users = "CREATE TABLE IF NOT EXISTS users (userId text PRIMARY KEY);";
         String goods = "CREATE TABLE IF NOT EXISTS goods (goodsId text PRIMARY KEY);";
+        String requests = "CREATE TABLE IF NOT EXISTS requests(requestId text PRIMARY KEY);";
         try {
             if (!Files.exists(Paths.get("db/hds.db"))) {
                 conn = DriverManager.getConnection(url);
                 Statement stmt1 = conn.createStatement();
                 Statement stmt2 = conn.createStatement();
                 Statement stmt3 = conn.createStatement();
+                Statement stmt4 = conn.createStatement();
                 // create a new table
                 stmt1.execute(notary);
                 stmt2.execute(users);
                 stmt3.execute(goods);
+                stmt4.execute(requests);
+
                 populate();
              }
              else{

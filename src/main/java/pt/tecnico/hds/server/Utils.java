@@ -1,5 +1,6 @@
 package pt.tecnico.hds.server;
 
+import org.json.JSONObject;
 import sun.misc.BASE64Decoder;
 
 import javax.crypto.spec.SecretKeySpec;
@@ -9,6 +10,9 @@ import java.math.BigInteger;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Utils {
     public static Boolean verifySignWithPubKey(String message, String signedMessage, String pubKeyFile) {
@@ -40,6 +44,7 @@ public class Utils {
         fis.close();
         return new SecretKeySpec(encoded, "RSA");
     }
+
 
     public static String getSHA256(String input) {
 
