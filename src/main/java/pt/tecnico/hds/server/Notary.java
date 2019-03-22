@@ -106,11 +106,12 @@ public class Notary {
         return reply;
     }
 
-    public JSONObject transferGood(JSONObject message, String hash) {
+    public JSONObject transferGood(JSONObject message, JSONObject message2, String hash, String hash2) {
         String seller = message.getString("Seller");
+        String buyer = message.getString("Buyer");
         JSONObject reply = new JSONObject();
-        if (Utils.verifySignWithPubKey(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
-            String buyer = message.getString("Buyer");
+        if (Utils.verifySignWithPubKey(message.toString(), hash, "assymetricKeys/" + seller + ".pub") &&
+            Utils.verifySignWithPubKey(message2.toString(), hash2, "assymetricKeys/" + buyer + ".pub")) {
             String good = message.getString("Good");
 
             String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";

@@ -44,15 +44,16 @@ public class HdsServer implements Runnable {
                 // write on output stream based on the
                 // answer from the client
 
-                JSONObject jsonObj = new JSONObject(received);
-                String hash = jsonObj.getString("Hash");
-                jsonObj = new JSONObject(jsonObj.getString("Message"));
+                JSONObject json = new JSONObject(received);
+                String hash = json.getString("Hash");
+                JSONObject jsonObj = new JSONObject(json.getString("Message"));
                 received = jsonObj.getString("Action");
                 JSONObject message;
                 switch (received) {
 
                     case "transferGood":
-                        message = nt.transferGood(jsonObj, hash);
+                        JSONObject message2 = new JSONObject(json.getString("Message2"));
+                        message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         toreturn = buildReply(message).toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
