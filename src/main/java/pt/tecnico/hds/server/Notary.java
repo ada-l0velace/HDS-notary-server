@@ -110,8 +110,8 @@ public class Notary {
         String seller = message.getString("Seller");
         String buyer = message.getString("Buyer");
         JSONObject reply = new JSONObject();
-        if (Utils.verifySignWithPubKey(message.toString(), hash, "assymetricKeys/" + seller + ".pub") &&
-            Utils.verifySignWithPubKey(message2.toString(), hash2, "assymetricKeys/" + buyer + ".pub")) {
+        if (Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") &&
+            Utils.verifySignWithPubKeyFile(message2.toString(), hash2, "assymetricKeys/" + buyer + ".pub")) {
             String good = message.getString("Good");
 
             String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
@@ -148,9 +148,9 @@ public class Notary {
         String seller = message.getString("Seller");
         JSONObject reply = new JSONObject();
 
-        if (Utils.verifySignWithPubKey(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
+        if (Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
 
-
+            System.out.println(message.toString() + "------");
             String goodsId = message.getString("Good");
 
             String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
