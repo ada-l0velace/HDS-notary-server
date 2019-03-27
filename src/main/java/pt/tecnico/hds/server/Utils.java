@@ -10,9 +10,7 @@ import java.math.BigInteger;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class Utils {
     public static Boolean verifySignWithPubKey(String message, String signedMessage, String pubKeyFile) {
@@ -79,4 +77,5 @@ public class Utils {
             return null;
         }
     }
+
 }
