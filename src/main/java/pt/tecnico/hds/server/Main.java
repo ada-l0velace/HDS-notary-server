@@ -19,6 +19,7 @@ public class Main {
     private static Connection conn = null;
 
     public static void main(String[] args) {
+        //eIDLib_PKCS11 a = new eIDLib_PKCS11();
         int port = 19999;
         int count = 0;
         try{

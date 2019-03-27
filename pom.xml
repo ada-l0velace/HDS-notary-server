@@ -29,6 +29,17 @@
                 </executions>
                 <configuration>
                     <mainClass>pt.tecnico.hds.server.Main</mainClass>
+
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <propertyName>java.library.path</propertyName>
+                        <buildDirectory>/usr/local/lib</buildDirectory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
@@ -60,6 +71,13 @@
             <artifactId>jmockit</artifactId>
             <version>1.45</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>pteidlibj</groupId>
+            <artifactId>pteid</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/pteidlibj.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
