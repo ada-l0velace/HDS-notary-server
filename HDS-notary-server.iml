@@ -17,14 +17,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jmockit:jmockit:1.45" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
-    <orderEntry type="module-library">
-      <library name="Maven: pteidlibj:pteid:1.0">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/pteidlibj.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Maven: pteidlibj:pteidlibj:1.0" level="project" />
   </component>
 </module>

@@ -12,7 +12,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
     </properties>
+
+    <repositories>
+        <repository>
+            <id>repo</id>
+            <name>repo</name>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>file://${user.home}/.m2/repository/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -29,6 +45,13 @@
                 </executions>
                 <configuration>
                     <mainClass>pt.tecnico.hds.server.Main</mainClass>
+
+                    <systemProperties>
+                        <systemProperty>
+                            <key>java.library.path</key>
+                            <value>/usr/local/lib</value>
+                        </systemProperty>
+                    </systemProperties>
 
                 </configuration>
             </plugin>
@@ -72,12 +95,18 @@
             <version>1.45</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>pteidlibj</groupId>
             <artifactId>pteid</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/pteidlibj.jar</systemPath>
+        </dependency>-->
+        <dependency>
+            <groupId>pteidlibj</groupId>
+            <artifactId>pteidlibj</artifactId>
+            <version>1.0</version>
         </dependency>
+
     </dependencies>
 </project>

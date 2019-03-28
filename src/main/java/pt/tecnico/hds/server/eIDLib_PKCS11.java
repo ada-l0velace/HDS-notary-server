@@ -34,9 +34,22 @@ public class eIDLib_PKCS11 {
     public eIDLib_PKCS11() throws java.security.cert.CertificateException {
         System.out.println("            //Load the PTEidlibj");
 
-        System.loadLibrary("pteidlibj");
-
+        //System.loadLibrary("pteidlibj");
+        System.load("");
         osName = System.getProperty("os.name");
+
+        if (osName.equals(PTeID4JUtils.OS_LINUX)) {
+
+            try {
+                //LOGGER.debug("Loading the PTeID lib from {}...", "/usr/local/lib/libpteidlibj.so");
+                System.load("/usr/local/lib/libpteidlibj.so");
+
+            } catch (UnsatisfiedLinkError unsatisfiedLinkErrorLinux01) {
+                //LOGGER.debug("Loading the PTeID lib from {}...",
+                //        "/usr/local/lib/pteid_jni/libpteidlibj.so");
+                System.load("/usr/local/lib/pteid_jni/libpteidlibj.so");
+            }
+        }
         javaVersion = System.getProperty("java.version");
 
         encoder = java.util.Base64.getEncoder();
