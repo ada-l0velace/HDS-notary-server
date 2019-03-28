@@ -22,6 +22,7 @@ public class Notary {
         String sql = "SELECT requestId FROM requests WHERE requestId=?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
+            System.out.println(hash);
             pstmt.setString(1, hash);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -82,26 +83,43 @@ public class Notary {
     }
 
 
-    public JSONObject getStateOfGood(String good) {
-        String sql = "SELECT userId, onSale FROM notary WHERE goodsId = ?";
+    public JSONObject getStateOfGood(JSONObject message, String hash) {
+        String buyer = message.getString("Buyer");
         JSONObject reply = new JSONObject();
-        Boolean result = false;
+        if (Utils.verifySignWithPubKeyFile(message.toString(), hash,"assymetricKeys/" + buyer + ".pub")) {
+            String good = message.getString("Good");
+            String sql = "SELECT userId, onSale FROM notary WHERE goodsId = ?";
+            Boolean result = false;
 
-        try {
-            Connection conn = this.connect();
-            PreparedStatement pstmt =    conn.prepareStatement(sql);
-            pstmt.setString(1, good);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                result = rs.getBoolean("onSale");
-                String user = rs.getString("userId");
-                reply.put("OnSale", result.toString());
-                reply.put("Owner", user);
-                reply.put("Good", good);
+            try {
+                Connection conn = this.connect();
+                System.out.println("Created Connection gsg");
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                if (verifyReplay(hash, conn) && isReal("goodsId", "goods", good, conn)) {
+                    addToRequests(hash, conn);
+                    pstmt.setString(1, good);
+                    ResultSet rs = pstmt.executeQuery();
+                    if (rs.next()) {
+                        result = rs.getBoolean("onSale");
+                        String user = rs.getString("userId");
+                        reply.put("OnSale", result.toString());
+                        reply.put("Owner", user);
+                        reply.put("Good", good);
+                    } else{
+                        reply.put("Action", "NO");
+                    }
+                }
+                else{
+                    reply.put("Action", "NO");
+                }
                 conn.close();
+            } catch (SQLException e) {
+                reply.put("Action", "NO");
+                System.out.println(e.getMessage());
             }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        }
+        else{
+            reply.put("Action", "NO");
         }
         return reply;
     }
@@ -119,17 +137,25 @@ public class Notary {
 
             try {
                 Connection conn = this.connect();
+                System.out.println("Created Connection tg");
                 PreparedStatement pstmt = conn.prepareStatement(sql);
-                if (isReal("userId", "users", buyer, conn) &&
-                        isReal("userId", "users", seller, conn) &&
-                        isReal("goodsId", "goods", good, conn) &&
-                        isOnSale(good, conn) &&
-                        !buyer.equals(seller)) {
-                    pstmt.setString(1, buyer);
-                    pstmt.setString(2, good);
-                    pstmt.executeUpdate();
-                    reply.put("Action", "YES");
-                } else {
+                if (verifyReplay(hash, conn) && verifyReplay(hash2, conn)) {
+                    addToRequests(hash, conn);
+                    addToRequests(hash2, conn);
+                    if (isReal("userId", "users", buyer, conn) &&
+                            isReal("userId", "users", seller, conn) &&
+                            isReal("goodsId", "goods", good, conn) &&
+                            isOnSale(good, conn) &&
+                            !buyer.equals(seller)) {
+                        pstmt.setString(1, buyer);
+                        pstmt.setString(2, good);
+                        pstmt.executeUpdate();
+                        reply.put("Action", "YES");
+                        System.out.println("Closing Connection tg");
+                    } else {
+                        reply.put("Action", "NO");
+                    }
+                }  else {
                     reply.put("Action", "NO");
                 }
                 conn.close();
@@ -158,11 +184,10 @@ public class Notary {
 
             try {
                 Connection conn = this.connect();
+                System.out.println("Created Connection its");
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 if (verifyReplay(hash, conn)) {
-                    System.out.println("Hash verified");
-                    query();
-                    addToRequests(hash);
+                    addToRequests(hash, conn);
                     if (isReal("goodsId", "goods", goodsId, conn) &&
                             isOwner(seller, goodsId, conn)) {
 
@@ -177,6 +202,7 @@ public class Notary {
                     reply.put("Action", "NO");
                 }
                 conn.close();
+                System.out.println("Closing Connection its");
             } catch (SQLException e) {
                 reply.put("Action", "NO");
                 System.out.println(e.getMessage());
@@ -203,16 +229,19 @@ public class Notary {
 //                        rs.getBoolean("onSale"));
                 System.out.println(rs.getString("requestId"));
             }
+
+
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void addToRequests(String hash){
+    public void addToRequests(String hash, Connection conn){
         String sql = "INSERT INTO requests(requestId) Values(?)";
 
         try {
-            Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, hash);
             pstmt.executeUpdate();
