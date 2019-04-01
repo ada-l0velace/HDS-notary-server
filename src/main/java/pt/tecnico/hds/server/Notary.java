@@ -145,6 +145,7 @@ public class Notary {
                     if (isReal("userId", "users", buyer, conn) &&
                             isReal("userId", "users", seller, conn) &&
                             isReal("goodsId", "goods", good, conn) &&
+                            isOwner(seller, good,conn) &&
                             isOnSale(good, conn) &&
                             !buyer.equals(seller)) {
                         pstmt.setString(1, buyer);
