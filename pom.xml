@@ -17,8 +17,9 @@
 
     <repositories>
         <repository>
-            <id>repo</id>
-            <name>repo</name>
+	    <id>cc_dependencies</id>
+            <url>https://raw.githubusercontent.com/ada-l0velace/cc_dependencies/master/</url>
+
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>ignore</checksumPolicy>
@@ -26,7 +27,7 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-            <url>file://${user.home}/.m2/repository/</url>
+            <!--<url>file://${user.home}/.m2/repository/</url>-->
         </repository>
     </repositories>
 
@@ -107,6 +108,11 @@
             <artifactId>pteidlibj</artifactId>
             <version>1.0</version>
         </dependency>
+	
+
+
+
+
 
     </dependencies>
 </project>
