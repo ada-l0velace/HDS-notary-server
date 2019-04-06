@@ -112,3 +112,9 @@ target
 
 #Databases
 db/hds.db
+
+#Eclipse Files
+.classpath
+.settings
+.project
+bin

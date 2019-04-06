@@ -19,12 +19,12 @@ public class Main {
     private static Connection conn = null;
 
     public static void main(String[] args) {
-        /*try {
+        try {
             eIDLib_PKCS11 a = new eIDLib_PKCS11();
         }
         catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         int port = 19999;
         int count = 0;
         try{
