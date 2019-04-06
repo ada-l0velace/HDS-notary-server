@@ -30,6 +30,35 @@ public class eIDLib_PKCS11 {
     private String libName = "libbeidpkcs11.so";
     private java.util.Base64.Encoder encoder;
     private Key pub;
+    /*
+     public static void write(String keyPath, String pKeyPath) throws GeneralSecurityException, IOException {
+        // get an AES private key
+        System.out.println("Generating RSA key ..." );
+        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+        keyGen.initialize(1024);
+        KeyPair keys = keyGen.generateKeyPair();
+        System.out.println("Finish generating RSA keys");
+
+        //System.out.println("Private Key:");
+        PrivateKey privKey = keys.getPrivate();
+        byte[] privKeyEncoded = privKey.getEncoded();
+        //System.out.println(printHexBinary(privKeyEncoded));
+       // System.out.println("Public Key:");
+        PublicKey pubKey = keys.getPublic();
+        byte[] pubKeyEncoded = pubKey.getEncoded();
+        //System.out.println(printHexBinary(pubKeyEncoded));
+
+        System.out.println("Writing Private key to '" + keyPath + "' ..." );
+        FileOutputStream privFos = new FileOutputStream(keyPath);
+        privFos.write(privKeyEncoded);
+        privFos.close();
+        System.out.println("Writing Pubic key to '" + pKeyPath + "' ..." );
+        FileOutputStream pubFos = new FileOutputStream(pKeyPath);
+        pubFos.write(pubKeyEncoded);
+        pubFos.close();
+    }
+    import java.io.FileOutputStream;
+     */
 
     public eIDLib_PKCS11() throws java.security.cert.CertificateException {
         System.out.println("            //Load the PTEidlibj");
