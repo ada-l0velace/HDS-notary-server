@@ -12,6 +12,7 @@ import sun.security.pkcs11.wrapper.PKCS11;
 import sun.security.pkcs11.wrapper.PKCS11Constants;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
@@ -24,6 +25,7 @@ import java.security.cert.X509Certificate;
 public class eIDLib_PKCS11 {
 
 
+	private final String pubKeyPath = "assymetricKeys/server.pub"; 
     private PKCS11 pkcs11;
     private String osName;
     private String javaVersion;
@@ -85,6 +87,18 @@ public class eIDLib_PKCS11 {
 
         X509Certificate cert = getCertFromByteArray(getCertificateInBytes(0));
         pub = cert.getPublicKey();
+        PublicKey pubKey = (PublicKey) pub;
+        byte[] pubKeyEncoded = pubKey.getEncoded();
+        //System.out.println(printHexBinary(pubKeyEncoded));
+
+        try {
+        	System.out.println("Writing Pubic key to '" + pubKeyPath + "' ..." );
+        	FileOutputStream pubFos = new FileOutputStream(pubKeyPath);
+        	pubFos.write(pubKeyEncoded);
+        	pubFos.close();
+        } catch(Exception e) {
+        	e.printStackTrace();
+        }
         if (-1 != osName.indexOf("Windows"))
             libName = "pteidpkcs11.dll";
         else if (-1 != osName.indexOf("Mac"))
