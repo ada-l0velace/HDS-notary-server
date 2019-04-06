@@ -14,16 +14,17 @@ public class HdsServer implements Runnable {
     private String TimeStamp;
     private int ID;
     private DataInputStream dis;
-    private Notary nt = new Notary();
+    private Notary nt;
     private DataOutputStream dos;
 
 
 
-    public HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos) {
+    public HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos, Notary nt) {
         this.connection = s;
         this.ID = i;
         this.dis = dis;
         this.dos = dos;
+        this.nt = nt;
     }
 
     public void run() {
@@ -54,7 +55,7 @@ public class HdsServer implements Runnable {
                     case "transferGood":
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
-                        toreturn = buildReply(message).toString();
+                        toreturn = nt.buildReply(message).toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
@@ -62,14 +63,14 @@ public class HdsServer implements Runnable {
                     case "intentionToSell":
                         message = nt.intentionToSell(jsonObj, hash);
                         //System.out.println(toreturn);
-                        toreturn = buildReply(message).toString();
+                        toreturn = nt.buildReply(message).toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
 
                     case "getStateOfGood":
                         message = nt.getStateOfGood(jsonObj, hash);
-                        toreturn = buildReply(message).toString();
+                        toreturn = nt.buildReply(message).toString();
                         System.out.println(toreturn);
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
@@ -110,14 +111,6 @@ public class HdsServer implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-
-    public JSONObject buildReply(JSONObject j) {
-        JSONObject reply = new JSONObject();
-        reply.put("Message", j.toString());
-        reply.put("Hash", Utils.getSHA256(j.toString()));
-        return reply;
     }
 
 }

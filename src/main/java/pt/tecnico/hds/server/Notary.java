@@ -1,12 +1,23 @@
 package pt.tecnico.hds.server;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.*;
 
 public class Notary {
 
-
+	public eIDLib_PKCS11 cc;
+	
+	public Notary() {
+		try {
+			cc = new eIDLib_PKCS11();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+	
     private Connection connect() {
         // SQLite connection string
         Connection conn = null;
@@ -22,7 +33,6 @@ public class Notary {
         String sql = "SELECT requestId FROM requests WHERE requestId=?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            System.out.println(hash);
             pstmt.setString(1, hash);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -43,7 +53,6 @@ public class Notary {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next())
                 return true;
-            System.out.println(type + " " + id + " nonexistent");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -58,7 +67,6 @@ public class Notary {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next() && rs.getString("userId").equals(owner))
                 return true;
-            System.out.println(owner + " IS NOT OWNER OF " + good);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -93,7 +101,6 @@ public class Notary {
 
             try {
                 Connection conn = this.connect();
-                System.out.println("Created Connection gsg");
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 if (verifyReplay(hash, conn) && isReal("goodsId", "goods", good, conn)) {
                     addToRequests(hash, conn);
@@ -133,11 +140,9 @@ public class Notary {
             String good = message.getString("Good");
 
             String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
-            System.out.println(buyer + " " + seller);
 
             try {
                 Connection conn = this.connect();
-                System.out.println("Created Connection tg");
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 if (verifyReplay(hash, conn) && verifyReplay(hash2, conn)) {
                     addToRequests(hash, conn);
@@ -152,7 +157,6 @@ public class Notary {
                         pstmt.setString(2, good);
                         pstmt.executeUpdate();
                         reply.put("Action", "YES");
-                        System.out.println("Closing Connection tg");
                     } else {
                         reply.put("Action", "NO");
                     }
@@ -177,7 +181,6 @@ public class Notary {
 
         if (Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
 
-            System.out.println(message.toString() + "------");
             String goodsId = message.getString("Good");
 
             String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
@@ -185,7 +188,6 @@ public class Notary {
 
             try {
                 Connection conn = this.connect();
-                System.out.println("Created Connection its");
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 if (verifyReplay(hash, conn)) {
                     addToRequests(hash, conn);
@@ -203,7 +205,6 @@ public class Notary {
                     reply.put("Action", "NO");
                 }
                 conn.close();
-                System.out.println("Closing Connection its");
             } catch (SQLException e) {
                 reply.put("Action", "NO");
                 System.out.println(e.getMessage());
@@ -251,4 +252,16 @@ public class Notary {
         }
     }
 
+    public JSONObject buildReply(JSONObject j) {
+        JSONObject reply = new JSONObject();
+        reply.put("Message", j.toString());
+        try {
+			reply.put("Hash",cc.signWithPrivateKey(j.toString()));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+        return reply;
+    }
 }

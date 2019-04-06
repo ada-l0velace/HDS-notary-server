@@ -28,39 +28,12 @@ public class eIDLib_PKCS11 {
 	private final String pubKeyPath = "assymetricKeys/server.pub"; 
     private PKCS11 pkcs11;
     private String osName;
+    private long p11_session;
     private String javaVersion;
-    private String libName = "libbeidpkcs11.so";
+    private String libName = "libpteidpkcs11.so";
     private java.util.Base64.Encoder encoder;
     private Key pub;
-    /*
-     public static void write(String keyPath, String pKeyPath) throws GeneralSecurityException, IOException {
-        // get an AES private key
-        System.out.println("Generating RSA key ..." );
-        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(1024);
-        KeyPair keys = keyGen.generateKeyPair();
-        System.out.println("Finish generating RSA keys");
 
-        //System.out.println("Private Key:");
-        PrivateKey privKey = keys.getPrivate();
-        byte[] privKeyEncoded = privKey.getEncoded();
-        //System.out.println(printHexBinary(privKeyEncoded));
-       // System.out.println("Public Key:");
-        PublicKey pubKey = keys.getPublic();
-        byte[] pubKeyEncoded = pubKey.getEncoded();
-        //System.out.println(printHexBinary(pubKeyEncoded));
-
-        System.out.println("Writing Private key to '" + keyPath + "' ..." );
-        FileOutputStream privFos = new FileOutputStream(keyPath);
-        privFos.write(privKeyEncoded);
-        privFos.close();
-        System.out.println("Writing Pubic key to '" + pKeyPath + "' ..." );
-        FileOutputStream pubFos = new FileOutputStream(pKeyPath);
-        pubFos.write(pubKeyEncoded);
-        pubFos.close();
-    }
-    import java.io.FileOutputStream;
-     */
 
     public eIDLib_PKCS11() throws java.security.cert.CertificateException {
         System.out.println("            //Load the PTEidlibj");
@@ -84,7 +57,6 @@ public class eIDLib_PKCS11 {
         javaVersion = System.getProperty("java.version");
 
         encoder = java.util.Base64.getEncoder();
-
         X509Certificate cert = getCertFromByteArray(getCertificateInBytes(0));
         pub = cert.getPublicKey();
         PublicKey pubKey = (PublicKey) pub;
@@ -92,12 +64,37 @@ public class eIDLib_PKCS11 {
         //System.out.println(printHexBinary(pubKeyEncoded));
 
         try {
-        	System.out.println("Writing Pubic key to '" + pubKeyPath + "' ..." );
+            pteid.Init(""); // Initializes the eID Lib
+            
+            Class pkcs11Class = Class.forName("sun.security.pkcs11.wrapper.PKCS11");
+
+            if (javaVersion.startsWith("1.5."))
+            {
+                Method getInstanceMethode = pkcs11Class.getDeclaredMethod("getInstance", new Class[] { String.class, CK_C_INITIALIZE_ARGS.class, boolean.class });
+                pkcs11 = (PKCS11)getInstanceMethode.invoke(null, new Object[] { libName, null, false });
+            }
+            else
+            {
+                Method getInstanceMethode = pkcs11Class.getDeclaredMethod("getInstance", new Class[] { String.class, String.class, CK_C_INITIALIZE_ARGS.class, boolean.class });
+                pkcs11 = (PKCS11)getInstanceMethode.invoke(null, new Object[] { libName, "C_GetFunctionList", null, false });
+            }
+            
+            //Open the PKCS11 session
+            System.out.println("            //Open the PKCS11 session");
+            p11_session = pkcs11.C_OpenSession(0, PKCS11Constants.CKF_SERIAL_SESSION, null, null);
+
+            // Token login
+            System.out.println("            //Token login");
+            pkcs11.C_Login(p11_session, 1, null);
+            CK_SESSION_INFO info = pkcs11.C_GetSessionInfo(p11_session);
+            
+            System.out.println("Writing Pubic key to '" + pubKeyPath + "' ..." );
         	FileOutputStream pubFos = new FileOutputStream(pubKeyPath);
         	pubFos.write(pubKeyEncoded);
         	pubFos.close();
         } catch(Exception e) {
         	e.printStackTrace();
+        	System.exit(1);
         }
         if (-1 != osName.indexOf("Windows"))
             libName = "pteidpkcs11.dll";
@@ -111,31 +108,11 @@ public class eIDLib_PKCS11 {
     }
 
     public String signWithPrivateKey(String message) throws Throwable {
-        pteid.Init(""); // Initializes the eID Lib
         pteid.SetSODChecking(false); // Don't check the integrity of the ID, address and photo (!)
 
-        Class pkcs11Class = Class.forName("sun.security.pkcs11.wrapper.PKCS11");
 
-        if (javaVersion.startsWith("1.5."))
-        {
-            Method getInstanceMethode = pkcs11Class.getDeclaredMethod("getInstance", new Class[] { String.class, CK_C_INITIALIZE_ARGS.class, boolean.class });
-            pkcs11 = (PKCS11)getInstanceMethode.invoke(null, new Object[] { libName, null, false });
-        }
-        else
-        {
-            Method getInstanceMethode = pkcs11Class.getDeclaredMethod("getInstance", new Class[] { String.class, String.class, CK_C_INITIALIZE_ARGS.class, boolean.class });
-            pkcs11 = (PKCS11)getInstanceMethode.invoke(null, new Object[] { libName, "C_GetFunctionList", null, false });
-        }
 
-        //Open the PKCS11 session
-        System.out.println("            //Open the PKCS11 session");
-        long p11_session = pkcs11.C_OpenSession(0, PKCS11Constants.CKF_SERIAL_SESSION, null, null);
-
-        // Token login
-        System.out.println("            //Token login");
-        pkcs11.C_Login(p11_session, 1, null);
-        CK_SESSION_INFO info = pkcs11.C_GetSessionInfo(p11_session);
-
+        
         // Get available keys
         System.out.println("            //Get available keys");
         CK_ATTRIBUTE[] attributes = new CK_ATTRIBUTE[1];
@@ -163,9 +140,7 @@ public class eIDLib_PKCS11 {
         byte[] signature = pkcs11.C_Sign(p11_session, message.getBytes(Charset.forName("UTF-8")));
         //pkcs11.C_Verify(p11_session, mechanism, );
 
-        pkcs11.C_Logout(p11_session);
-        pkcs11.C_CloseSession(p11_session);
-        pteid.Exit(pteid.PTEID_EXIT_LEAVE_CARD);
+
         return encoder.encodeToString(signature);
     }
 
@@ -186,6 +161,16 @@ public class eIDLib_PKCS11 {
             e.printStackTrace();
         }
         return certificate_bytes;
+    }
+    
+    public void terminate() {
+    	try {
+    		pkcs11.C_Logout(p11_session);
+    		pkcs11.C_CloseSession(p11_session);
+    		pteid.Exit(pteid.PTEID_EXIT_LEAVE_CARD);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
     }
 
     public static X509Certificate getCertFromByteArray(byte[] certificateEncoded) throws CertificateException{

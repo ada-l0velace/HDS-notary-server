@@ -19,16 +19,11 @@ public class Main {
     private static Connection conn = null;
 
     public static void main(String[] args) {
-        try {
-            eIDLib_PKCS11 a = new eIDLib_PKCS11();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         int port = 19999;
         int count = 0;
         try{
             createDatabase();
+            Notary nt = new Notary();
             ServerSocket socket1 = new ServerSocket(port);
             socket1.setReuseAddress(true);
             System.out.println("HDS Notary Server Initialized");
@@ -38,7 +33,7 @@ public class Main {
                 // obtaining input and out streams
                 DataInputStream dis = new DataInputStream(connection.getInputStream());
                 DataOutputStream dos = new DataOutputStream(connection.getOutputStream());
-                Runnable runnable = new HdsServer(connection, ++count, dis, dos);
+                Runnable runnable = new HdsServer(connection, ++count, dis, dos, nt);
                 Thread thread = new Thread(runnable);
                 thread.start();
             }
