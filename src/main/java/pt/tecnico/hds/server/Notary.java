@@ -92,155 +92,116 @@ public class Notary {
 
 
     public JSONObject getStateOfGood(JSONObject message, String hash) {
-        String buyer = message.getString("Buyer");
-        JSONObject reply = new JSONObject();
-        if (Utils.verifySignWithPubKeyFile(message.toString(), hash,"assymetricKeys/" + buyer + ".pub")) {
-            String good = message.getString("Good");
-            String sql = "SELECT userId, onSale FROM notary WHERE goodsId = ?";
-            Boolean result = false;
-
-            try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                if (verifyReplay(hash, conn) && isReal("goodsId", "goods", good, conn)) {
-                    addToRequests(hash, conn);
-                    pstmt.setString(1, good);
-                    ResultSet rs = pstmt.executeQuery();
-                    if (rs.next()) {
-                        result = rs.getBoolean("onSale");
-                        String user = rs.getString("userId");
-                        reply.put("OnSale", result.toString());
-                        reply.put("Owner", user);
-                        reply.put("Good", good);
-                    } else{
-                        reply.put("Action", "NO");
+    	JSONObject reply = new JSONObject();
+    	try {
+    		Connection conn = this.connect();
+    		String buyer = message.getString("Buyer");
+    		if (isReal("userid", "users", buyer, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash,"assymetricKeys/" + buyer + ".pub")) {
+    			String good = message.getString("Good");
+    			String sql = "SELECT userId, onSale FROM notary WHERE goodsId = ?";
+    			Boolean result = false;
+    			PreparedStatement pstmt = conn.prepareStatement(sql);
+    			if (verifyReplay(hash, conn) && isReal("goodsId", "goods", good, conn)) {
+    				addToRequests(hash, conn);
+    				pstmt.setString(1, good);
+    				ResultSet rs = pstmt.executeQuery();
+    				if (rs.next()) {
+    					result = rs.getBoolean("onSale");
+    					String user = rs.getString("userId");
+    					reply.put("OnSale", result.toString());
+    					reply.put("Owner", user);
+    					reply.put("Good", good);
+    				} else{
+    					reply.put("Action", "NO");
                     }
+    			} else {
+                	reply.put("Action", "NO");
                 }
-                else{
-                    reply.put("Action", "NO");
-                }
-                conn.close();
-            } catch (SQLException e) {
-                reply.put("Action", "NO");
-                System.out.println(e.getMessage());
-            }
-        }
-        else{
-            reply.put("Action", "NO");
-        }
+    		} else {
+    			reply.put("Action", "NO");
+    		}
+    		conn.close();
+    	} catch (SQLException e) {
+    		reply.put("Action", "NO");
+    		System.out.println(e.getMessage());
+    	}
         return reply;
     }
 
     public JSONObject transferGood(JSONObject message, JSONObject message2, String hash, String hash2) {
-        String seller = message.getString("Seller");
-        String buyer = message.getString("Buyer");
-        JSONObject reply = new JSONObject();
-        if (Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") &&
-            Utils.verifySignWithPubKeyFile(message2.toString(), hash2, "assymetricKeys/" + buyer + ".pub")) {
-            String good = message.getString("Good");
+		JSONObject reply = new JSONObject();
+		String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
+		
+    	try {
+    		Connection conn = this.connect();
+    		PreparedStatement pstmt = conn.prepareStatement(sql);
+    		String seller = message.getString("Seller");
+    		String buyer = message.getString("Buyer");
+    		if (isReal("userid", "users", buyer, conn) && isReal("userid", "users", seller, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") &&
+    				Utils.verifySignWithPubKeyFile(message2.toString(), hash2, "assymetricKeys/" + buyer + ".pub")) {
+    			String good = message.getString("Good");
+    			if (verifyReplay(hash, conn) && verifyReplay(hash2, conn)) {
+    				addToRequests(hash, conn);
+    				addToRequests(hash2, conn);
+    				if (isReal("userId", "users", buyer, conn) &&
+    						isReal("userId", "users", seller, conn) &&
+    						isReal("goodsId", "goods", good, conn) &&
+    						isOwner(seller, good,conn) &&
+    						isOnSale(good, conn) &&
+    						!buyer.equals(seller)) {
+    					pstmt.setString(1, buyer);
+    					pstmt.setString(2, good);
+    					pstmt.executeUpdate();
+    					reply.put("Action", "YES");
+    				} else {
+    					reply.put("Action", "NO");
+    				}
+    			}  else {
+    				reply.put("Action", "NO");
+    			}
+    			conn.close();
+    		} else {
+    			reply.put("Action", "NO");
+    		}
 
-            String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
-
-            try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                if (verifyReplay(hash, conn) && verifyReplay(hash2, conn)) {
-                    addToRequests(hash, conn);
-                    addToRequests(hash2, conn);
-                    if (isReal("userId", "users", buyer, conn) &&
-                            isReal("userId", "users", seller, conn) &&
-                            isReal("goodsId", "goods", good, conn) &&
-                            isOwner(seller, good,conn) &&
-                            isOnSale(good, conn) &&
-                            !buyer.equals(seller)) {
-                        pstmt.setString(1, buyer);
-                        pstmt.setString(2, good);
-                        pstmt.executeUpdate();
-                        reply.put("Action", "YES");
-                    } else {
-                        reply.put("Action", "NO");
-                    }
-                }  else {
-                    reply.put("Action", "NO");
-                }
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                reply.put("Action", "NO");
-
-            }
-        } else {
-            reply.put("Action", "NO");
-        }
+    	} catch (SQLException e) {
+    		System.out.println(e.getMessage());
+    		reply.put("Action", "NO");	
+    	}
         return reply;
     }
 
     public JSONObject intentionToSell(JSONObject message, String hash) {
         String seller = message.getString("Seller");
         JSONObject reply = new JSONObject();
-
-        if (Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub")) {
-
-            String goodsId = message.getString("Good");
-
-            String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
-
-
-            try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                if (verifyReplay(hash, conn)) {
-                	System.out.println("Got Here");
-                	addToRequests(hash, conn);
-                	query();
-                    if (isReal("goodsId", "goods", goodsId, conn) &&
-                            isOwner(seller, goodsId, conn)) {
-
-                        pstmt.setBoolean(1, true);
-                        pstmt.setString(2, goodsId);
-                        pstmt.executeUpdate();
-                        //query();
-                        reply.put("Action", "YES");
-                    } else
-                        reply.put("Action", "NO");
-                } else {
-                	System.out.println("REPLAY");
-                    reply.put("Action", "NO");
-                }
-                conn.close();
-            } catch (SQLException e) {
-                reply.put("Action", "NO");
-                System.out.println(e.getMessage());
-            }
-        } else {
-            reply.put("Action", "NO");
-        }
+        String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
+        String goodsId = message.getString("Good");
+        try {
+        	Connection conn = this.connect();
+        	PreparedStatement pstmt = conn.prepareStatement(sql);     	
+        	if (isReal("userid", "users", seller, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") && verifyReplay(hash, conn)) {
+        		addToRequests(hash, conn);
+        		if (isReal("goodsId", "goods", goodsId, conn) &&
+        				isOwner(seller, goodsId, conn)) {
+        			
+        			pstmt.setBoolean(1, true);
+        			pstmt.setString(2, goodsId);
+        			pstmt.executeUpdate();
+        			//query();
+        			reply.put("Action", "YES");
+        		} else
+        			reply.put("Action", "NO");
+        	} else {
+        		reply.put("Action", "NO");
+        	}
+        conn.close();
+        } catch (SQLException e) {
+        	reply.put("Action", "NO");
+        	System.out.println(e.getMessage());
+        }        
         return reply;
     }
 
-    public void query() {
-        try {
-//          String sql = "SELECT goodsId, userId, onSale FROM notary";
-            String sql = "SELECT requestId FROM requests";
-
-            Connection conn = this.connect();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            // Only expecting a single result
-            while (rs.next()) {
-//                System.out.println(rs.getString("goodsId") +  "\t" +
-//                        rs.getString("userId") + "\t" +
-//                        rs.getBoolean("onSale"));
-                System.out.println(rs.getString("requestId"));
-            }
-
-
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void addToRequests(String hash, Connection conn){
         String sql = "INSERT INTO requests(requestId) Values(?)";
