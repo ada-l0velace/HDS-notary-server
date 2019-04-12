@@ -190,7 +190,9 @@ public class Notary {
                 Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 if (verifyReplay(hash, conn)) {
-                    addToRequests(hash, conn);
+                	System.out.println("Got Here");
+                	addToRequests(hash, conn);
+                	query();
                     if (isReal("goodsId", "goods", goodsId, conn) &&
                             isOwner(seller, goodsId, conn)) {
 
@@ -202,6 +204,7 @@ public class Notary {
                     } else
                         reply.put("Action", "NO");
                 } else {
+                	System.out.println("REPLAY");
                     reply.put("Action", "NO");
                 }
                 conn.close();
@@ -212,7 +215,6 @@ public class Notary {
         } else {
             reply.put("Action", "NO");
         }
-        reply.put("Timestamp", new java.util.Date().toString());
         return reply;
     }
 
@@ -254,6 +256,7 @@ public class Notary {
 
     public JSONObject buildReply(JSONObject j) {
         JSONObject reply = new JSONObject();
+        j.put("Timestamp", new java.util.Date().toString());
         reply.put("Message", j.toString());
         try {
 			reply.put("Hash",cc.signWithPrivateKey(j.toString()));
@@ -263,5 +266,12 @@ public class Notary {
 			e.printStackTrace();
 		}
         return reply;
+    }
+    
+    public JSONObject invalid() {
+    	JSONObject reply = new JSONObject();
+    	reply.put("Action", "NO");
+    	return reply;
+    	
     }
 }

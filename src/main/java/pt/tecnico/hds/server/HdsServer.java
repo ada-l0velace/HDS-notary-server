@@ -77,8 +77,9 @@ public class HdsServer implements Runnable {
                         break;
 
                     default:
-                        dos.writeUTF("Invalid input");
-
+                    	message = nt.invalid();
+                    	toreturn = nt.buildReply(message).toString();
+                        dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
                 }
