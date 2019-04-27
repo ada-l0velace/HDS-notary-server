@@ -1,12 +1,14 @@
 package pt.tecnico.hds.server;
 
 import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.*;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 
@@ -57,8 +59,28 @@ public class Utils {
         }
         return false;
     }
-   
 
+    public static String signWithPrivateKey(String message, String privKeyFile) {
+        try {
+            Key loadedKey = read(privKeyFile);
+            byte[] privKeyBytes = loadedKey.getEncoded();
+
+            PKCS8EncodedKeySpec ks = new PKCS8EncodedKeySpec(privKeyBytes);
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+
+            PrivateKey priv = kf.generatePrivate(ks);
+
+            Signature sig = Signature.getInstance("SHA256withRSA");
+
+            sig.initSign(priv);
+            sig.update(message.getBytes("UTF-8"));
+            return new BASE64Encoder().encode(sig.sign());
+        }
+        catch (Exception e) {
+            //e.printStackTrace();
+        }
+        return "";
+    }
 
     public static Key read(String keyPath) throws IOException {
         System.out.println("Reading key from file " + keyPath + " ...");

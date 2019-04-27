@@ -17,6 +17,7 @@ public class Main {
     private static final String url = "jdbc:sqlite:db/hds.db";
 
     private static Connection conn = null;
+    public static Boolean debug = true;
 
     public static void main(String[] args) {
         int port = 19999;

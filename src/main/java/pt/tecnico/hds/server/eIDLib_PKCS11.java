@@ -22,7 +22,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
-public class eIDLib_PKCS11 {
+public class eIDLib_PKCS11 implements SigningInterface {
 
 
 	private final String pubKeyPath = "assymetricKeys/server.pub"; 

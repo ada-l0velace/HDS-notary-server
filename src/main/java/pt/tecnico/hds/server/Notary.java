@@ -7,11 +7,14 @@ import java.sql.*;
 
 public class Notary {
 
-	public eIDLib_PKCS11 cc;
+	public SigningInterface cc;
 	
 	public Notary() {
 		try {
-			cc = new eIDLib_PKCS11();
+		    if (Main.debug)
+		        cc = new DebugSigning();
+		    else
+		        cc = new eIDLib_PKCS11();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
