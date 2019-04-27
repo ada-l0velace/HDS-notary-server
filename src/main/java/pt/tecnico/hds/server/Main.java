@@ -75,6 +75,7 @@ public class Main {
              else{
                 conn = DriverManager.getConnection(url);
              }
+            conn.close();
         } catch (SQLException e) {
                 System.out.println(e.getMessage());
         }

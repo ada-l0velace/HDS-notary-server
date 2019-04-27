@@ -22,6 +22,7 @@ public class Notary {
         // SQLite connection string
         Connection conn = null;
         try {
+        	System.out.println("Connection Opening");
             conn = DriverManager.getConnection("jdbc:sqlite:db/hds.db");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -93,6 +94,7 @@ public class Notary {
 
     public JSONObject getStateOfGood(JSONObject message, String hash) {
     	JSONObject reply = new JSONObject();
+    	System.out.println("Starting GetStateOfGood");
     	try {
     		Connection conn = this.connect();
     		String buyer = message.getString("Buyer");
@@ -121,6 +123,8 @@ public class Notary {
     			reply.put("Action", "NO");
     		}
     		conn.close();
+        	System.out.println("Connection Closing");
+
     	} catch (SQLException e) {
     		reply.put("Action", "NO");
     		System.out.println(e.getMessage());
@@ -130,6 +134,7 @@ public class Notary {
 
     public JSONObject transferGood(JSONObject message, JSONObject message2, String hash, String hash2) {
 		JSONObject reply = new JSONObject();
+    	System.out.println("Starting TransferGood");
 		String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
 		
     	try {
@@ -159,10 +164,11 @@ public class Notary {
     			}  else {
     				reply.put("Action", "NO");
     			}
-    			conn.close();
     		} else {
     			reply.put("Action", "NO");
     		}
+			conn.close();
+        	System.out.println("Connection Closing");
 
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
@@ -172,7 +178,9 @@ public class Notary {
     }
 
     public JSONObject intentionToSell(JSONObject message, String hash) {
-        String seller = message.getString("Seller");
+        String seller = message.getString("Seller");    	
+        System.out.println("Starting IntentionToSell");
+
         JSONObject reply = new JSONObject();
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
         String goodsId = message.getString("Good");
@@ -195,6 +203,8 @@ public class Notary {
         		reply.put("Action", "NO");
         	}
         conn.close();
+    	System.out.println("Connection Closing");
+
         } catch (SQLException e) {
         	reply.put("Action", "NO");
         	System.out.println(e.getMessage());
