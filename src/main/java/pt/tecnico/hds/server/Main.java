@@ -57,7 +57,10 @@ public class Main {
 
         String users = "CREATE TABLE IF NOT EXISTS users (userId text PRIMARY KEY);";
         String goods = "CREATE TABLE IF NOT EXISTS goods (goodsId text PRIMARY KEY);";
-        String requests = "CREATE TABLE IF NOT EXISTS requests(requestId text PRIMARY KEY);";
+        String requests = "CREATE TABLE IF NOT EXISTS requests(\n"
+                + " requestId text PRIMARY KEY, \n"
+                + " message text NOT NULL\n"
+                +");";
         try {
             if (!Files.exists(Paths.get("db/hds.db"))) {
                 conn = DriverManager.getConnection(url);

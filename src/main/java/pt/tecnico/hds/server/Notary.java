@@ -107,7 +107,7 @@ public class Notary {
     			Boolean result = false;
     			PreparedStatement pstmt = conn.prepareStatement(sql);
     			if (verifyReplay(hash, conn) && isReal("goodsId", "goods", good, conn)) {
-    				addToRequests(hash, conn);
+    				addToRequests(hash, message.toString(), conn);
     				pstmt.setString(1, good);
     				ResultSet rs = pstmt.executeQuery();
     				if (rs.next()) {
@@ -149,8 +149,8 @@ public class Notary {
     				Utils.verifySignWithPubKeyFile(message2.toString(), hash2, "assymetricKeys/" + buyer + ".pub")) {
     			String good = message.getString("Good");
     			if (verifyReplay(hash, conn) && verifyReplay(hash2, conn)) {
-    				addToRequests(hash, conn);
-    				addToRequests(hash2, conn);
+    				addToRequests(hash, message.toString(), conn);
+    				addToRequests(hash2, message2.toString(), conn);
     				if (isReal("userId", "users", buyer, conn) &&
     						isReal("userId", "users", seller, conn) &&
     						isReal("goodsId", "goods", good, conn) &&
@@ -191,7 +191,7 @@ public class Notary {
         	Connection conn = this.connect();
         	PreparedStatement pstmt = conn.prepareStatement(sql);     	
         	if (isReal("userid", "users", seller, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") && verifyReplay(hash, conn)) {
-        		addToRequests(hash, conn);
+        		addToRequests(hash, message.toString(), conn);
         		if (isReal("goodsId", "goods", goodsId, conn) &&
         				isOwner(seller, goodsId, conn)) {
         			
@@ -216,12 +216,13 @@ public class Notary {
     }
 
 
-    public void addToRequests(String hash, Connection conn){
-        String sql = "INSERT INTO requests(requestId) Values(?)";
+    public void addToRequests(String hash, String message, Connection conn){
+        String sql = "INSERT INTO requests(requestId, message) Values(?, ?)";
 
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, hash);
+			pstmt.setString(2, message);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
