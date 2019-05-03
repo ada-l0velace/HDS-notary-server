@@ -48,7 +48,13 @@ public class HdsServer implements Runnable {
                 JSONObject json = new JSONObject(received);
                 String hash = json.getString("Hash");
                 JSONObject jsonObj = new JSONObject(json.getString("Message"));
-                received = jsonObj.getString("Action");
+                Request r = new Request(nt, dis,dos);
+                if (r.computationalCostChallenge())
+                    received = jsonObj.getString("Action");
+                else
+                    received = "Error";
+
+
                 JSONObject message;
                 switch (received) {
 

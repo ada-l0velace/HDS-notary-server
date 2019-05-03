@@ -21,7 +21,7 @@ public class Notary {
 		}
 	}
 	
-    private Connection connect() {
+    public Connection connect() {
         // SQLite connection string
         Connection conn = null;
         try {
@@ -157,7 +157,9 @@ public class Notary {
     						isOwner(seller, good,conn) &&
     						isOnSale(good, conn) &&
     						!buyer.equals(seller)) {
-    					pstmt.setString(1, buyer);
+						System.out.println("WTF LOLOL");
+
+						pstmt.setString(1, buyer);
     					pstmt.setString(2, good);
     					pstmt.executeUpdate();
     					reply.put("Action", "YES");
@@ -234,7 +236,7 @@ public class Notary {
         j.put("Timestamp", new java.util.Date().toString());
         reply.put("Message", j.toString());
         try {
-			reply.put("Hash",cc.signWithPrivateKey(j.toString()));
+			reply.put("Hash", cc.signWithPrivateKey(j.toString()));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (Throwable e) {
@@ -247,6 +249,5 @@ public class Notary {
     	JSONObject reply = new JSONObject();
     	reply.put("Action", "NO");
     	return reply;
-    	
     }
 }
