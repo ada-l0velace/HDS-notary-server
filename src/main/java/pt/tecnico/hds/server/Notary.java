@@ -2,23 +2,55 @@ package pt.tecnico.hds.server;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.sql.*;
+
 
 public class Notary {
 
 	public SigningInterface cc;
-	
+	public static final int _port = 19999;
+	public int notaryIndex;
+	public String path;
 	public Notary() {
 		try {
-		    if (Main.debug)
-		        cc = new DebugSigning();
-		    else
-		        cc = new eIDLib_PKCS11();
+			new DatabaseManager().createDatabase();
+			if (Main.debug)
+				cc = new DebugSigning();
+			else
+				cc = new eIDLib_PKCS11();
+			path = "db/hds.db";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		notaryIndex = 0;
+		System.out.println("HDS-server starting");
+		startServer();
+
+	}
+
+	public Notary(int i) {
+		try {
+			new DatabaseManager(notaryIndex).createDatabase();
+		    if (Main.debug)
+		        cc = new DebugSigning();
+		    else
+		        cc = new eIDLib_PKCS11();
+			notaryIndex = i;
+			path = String.format("db/hds%d.db", notaryIndex);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		System.out.println("HDS-server starting");
+		startServer();
+
+	}
+
+	public void startServer() {
+		Runnable runnable = new NotaryStarter(_port+ notaryIndex, this);
+		Thread thread = new Thread(runnable);
+		thread.start();
 	}
 	
     public Connection connect() {
@@ -26,7 +58,7 @@ public class Notary {
         Connection conn = null;
         try {
         	System.out.println("Connection Opening");
-            conn = DriverManager.getConnection("jdbc:sqlite:db/hds.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:"+ path);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
