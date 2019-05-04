@@ -265,7 +265,7 @@ public class Notary {
 
     public JSONObject buildReply(JSONObject j) {
         JSONObject reply = new JSONObject();
-        j.put("Timestamp", new java.util.Date().toString());
+        j.put("Timestamp", new java.util.Date().getTime());
         reply.put("Message", j.toString());
         try {
 			reply.put("Hash", cc.signWithPrivateKey(j.toString()));
