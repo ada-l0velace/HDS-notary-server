@@ -111,7 +111,7 @@ hs_err_pid*
 target
 
 #Databases
-db/hds.db
+db/*.db
 
 #Eclipse Files
 .metadata
