@@ -10,13 +10,14 @@ public class HdsRegister {
     long _rid;
     List<Long> _acks;
     List<RegisterValue> _readList;
+    long _ts;
     
 
     public HdsRegister(){
         _readList = new ArrayList<RegisterValue>();
         _acks = new ArrayList<Long>();
         _rid = 0;
-        //v = new RegisterValue();
+        _ts = 0;
     }
 
     public void deliveryWrite(RegisterValue v) {
@@ -24,6 +25,10 @@ public class HdsRegister {
             _v = v;
 
         //send ACK to client
+    }
+    
+    public long getTimestamp() {
+    	return _ts;
     }
 
 

@@ -16,6 +16,7 @@ public class HdsServer implements Runnable {
     private DataInputStream dis;
     private Notary nt;
     private DataOutputStream dos;
+    private HdsRegister reg = new HdsRegister();
 
 
 
@@ -49,6 +50,7 @@ public class HdsServer implements Runnable {
                 String hash = json.getString("Hash");
                 JSONObject jsonObj = new JSONObject(json.getString("Message"));
                 Request r = new Request(nt, dis,dos);
+                JSONObject jsontr;
                 if (r.computationalCostChallenge())
                     received = jsonObj.getString("Action");
                 else
@@ -61,16 +63,20 @@ public class HdsServer implements Runnable {
                     case "transferGood":
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
-                        toreturn = nt.buildReply(message).toString();
+                        jsontr = nt.buildReply(message);
+                        toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
-                        System.out.println(toreturn);
+                        updateRegister(jsontr);
+                        System.out.println(jsontr);
                         break;
 
                     case "intentionToSell":
                         message = nt.intentionToSell(jsonObj, hash);
                         //System.out.println(toreturn);
-                        toreturn = nt.buildReply(message).toString();
+                        jsontr = nt.buildReply(message); 
+                        toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
+                        updateRegister(jsontr);
                         System.out.println(toreturn);
                         break;
 
@@ -118,6 +124,14 @@ public class HdsServer implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public void updateRegister(JSONObject j) {
+    	reg._rid++;
+    	System.out.println(j);
+    	if (new JSONObject (j.getString("Message")).getLong("Timestamp") > reg.getTimestamp()) {
+        	reg._v = new RegisterValue(j);    		
+    	}
     }
 
 }
