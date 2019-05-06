@@ -18,7 +18,7 @@ public class Notary {
 				cc = new DebugSigning();
 			else
 				cc = new eIDLib_PKCS11();
-			path = "db/hds.db";
+			path = "db/hds0.db";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
@@ -31,13 +31,13 @@ public class Notary {
 
 	public Notary(int i) {
 		try {
-			new DatabaseManager(notaryIndex).createDatabase();
+			new DatabaseManager(i).createDatabase();
 		    if (Main.debug)
 		        cc = new DebugSigning();
 		    else
 		        cc = new eIDLib_PKCS11();
 			notaryIndex = i;
-			path = String.format("db/hds%d.db", notaryIndex);
+			path = String.format("db/hds%d.db", i);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);

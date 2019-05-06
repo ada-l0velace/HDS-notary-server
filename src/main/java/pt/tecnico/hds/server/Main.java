@@ -9,6 +9,7 @@ public class Main {
             Notary nt = new Notary();
         }
         else {
+            System.out.println(args[0]);
             Notary nt = new Notary(Integer.parseInt(args[0]));
         }
     }

@@ -36,6 +36,7 @@ public class DatabaseManager {
                 + " requestId text PRIMARY KEY, \n"
                 + " message text NOT NULL\n"
                 +");";
+
         try {
             if (!Files.exists(Paths.get(path))) {
                 conn = DriverManager.getConnection(url);
