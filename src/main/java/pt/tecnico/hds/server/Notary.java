@@ -10,7 +10,7 @@ public class Notary {
 	public SigningInterface cc;
 	public static final int _port = 19999;
 	public int notaryIndex;
-	public String path;
+	public static String path;
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
@@ -53,7 +53,7 @@ public class Notary {
 		thread.start();
 	}
 	
-    public Connection connect() {
+    public static Connection connect() {
         // SQLite connection string
         Connection conn = null;
         try {

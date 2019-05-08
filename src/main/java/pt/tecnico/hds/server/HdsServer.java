@@ -64,8 +64,8 @@ public class HdsServer implements Runnable {
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        updateRegister(jsontr);
-                        toreturn = reg._v.getValue().toString();
+                        //updateRegister(jsontr);
+                        toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
@@ -73,9 +73,9 @@ public class HdsServer implements Runnable {
                     case "intentionToSell":
                         message = nt.intentionToSell(jsonObj, hash);
                         //System.out.println(toreturn);
-                        jsontr = nt.buildReply(message); 
-                        updateRegister(jsontr);
-                        toreturn = reg._v.getValue().toString();
+                        jsontr = nt.buildReply(message);
+                        updateRegister(jsonObj);
+                        toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
@@ -126,11 +126,13 @@ public class HdsServer implements Runnable {
         }
     }
     
-    public void updateRegister(JSONObject j) {
-    	reg._rid++;
+    public void updateRegister(JSONObject message) {
+    	long ts = message.getLong("Timestamp");
+        reg._rid++;
+
     	//System.out.println(j);
-    	if (new JSONObject (j.getString("Message")).getLong("Timestamp") > reg.getTimestamp()) {
-        	reg._v = new RegisterValue(j);    		
+    	if ( ts > reg.getTimestamp()) {
+            reg.deliveryWrite(message.getString("Good"), ts);
     	}
     }
 
