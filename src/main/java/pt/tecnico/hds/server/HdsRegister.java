@@ -26,11 +26,22 @@ public class HdsRegister {
         JSONObject val = getGoodInfo(good);
         _goods.put(good, val);
         _ts = ts;
-
-
         //send ACK to client
     }
-    
+
+
+    public void printGoods(){
+        System.out.println(_goods.keySet());
+    }
+
+    public boolean goodExists(String good){
+        return _goods.containsKey(good);
+    }
+
+    public boolean checkTimestamp(String good, long ts){
+        return  _goods.get(good).getLong("Timestamp") == ts;
+    }
+
     public long getTimestamp() {
     	return _ts;
     }

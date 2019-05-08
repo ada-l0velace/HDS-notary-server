@@ -11,6 +11,7 @@ public class Notary {
 	public static final int _port = 19999;
 	public int notaryIndex;
 	public static String path;
+	private static HdsRegister reg = new HdsRegister();
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
@@ -36,6 +37,7 @@ public class Notary {
 		        cc = new DebugSigning();
 		    else
 		        cc = new eIDLib_PKCS11();
+
 			notaryIndex = i;
 			path = String.format("db/hds%d.db", i);
 		} catch (Exception e) {
@@ -282,4 +284,21 @@ public class Notary {
     	reply.put("Action", "NO");
     	return reply;
     }
+
+
+	public void updateRegister(JSONObject message) {
+		long ts = message.getLong("Timestamp");
+		String good = message.getString("Good");
+		reg._rid++;
+
+		if (reg.goodExists(good)) {
+			if (!reg.checkTimestamp(good, ts)) {
+				return;
+			}
+		}
+		/*
+		reg.deliveryWrite(good, ts);
+		reg.printGoods();
+		*/
+	}
 }

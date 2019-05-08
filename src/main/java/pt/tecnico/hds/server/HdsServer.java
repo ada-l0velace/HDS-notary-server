@@ -16,7 +16,6 @@ public class HdsServer implements Runnable {
     private DataInputStream dis;
     private Notary nt;
     private DataOutputStream dos;
-    private HdsRegister reg = new HdsRegister();
 
 
 
@@ -64,7 +63,7 @@ public class HdsServer implements Runnable {
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        //updateRegister(jsontr);
+                        nt.updateRegister(jsonObj);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println(toreturn);
@@ -74,10 +73,11 @@ public class HdsServer implements Runnable {
                         message = nt.intentionToSell(jsonObj, hash);
                         //System.out.println(toreturn);
                         jsontr = nt.buildReply(message);
-                        updateRegister(jsonObj);
+                        nt.updateRegister(jsonObj);
                         toreturn = jsontr.toString();
+                        System.out.println("Message is: " + toreturn);
                         dos.writeUTF(toreturn);
-                        System.out.println(toreturn);
+//                        System.out.println(toreturn);
                         break;
 
                     case "getStateOfGood":
@@ -125,15 +125,6 @@ public class HdsServer implements Runnable {
             e.printStackTrace();
         }
     }
-    
-    public void updateRegister(JSONObject message) {
-    	long ts = message.getLong("Timestamp");
-        reg._rid++;
 
-    	//System.out.println(j);
-    	if ( ts > reg.getTimestamp()) {
-            reg.deliveryWrite(message.getString("Good"), ts);
-    	}
-    }
 
 }
