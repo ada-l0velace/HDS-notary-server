@@ -1,21 +1,19 @@
 package pt.tecnico.hds.server;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
+import java.util.HashMap;
 
 public class HdsRegister {
 
     RegisterValue _v;
     long _rid;
-    List<Long> _acks;
-    List<RegisterValue> _readList;
+    HashMap<String, JSONObject> _goods;
     long _ts;
     
 
     public HdsRegister(){
-        _readList = new ArrayList<RegisterValue>();
-        _acks = new ArrayList<Long>();
+        _goods = new HashMap<String, JSONObject>();
         _rid = 0;
         _ts = 0;
     }

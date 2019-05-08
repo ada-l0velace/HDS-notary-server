@@ -64,19 +64,19 @@ public class HdsServer implements Runnable {
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        toreturn = jsontr.toString();
-                        dos.writeUTF(toreturn);
                         updateRegister(jsontr);
-                        System.out.println(jsontr);
+                        toreturn = reg._v.getValue().toString();
+                        dos.writeUTF(toreturn);
+                        System.out.println(toreturn);
                         break;
 
                     case "intentionToSell":
                         message = nt.intentionToSell(jsonObj, hash);
                         //System.out.println(toreturn);
                         jsontr = nt.buildReply(message); 
-                        toreturn = jsontr.toString();
-                        dos.writeUTF(toreturn);
                         updateRegister(jsontr);
+                        toreturn = reg._v.getValue().toString();
+                        dos.writeUTF(toreturn);
                         System.out.println(toreturn);
                         break;
 
@@ -128,7 +128,7 @@ public class HdsServer implements Runnable {
     
     public void updateRegister(JSONObject j) {
     	reg._rid++;
-    	System.out.println(j);
+    	//System.out.println(j);
     	if (new JSONObject (j.getString("Message")).getLong("Timestamp") > reg.getTimestamp()) {
         	reg._v = new RegisterValue(j);    		
     	}
