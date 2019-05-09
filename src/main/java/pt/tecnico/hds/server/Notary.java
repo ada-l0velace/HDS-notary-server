@@ -11,7 +11,7 @@ public class Notary {
 	public static final int _port = 19999;
 	public int notaryIndex;
 	public static String path;
-	private static HdsRegister reg = new HdsRegister();
+	private HdsRegister reg = new HdsRegister();
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
