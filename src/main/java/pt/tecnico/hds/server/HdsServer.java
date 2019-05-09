@@ -6,6 +6,7 @@ import java.net.SocketException;
 import java.sql.*;
 
 import org.json.JSONObject;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class HdsServer implements Runnable {
 
@@ -36,6 +37,8 @@ public class HdsServer implements Runnable {
             try {
                 // receive the answer from client
                 received = dis.readUTF();
+                System.out.println("Got Message");
+                System.out.println(received);
 
                 if (received.equals("Exit")) {
                     break;
@@ -65,7 +68,7 @@ public class HdsServer implements Runnable {
                         signature = json.getString("ValueSignature");
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        //nt.updateRegister(jsonObj, signature);
+                        nt.updateRegister(value, signature);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println("Returning message is: " + toreturn);
@@ -83,8 +86,10 @@ public class HdsServer implements Runnable {
                         break;
 
                     case "getStateOfGood":
+                        String good = jsonObj.getString("Good");
                         message = nt.getStateOfGood(jsonObj, hash);
                         toreturn = nt.buildReply(message).toString();
+                        toreturn = nt.buildState(toreturn, good);
                         dos.writeUTF(toreturn);
                         System.out.println("Returning message is: " + toreturn);
                         break;

@@ -23,8 +23,11 @@ public class HdsRegister {
     }
 
 
-    public void printGoods(){
-        System.out.println(_goods.keySet());
+    public RegisterValue findGood(String good){
+        if (_goods.containsKey(good)){
+            return _goods.get(good);
+        }
+        return null;
     }
 
     public boolean goodExists(String good){

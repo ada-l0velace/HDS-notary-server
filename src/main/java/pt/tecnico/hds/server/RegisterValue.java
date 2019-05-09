@@ -18,5 +18,11 @@ public class RegisterValue {
         return _timestamp;
     }
 
+    public String getValue() {
+        return _value;
+    }
 
+    public String getSignature() {
+        return _signature;
+    }
 }

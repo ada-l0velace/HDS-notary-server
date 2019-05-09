@@ -150,7 +150,7 @@ public class Notary {
     					reply.put("OnSale", result.toString());
     					reply.put("Owner", user);
     					reply.put("Good", good);
-    				} else{
+                    } else{
     					reply.put("Action", "NO");
                     }
     			} else {
@@ -268,7 +268,8 @@ public class Notary {
         JSONObject reply = new JSONObject();
         j.put("Timestamp", new java.util.Date().getTime());
         reply.put("Message", j.toString());
-        try {
+
+		try {
 			reply.put("Hash", cc.signWithPrivateKey(j.toString()));
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -298,8 +299,17 @@ public class Notary {
 				return;
 			}
 		}
-		reg.deliveryWrite(good, value.toString(), sig.toString(), rid, ts);
-		reg.printGoods();
+		reg.deliveryWrite(good, value.toString(), sig, rid, ts);
 
+	}
+
+	public String buildState(String msg, String good) {
+		JSONObject j = new JSONObject(msg);
+		if (reg.goodExists(good)){
+			RegisterValue val = reg.findGood(good);
+			j.put("Value", val.getValue());
+			j.put("SignatureValue", val.getSignature());
+		}
+		return j.toString();
 	}
 }
