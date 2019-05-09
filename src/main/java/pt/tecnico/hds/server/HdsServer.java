@@ -55,44 +55,45 @@ public class HdsServer implements Runnable {
                 else
                     received = "Error";
 
-
+                String signature;
                 JSONObject message;
+                JSONObject value = new JSONObject(json.getString("Value"));
                 switch (received) {
 
                     case "transferGood":
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
+                        signature = json.getString("ValueSignature");
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        nt.updateRegister(jsonObj);
+                        //nt.updateRegister(jsonObj, signature);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
-                        System.out.println(toreturn);
+                        System.out.println("Returning message is: " + toreturn);
                         break;
 
                     case "intentionToSell":
                         message = nt.intentionToSell(jsonObj, hash);
-                        //System.out.println(toreturn);
+                        System.out.println(json);
+                        signature = json.getString("ValueSignature");
                         jsontr = nt.buildReply(message);
-                        nt.updateRegister(jsonObj);
+                        nt.updateRegister(value, signature);
                         toreturn = jsontr.toString();
-                        System.out.println("Message is: " + toreturn);
                         dos.writeUTF(toreturn);
-//                        System.out.println(toreturn);
+                        System.out.println("Returning message is: " + toreturn);
                         break;
 
                     case "getStateOfGood":
                         message = nt.getStateOfGood(jsonObj, hash);
                         toreturn = nt.buildReply(message).toString();
-                        System.out.println(toreturn);
                         dos.writeUTF(toreturn);
-                        System.out.println(toreturn);
+                        System.out.println("Returning message is: " + toreturn);
                         break;
 
                     default:
                     	message = nt.invalid();
                     	toreturn = nt.buildReply(message).toString();
                         dos.writeUTF(toreturn);
-                        System.out.println(toreturn);
+                        System.out.println("Returning message is: " + toreturn);
                         break;
                 }
             } catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
@@ -106,7 +107,7 @@ public class HdsServer implements Runnable {
 
             catch (Exception e) {
                 e.printStackTrace();
-                System.out.println(received);
+                System.out.println("ERROR: " + received );
                 try {
                     dos.writeUTF("Invalid input");
                 } catch (IOException e1) {
@@ -116,7 +117,6 @@ public class HdsServer implements Runnable {
         }
         try {
             System.out.println("Client " + this.connection + " sends exit...");
-            System.out.println("Closing this connection.");
             this.connection.close();
             System.out.println("Connection closed");
             this.dis.close();

@@ -10,22 +10,15 @@ import java.util.HashMap;
 
 public class HdsRegister {
 
-    RegisterValue _v;
-    long _rid;
-    HashMap<String, JSONObject> _goods;
-    long _ts;
-    
+    HashMap<String, RegisterValue> _goods;
+
 
     public HdsRegister(){
         _goods = new HashMap<>();
-        _rid = 0;
-        _ts = 0;
     }
 
-    public void deliveryWrite(String good, long ts) {
-        JSONObject val = getGoodInfo(good);
-        _goods.put(good, val);
-        _ts = ts;
+    public void deliveryWrite(String good, String msg, String sig, long rid, long ts) {
+        _goods.put(good, new RegisterValue(sig, msg, rid, ts));
         //send ACK to client
     }
 
@@ -39,14 +32,11 @@ public class HdsRegister {
     }
 
     public boolean checkTimestamp(String good, long ts){
-        return  _goods.get(good).getLong("Timestamp") == ts;
+        return  _goods.get(good).getTimestamp() <= ts;
     }
 
-    public long getTimestamp() {
-    	return _ts;
-    }
 
-    public JSONObject getGoodInfo(String good){
+/*    public JSONObject getGoodInfo(String good, long ts){
         JSONObject j = new JSONObject();
         try {
             Connection conn = Notary.connect();
@@ -67,6 +57,8 @@ public class HdsRegister {
             e.printStackTrace();
             j.put("Action", "NO");
         }
+        j.put("Timestamp", ts);
         return j;
     }
+    */
 }

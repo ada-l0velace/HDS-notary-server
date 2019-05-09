@@ -1,24 +1,22 @@
 package pt.tecnico.hds.server;
 
-import org.json.JSONObject;
-
-import java.util.Date;
-
 public class RegisterValue {
-    JSONObject _value;
+    String _signature;
+    String _value;
+    long _rid;
     long _timestamp;
 
-    public RegisterValue(JSONObject value){
-        _value = value;
-        _timestamp = new Date().getTime();
+
+    public RegisterValue(String sig, String val, long rid, long ts ){
+        this._signature = sig;
+        this._value = val;
+        this._rid = rid;
+        this._timestamp = ts;
     }
 
-    public JSONObject getValue(){
-        return _value;
-    }
-
-    public long getTimestamp(){
+    public long getTimestamp() {
         return _timestamp;
     }
+
 
 }

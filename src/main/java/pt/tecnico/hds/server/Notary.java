@@ -191,7 +191,6 @@ public class Notary {
     						isOwner(seller, good,conn) &&
     						isOnSale(good, conn) &&
     						!buyer.equals(seller)) {
-						System.out.println("WTF LOLOL");
 
 						pstmt.setString(1, buyer);
     					pstmt.setString(2, good);
@@ -217,8 +216,8 @@ public class Notary {
     }
 
     public JSONObject intentionToSell(JSONObject message, String hash) {
-        String seller = message.getString("Seller");    	
-        System.out.println("Starting IntentionToSell");
+        String seller = message.getString("Seller");
+		System.out.println("Starting IntentionToSell");
 
         JSONObject reply = new JSONObject();
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
@@ -286,19 +285,21 @@ public class Notary {
     }
 
 
-	public void updateRegister(JSONObject message) {
-		long ts = message.getLong("Timestamp");
-		String good = message.getString("Good");
-		reg._rid++;
+	public void updateRegister(JSONObject value, String sig) {
+		System.out.println("Message Value is: ");
+		System.out.println(value);
+		long ts = value.getLong("wts");
+		String good = value.getString("Good");
+		long rid = value.getLong("pid");
+
 
 		if (reg.goodExists(good)) {
 			if (!reg.checkTimestamp(good, ts)) {
 				return;
 			}
 		}
-		/*
-		reg.deliveryWrite(good, ts);
+		reg.deliveryWrite(good, value.toString(), sig.toString(), rid, ts);
 		reg.printGoods();
-		*/
+
 	}
 }
