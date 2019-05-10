@@ -17,8 +17,8 @@ public class HdsRegister {
         _goods = new HashMap<>();
     }
 
-    public void deliveryWrite(String good, String msg, String sig, long rid, long ts) {
-        _goods.put(good, new RegisterValue(sig, msg, rid, ts));
+    public void deliveryWrite(String good, String msg, String sig, long pid, long ts) {
+        _goods.put(good, new RegisterValue(sig, msg, pid, ts));
         //send ACK to client
     }
 

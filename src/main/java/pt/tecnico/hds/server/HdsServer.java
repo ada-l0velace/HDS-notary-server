@@ -58,17 +58,17 @@ public class HdsServer implements Runnable {
                 else
                     received = "Error";
 
-                String signature;
+                //String signature;
                 JSONObject message;
-                JSONObject value = new JSONObject(json.getString("Value"));
+                JSONObject value = new JSONObject(json.getString("Message"));
                 switch (received) {
 
                     case "transferGood":
                         JSONObject message2 = new JSONObject(json.getString("Message2"));
-                        signature = json.getString("ValueSignature");
+                        //signature = json.getString("ValueSignature");
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        nt.updateRegister(value, signature);
+                        nt.updateRegister(value, hash);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println("Returning message is: " + toreturn);
@@ -77,9 +77,9 @@ public class HdsServer implements Runnable {
                     case "intentionToSell":
                         message = nt.intentionToSell(jsonObj, hash);
                         System.out.println(json);
-                        signature = json.getString("ValueSignature");
+                        //signature = json.getString("ValueSignature");
                         jsontr = nt.buildReply(message);
-                        nt.updateRegister(value, signature);
+                        nt.updateRegister(value, hash);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println("Returning message is: " + toreturn);

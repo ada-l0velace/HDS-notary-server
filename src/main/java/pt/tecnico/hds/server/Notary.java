@@ -146,6 +146,7 @@ public class Notary {
     			PreparedStatement pstmt = conn.prepareStatement(sql);
     			if (verifyReplay(hash, conn) && isReal("goodsId", "goods", good, conn)) {
     				addToRequests(hash, message.toString(), conn);
+
     				pstmt.setString(1, good);
     				ResultSet rs = pstmt.executeQuery();
     				if (rs.next()) {
@@ -155,18 +156,22 @@ public class Notary {
     					reply.put("Owner", user);
     					reply.put("Good", good);
                     } else{
+						System.out.println("WTFFFFF1");
     					reply.put("Action", "NO");
                     }
     			} else {
+					System.out.println("WTFFFFF2");
                 	reply.put("Action", "NO");
                 }
     		} else {
+				System.out.println("WTFFFFF3"+ " "+isReal("userid", "users", buyer, conn)+" "+Utils.verifySignWithPubKeyFile(message.toString(), hash,"assymetricKeys/" + buyer + ".pub"));
     			reply.put("Action", "NO");
     		}
     		conn.close();
         	System.out.println("Connection Closing");
 
     	} catch (SQLException e) {
+			System.out.println("WTFFFFF4");
     		reply.put("Action", "NO");
     		System.out.println(e.getMessage());
     	}
@@ -293,9 +298,9 @@ public class Notary {
 	public void updateRegister(JSONObject value, String sig) {
 		System.out.println("Message Value is: ");
 		System.out.println(value);
-		long ts = value.getLong("wts");
+		long ts = value.getLong("Timestamp");
 		String good = value.getString("Good");
-		long rid = value.getLong("pid");
+		long pid = notaryIndex;
 
 
 		if (reg.goodExists(good)) {
@@ -303,7 +308,7 @@ public class Notary {
 				return;
 			}
 		}
-		reg.deliveryWrite(good, value.toString(), sig, rid, ts);
+		reg.deliveryWrite(good, value.toString(), sig, pid, ts);
 
 	}
 
@@ -330,12 +335,11 @@ public class Notary {
 				good = rs.getString("goodsId");
 				user = rs.getString("userId");
 				onSale = rs.getBoolean("onSale");
-
 				value.put("Good", good);
 				value.put("Owner", user);
 				value.put("OnSale", onSale);
-				value.put("wts", 0);
-				value.put("pid", 0);
+				value.put("Timestamp", 0);
+				value.put("pid", notaryIndex);
 				value.put("signer", "server");
 
 				sig = cc.signWithPrivateKey(value.toString());
