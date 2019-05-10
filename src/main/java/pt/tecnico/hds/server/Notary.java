@@ -3,6 +3,7 @@ package pt.tecnico.hds.server;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class Notary {
@@ -11,7 +12,7 @@ public class Notary {
 	public static final int _port = 19999;
 	public int notaryIndex;
 	public static String path;
-	private static HdsRegister reg = new HdsRegister();
+	private HdsRegister reg = new HdsRegister();
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
@@ -27,6 +28,7 @@ public class Notary {
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
+		populateRegister();
 
 	}
 
@@ -46,6 +48,8 @@ public class Notary {
 		}
 		System.out.println("HDS-server starting");
 		startServer();
+		populateRegister();
+		System.out.println("Server Ready");
 
 	}
 
@@ -311,5 +315,41 @@ public class Notary {
 			j.put("SignatureValue", val.getSignature());
 		}
 		return j.toString();
+	}
+
+	public void populateRegister() {
+		String sql = "SELECT userId, onSale, goodsId FROM notary";
+		String good, user, sig;
+		Boolean onSale;
+		JSONObject value = new JSONObject();
+		try {
+			Connection conn = this.connect();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				good = rs.getString("goodsId");
+				user = rs.getString("userId");
+				onSale = rs.getBoolean("onSale");
+
+				value.put("Good", good);
+				value.put("Owner", user);
+				value.put("OnSale", onSale);
+				value.put("wts", 0);
+				value.put("pid", 0);
+				value.put("signer", "server");
+
+				sig = cc.signWithPrivateKey(value.toString());
+
+				reg.deliveryWrite(good, value.toString(),sig, 0, 0);
+			}
+
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+
 	}
 }

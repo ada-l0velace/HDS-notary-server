@@ -30,6 +30,14 @@ public class HdsRegister {
         return null;
     }
 
+    public void printGoods(){
+        for (String g : _goods.keySet()) {
+            System.out.println("Good: " + g);
+            System.out.println("Value: " + _goods.get(g).getValue());
+            System.out.println("Signature: " + _goods.get(g).getSignature());
+        }
+    }
+
     public boolean goodExists(String good){
         return _goods.containsKey(good);
     }
