@@ -221,6 +221,8 @@ public class Notary {
     		System.out.println(e.getMessage());
     		reply.put("Action", "NO");	
     	}
+		long ts = message.getLong("Timestamp");
+		reg.ack(reply, ts);
         return reply;
     }
 
@@ -256,7 +258,9 @@ public class Notary {
         } catch (SQLException e) {
         	reply.put("Action", "NO");
         	System.out.println(e.getMessage());
-        }        
+        }
+		long ts = message.getLong("Timestamp");
+        reg.ack(reply, ts);
         return reply;
     }
 

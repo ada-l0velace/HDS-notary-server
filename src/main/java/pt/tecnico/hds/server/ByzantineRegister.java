@@ -64,4 +64,5 @@ public abstract class ByzantineRegister {
 
     abstract void write(String good, String msg, String sig, long pid, long ts);
     abstract String read (String good, String msg);
+    abstract void ack(JSONObject ack, long ts);
 }
