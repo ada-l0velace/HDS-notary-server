@@ -12,7 +12,8 @@ public class Notary {
 	public static final int _port = 19999;
 	public int notaryIndex;
 	public static String path;
-	private HdsRegister reg = new HdsRegister();
+	private ByzantineRegister reg;
+
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
@@ -25,10 +26,11 @@ public class Notary {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		reg = new ByzantineRegularRegister(this);
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
-		populateRegister();
+		//populateRegister();
 
 	}
 
@@ -46,9 +48,10 @@ public class Notary {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		reg = new ByzantineRegularRegister(this);
 		System.out.println("HDS-server starting");
 		startServer();
-		populateRegister();
+		//populateRegister();
 		System.out.println("Server Ready");
 
 	}
@@ -156,22 +159,18 @@ public class Notary {
     					reply.put("Owner", user);
     					reply.put("Good", good);
                     } else{
-						System.out.println("WTFFFFF1");
     					reply.put("Action", "NO");
                     }
     			} else {
-					System.out.println("WTFFFFF2");
                 	reply.put("Action", "NO");
                 }
     		} else {
-				System.out.println("WTFFFFF3"+ " "+isReal("userid", "users", buyer, conn)+" "+Utils.verifySignWithPubKeyFile(message.toString(), hash,"assymetricKeys/" + buyer + ".pub"));
-    			reply.put("Action", "NO");
+				reply.put("Action", "NO");
     		}
     		conn.close();
         	System.out.println("Connection Closing");
 
     	} catch (SQLException e) {
-			System.out.println("WTFFFFF4");
     		reply.put("Action", "NO");
     		System.out.println(e.getMessage());
     	}
@@ -304,58 +303,17 @@ public class Notary {
 		String good = value.getString("Good");
 		long pid = notaryIndex;
 
-
-		if (reg.goodExists(good)) {
+		reg.write(good, value.toString(), sig, pid, ts);
+		/*if (reg.goodExists(good)) {
 			if (!reg.checkTimestamp(good, ts)) {
 				return;
 			}
 		}
 		reg.deliveryWrite(good, value.toString(), sig, pid, ts);
-
+		*/
 	}
 
 	public String buildState(String msg, String good) {
-		JSONObject j = new JSONObject(msg);
-		if (reg.goodExists(good)){
-			RegisterValue val = reg.findGood(good);
-			j.put("Value", val.getValue());
-			j.put("SignatureValue", val.getSignature());
-		}
-		return j.toString();
-	}
-
-	public void populateRegister() {
-		String sql = "SELECT userId, onSale, goodsId FROM notary";
-		String good, user, sig;
-		Boolean onSale;
-		JSONObject value = new JSONObject();
-		try {
-			Connection conn = this.connect();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery();
-			while (rs.next()) {
-				good = rs.getString("goodsId");
-				user = rs.getString("userId");
-				onSale = rs.getBoolean("onSale");
-				value.put("Good", good);
-				value.put("Owner", user);
-				value.put("OnSale", onSale);
-				value.put("Timestamp", 0);
-				value.put("pid", notaryIndex);
-				value.put("signer", "server");
-
-				sig = cc.signWithPrivateKey(value.toString());
-
-				reg.deliveryWrite(good, value.toString(),sig, 0, 0);
-			}
-
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} catch (Throwable t) {
-			t.printStackTrace();
-		}
-
+		return reg.read(good, msg);
 	}
 }
