@@ -205,6 +205,7 @@ public class Notary {
     					pstmt.setString(2, good);
     					pstmt.executeUpdate();
     					reply.put("Action", "YES");
+						updateRegister(message, hash);
     				} else {
     					reply.put("Action", "NO");
     				}
@@ -244,6 +245,7 @@ public class Notary {
         			pstmt.executeUpdate();
         			//query();
         			reply.put("Action", "YES");
+					updateRegister(message, hash);
         		} else
         			reply.put("Action", "NO");
         	} else {

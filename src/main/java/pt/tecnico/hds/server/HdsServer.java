@@ -68,7 +68,7 @@ public class HdsServer implements Runnable {
                         //signature = json.getString("ValueSignature");
                         message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                         jsontr = nt.buildReply(message);
-                        nt.updateRegister(value, hash);
+                        //nt.updateRegister(value, hash);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println("Returning message is: " + toreturn);
@@ -79,7 +79,6 @@ public class HdsServer implements Runnable {
                         System.out.println(json);
                         //signature = json.getString("ValueSignature");
                         jsontr = nt.buildReply(message);
-                        nt.updateRegister(value, hash);
                         toreturn = jsontr.toString();
                         dos.writeUTF(toreturn);
                         System.out.println("Returning message is: " + toreturn);

@@ -7,10 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.List;
 
 public class HdsRegister {
 
     HashMap<String, RegisterValue> _goods;
+    List<Integer> _listening;
 
 
     public HdsRegister(){
