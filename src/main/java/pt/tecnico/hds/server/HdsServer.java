@@ -1,15 +1,16 @@
 package pt.tecnico.hds.server;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
 import java.sql.*;
 
+
+
 import org.json.JSONObject;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class HdsServer implements Runnable {
-
 
     private Socket connection;
     private String TimeStamp;
@@ -37,8 +38,6 @@ public class HdsServer implements Runnable {
             try {
                 // receive the answer from client
                 received = dis.readUTF();
-                System.out.println("Got Message");
-                System.out.println(received);
 
                 if (received.equals("Exit")) {
                     break;
@@ -93,6 +92,10 @@ public class HdsServer implements Runnable {
                         System.out.println("Returning message is: " + toreturn);
                         break;
 
+                    case "Echo":
+                        System.out.println("Got Something");
+                        dos.writeUTF("ACK");
+
                     default:
                     	message = nt.invalid();
                     	toreturn = nt.buildReply(message).toString();
@@ -129,6 +132,7 @@ public class HdsServer implements Runnable {
             e.printStackTrace();
         }
     }
+
 
 
 }
