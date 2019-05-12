@@ -87,7 +87,7 @@ public class HdsServer implements Runnable {
                     case "getStateOfGood":
                         String good = jsonObj.getString("Good");
                         message = nt.getStateOfGood(jsonObj, hash);
-                        message.put("rid",jsonObj.getLong("rid"))   ;
+                        message.put("rid",jsonObj.getLong("rid"));
                         toreturn = nt.buildReply(message).toString();
                         toreturn = nt.buildState(toreturn, good, jsonObj);
                         dos.writeUTF(toreturn);
