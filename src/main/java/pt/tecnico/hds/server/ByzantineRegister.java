@@ -60,6 +60,10 @@ public abstract class ByzantineRegister {
 
     }
 
+    public RegisterValue getGood(String good){
+        return _goods.get(good);
+    }
+
     abstract void write(String good, String msg, String sig, long pid, long ts);
     abstract String read (String good, String msg, JSONObject request);
     abstract void ack(JSONObject ack, long ts);

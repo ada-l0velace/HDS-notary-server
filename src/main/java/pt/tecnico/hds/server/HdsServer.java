@@ -7,7 +7,6 @@ import java.net.SocketException;
 import java.sql.*;
 
 
-
 import org.json.JSONObject;
 
 public class HdsServer implements Runnable {
@@ -97,6 +96,13 @@ public class HdsServer implements Runnable {
                         System.out.println("Got Something");
                         dos.writeUTF("ACK");
 
+                    case "WriteBack":
+                        message = nt.writeback(json);
+                        toreturn = nt.buildReply(message).toString();
+                        dos.writeUTF(toreturn);
+                        break;
+
+
                     default:
                     	message = nt.invalid();
                     	toreturn = nt.buildReply(message).toString();
@@ -133,6 +139,7 @@ public class HdsServer implements Runnable {
             e.printStackTrace();
         }
     }
+
 
 
 

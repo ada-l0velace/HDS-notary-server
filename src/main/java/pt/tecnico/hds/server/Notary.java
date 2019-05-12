@@ -1,9 +1,11 @@
 package pt.tecnico.hds.server;
 
+import com.sun.org.apache.bcel.internal.generic.JsrInstruction;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.DataInputStream;
+import java.io.DataOutput;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -40,7 +42,7 @@ public class Notary {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		reg = new ByzantineAtomicRegister(this);
+		reg = new ByzantineRegularRegister(this);
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
@@ -365,7 +367,6 @@ public class Notary {
 				try {
 
 					dos.writeUTF(j.toString());
-					answer = dis.readUTF();
 					dis.close();
 					dos.close();
 					s.close();
@@ -398,6 +399,27 @@ public class Notary {
 			break;
 		}
 		return answer;
+	}
+
+
+	public JSONObject writeback(JSONObject j){
+			System.out.println("Got Here");
+			JSONObject reply = new JSONObject();
+			JSONObject message = new JSONObject(j.getString("Message"));
+			String signer = message.getString("signer");
+			long ts = message.getLong("t");
+			JSONObject val = new JSONObject(message.getString("value"));
+			String good = val.getString("Good");
+			String sig = j.getString("Hash");
+			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + signer + ".pub")){
+				if (ts > reg.getGood(good).getTimestamp()){
+					reg.write(good,val.toString(), sig,val.getLong("pid"),ts);
+				}
+			}
+			reply.put("Action", "ack");
+			return reply;
+
+
 	}
 
 }
