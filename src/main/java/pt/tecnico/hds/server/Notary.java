@@ -238,7 +238,7 @@ public class Notary {
     		System.out.println(e.getMessage());
     		reply.put("Action", "NO");	
     	}
-		long ts = message.getLong("Timestamp");
+		long ts = message.getLong("wts");
 		reg.ack(reply, ts);
         return reply;
     }
@@ -279,7 +279,7 @@ public class Notary {
         	reply.put("Action", "NO");
         	System.out.println(e.getMessage());
         }
-		long ts = message.getLong("Timestamp");
+		long ts = message.getLong("wts");
         reg.ack(reply, ts);
         return reply;
     }
@@ -323,7 +323,7 @@ public class Notary {
 	public void updateRegister(JSONObject value, String sig) {
 		System.out.println("Message Value is: ");
 		System.out.println(value);
-		long ts = value.getLong("Timestamp");
+		long ts = value.getLong("wts");
 		String good = value.getString("Good");
 		long pid = notaryIndex;
 
@@ -339,8 +339,8 @@ public class Notary {
 		*/
 	}
 
-	public String buildState(String msg, String good) {
-		return reg.read(good, msg);
+	public String buildState(String msg, String good, JSONObject request) {
+		return reg.read(good, msg, request);
 	}
 
 	public static String connectToServers(String host, int port, JSONObject j){

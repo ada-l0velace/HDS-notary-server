@@ -42,7 +42,7 @@ public abstract class ByzantineRegister {
                 value.put("Good", good);
                 value.put("Owner", user);
                 value.put("OnSale", onSale);
-                value.put("Timestamp", 0);
+                value.put("wts", 0);
                 value.put("pid", notary.notaryIndex);
                 value.put("signer", "server");
 
@@ -51,9 +51,7 @@ public abstract class ByzantineRegister {
                 //write(good, value.toString(),sig, 0, 0);
                 _goods.put(good, new RegisterValue(sig, value.toString(), notary.notaryIndex, 0));
             }
-
             conn.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         } catch (Throwable t) {
@@ -63,6 +61,6 @@ public abstract class ByzantineRegister {
     }
 
     abstract void write(String good, String msg, String sig, long pid, long ts);
-    abstract String read (String good, String msg);
+    abstract String read (String good, String msg, JSONObject request);
     abstract void ack(JSONObject ack, long ts);
 }

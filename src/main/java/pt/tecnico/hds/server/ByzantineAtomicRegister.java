@@ -30,7 +30,7 @@ public class ByzantineAtomicRegister extends ByzantineRegister {
     }
 
     @Override
-    String read(String good, String msg) {
+    String read(String good, String msg, JSONObject request) {
         JSONObject j = new JSONObject(msg);
         if (_goods.containsKey(good)) {
             RegisterValue val = _goods.get(good);

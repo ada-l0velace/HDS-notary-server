@@ -13,16 +13,17 @@ public class ByzantineRegularRegister extends ByzantineRegister {
         System.out.println(_goods);
         if (ts > _goods.get(good).getTimestamp()) {
             JSONObject jMsg = new JSONObject(msg);
-            _goods.put(good, new RegisterValue(sig, msg, pid, ts));
+            _goods.put(good, new RegisterValue(sig, msg, 0, ts));
         }
     }
 
     @Override
-    String read (String good, String msg) {
+    String read (String good, String msg, JSONObject request) {
         JSONObject j = new JSONObject(msg);
         if (_goods.containsKey(good)) {
             RegisterValue val = _goods.get(good);
-            j.put("rid", val.getRid());
+            val._rid=request.getLong("rid");
+
             j.put("Value", val.getValue());
             j.put("SignatureValue", val.getSignature());
         }
