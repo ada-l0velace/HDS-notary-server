@@ -1,9 +1,22 @@
 package pt.tecnico.hds.server;
 
+import com.sun.org.apache.bcel.internal.generic.JsrInstruction;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.DataInputStream;
+import java.io.DataOutput;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 
 public class Notary {
@@ -11,8 +24,11 @@ public class Notary {
 	public SigningInterface cc;
 	public static final int _port = 19999;
 	public int notaryIndex;
+	public static final int nServers = 4;
 	public static String path;
 	private ByzantineRegister reg;
+	public final static Logger logger = LoggerFactory.getLogger(HdsServer.class);
+
 
 	public Notary() {
 		try {
@@ -30,6 +46,7 @@ public class Notary {
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
+
 		//populateRegister();
 
 	}
@@ -48,11 +65,13 @@ public class Notary {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		reg = new ByzantineRegularRegister(this);
+		reg = new ByzantineAtomicRegister(this);
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();
 		System.out.println("Server Ready");
+		Scanner scan = new Scanner(System.in);
+		scan.next();
 
 	}
 
@@ -235,12 +254,15 @@ public class Notary {
         String goodsId = message.getString("Good");
         try {
         	Connection conn = this.connect();
-        	PreparedStatement pstmt = conn.prepareStatement(sql);     	
+        	PreparedStatement pstmt = conn.prepareStatement(sql);
+			System.out.println("Got Here");
         	if (isReal("userid", "users", seller, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") && verifyReplay(hash, conn)) {
         		addToRequests(hash, message.toString(), conn);
+				System.out.println("Got Here2");
         		if (isReal("goodsId", "goods", goodsId, conn) &&
         				isOwner(seller, goodsId, conn)) {
-        			
+					System.out.println("Got Here3");
+
         			pstmt.setBoolean(1, true);
         			pstmt.setString(2, goodsId);
         			pstmt.executeUpdate();
@@ -307,7 +329,9 @@ public class Notary {
 		String good = value.getString("Good");
 		long pid = notaryIndex;
 
+		System.out.println("Writing to Register");
 		reg.write(good, value.toString(), sig, pid, ts);
+		System.out.println("Written Something");
 		/*if (reg.goodExists(good)) {
 			if (!reg.checkTimestamp(good, ts)) {
 				return;
@@ -320,4 +344,82 @@ public class Notary {
 	public String buildState(String msg, String good, JSONObject request) {
 		return reg.read(good, msg, request);
 	}
+
+	public static String connectToServers(String host, int port, JSONObject j){
+		System.out.println("Trying Something");
+		String answer = null;
+		int maxRetries = 10;
+		int retries = 0;
+
+
+		while (true) {
+			try {
+				System.out.println("Connecting to " + port);
+				InetAddress ip = InetAddress.getByName(host);
+
+				Socket s = new Socket(ip, port);
+				s.setSoTimeout(10 * 1000);
+
+				DataInputStream dis = new DataInputStream(s.getInputStream());
+				DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+
+
+				try {
+
+					dos.writeUTF(j.toString());
+					dis.close();
+					dos.close();
+					s.close();
+
+
+				} catch (java.net.SocketTimeoutException timeout) {
+					timeout.printStackTrace();
+					s.close();
+					break;
+
+				} catch (java.io.EOFException e0) {
+					e0.printStackTrace();
+					s.close();
+					break;
+				} catch (Exception e) {
+					e.printStackTrace();
+					s.close();
+					break;
+				}
+
+
+			} catch (IOException e) {
+				logger.error(e.getMessage() + " on port:" + port);
+				//e.printStackTrace();
+				retries++;
+				if (retries == maxRetries)
+					break;
+				continue;
+			}
+			break;
+		}
+		return answer;
+	}
+
+
+	public JSONObject writeback(JSONObject j){
+			System.out.println("Got Here");
+			JSONObject reply = new JSONObject();
+			JSONObject message = new JSONObject(j.getString("Message"));
+			String signer = message.getString("signer");
+			long ts = message.getLong("t");
+			JSONObject val = new JSONObject(message.getString("value"));
+			String good = val.getString("Good");
+			String sig = j.getString("Hash");
+			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + signer + ".pub")){
+				if (ts > reg.getGood(good).getTimestamp()){
+					reg.write(good,val.toString(), sig,val.getLong("pid"),ts);
+				}
+			}
+			reply.put("Action", "ack");
+			return reply;
+
+
+	}
+
 }
