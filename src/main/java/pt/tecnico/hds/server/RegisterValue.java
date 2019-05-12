@@ -25,4 +25,8 @@ public class RegisterValue {
     public String getSignature() {
         return _signature;
     }
+
+    public long getRid(){
+        return _rid;
+    }
 }
