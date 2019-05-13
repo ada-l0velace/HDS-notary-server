@@ -416,6 +416,7 @@ public class Notary {
 			System.out.println(message.toString());
 			String signer = message.getString("signer");
 			long ts = message.getLong("t");
+			long rid = message.getLong("rid");
 			JSONObject val = message.getJSONObject("v");
 			String good = val.getString("Good");
 			String sig = j.getString("Hash");
@@ -426,7 +427,7 @@ public class Notary {
 				}
 			}
 			reply.put("Action", "ack");
-			reply.put("wts", ts);
+			reply.put("rid", rid);
 			return reply;
 
 
