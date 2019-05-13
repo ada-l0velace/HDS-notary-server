@@ -35,6 +35,7 @@ public class HdsServer implements Runnable {
          try {
              // receive the answer from client
              received = dis.readUTF();
+             System.out.println(received);
              this.TimeStamp = new java.util.Date().toString();
              // write on output stream based on the
              // answer from the client
@@ -44,14 +45,19 @@ public class HdsServer implements Runnable {
              JSONObject jsonObj = new JSONObject(json.getString("Message"));
              Request r = new Request(nt, dis,dos);
              JSONObject jsontr;
-             if (r.computationalCostChallenge())
-                 received = jsonObj.getString("Action");
-             else
-                 received = "Error";
-
+             String action = jsonObj.getString("Action");
+             //if (!action.equals("Echo")) {
+                 if (r.computationalCostChallenge())
+                     received = action;
+                 else
+                     received = "Error";
+             /*} else {
+                 received = action;
+             }*/
              //String signature;
              JSONObject message;
              JSONObject value = new JSONObject(json.getString("Message"));
+             System.out.println(received);
              switch (received) {
 
                  case "transferGood":
@@ -61,7 +67,7 @@ public class HdsServer implements Runnable {
                      jsontr = nt.buildReply(message);
                      //nt.updateRegister(value, hash);
                      toreturn = jsontr.toString();
-                     dos.writeUTF(toreturn);
+                     //dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
                      break;
 
@@ -71,13 +77,15 @@ public class HdsServer implements Runnable {
                      //signature = json.getString("ValueSignature");
                      jsontr = nt.buildReply(message);
                      toreturn = jsontr.toString();
-                     dos.writeUTF(toreturn);
+                     //dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
                      break;
 
                  case "getStateOfGood":
+                     System.out.println("WTF");
                      String good = jsonObj.getString("Good");
                      message = nt.getStateOfGood(jsonObj, hash);
+                     System.out.println("WTF2 + " + message);
                      message.put("rid",jsonObj.getLong("rid"));
                      toreturn = nt.buildReply(message).toString();
                      toreturn = nt.buildState(toreturn, good, jsonObj);
@@ -87,7 +95,9 @@ public class HdsServer implements Runnable {
 
                  case "Echo":
                      System.out.println("Got Something");
-                     dos.writeUTF("ACK");
+                     message = nt.receiveEcho(json);
+                     toreturn = nt.buildReply(message).toString();
+                     dos.writeUTF(toreturn);
 
                  case "WriteBack":
                      message = nt.writeback(json);

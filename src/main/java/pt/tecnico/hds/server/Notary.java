@@ -18,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-
 public class Notary {
 
 	public SigningInterface cc;
@@ -27,6 +26,7 @@ public class Notary {
 	public static final int nServers = 4;
 	public static String path;
 	private ByzantineRegister reg;
+	private ReplicaManager rm;
 	public final static Logger logger = LoggerFactory.getLogger(HdsServer.class);
 
 
@@ -42,7 +42,8 @@ public class Notary {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		reg = new ByzantineRegularRegister(this);
+		reg = new ByzantineAtomicRegister(this);
+		rm = new ReplicaManager(1, nServers , "localhost", _port, notaryIndex);
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
@@ -67,6 +68,7 @@ public class Notary {
 		}
 		//reg = new ByzantineAtomicRegister(this);
 		reg = new ByzantineRegularRegister(this);
+		rm = new ReplicaManager(1, nServers , "localhost", _port, notaryIndex);
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();
@@ -321,14 +323,14 @@ public class Notary {
 
 
 	public void updateRegister(JSONObject value, String sig) {
-		long ts = value.getLong("wts");
-		String good = value.getString("Good");
-		int pid = notaryIndex;
-		long rid = value.getLong("rid");
 
+		JSONObject msg = rm.echo(value.toString(), sig);
 
 		System.out.println("Writing to Register");
-		reg.write(good, value.toString(), sig, rid, pid, ts);
+		rm.setManager(msg);
+		System.out.println("Sending Echoes");
+		rm.broadcast();
+		//reg.write(good, value.toString(), sig, rid, pid, ts);
 		/*if (reg.goodExists(good)) {
 			if (!reg.checkTimestamp(good, ts)) {
 				return;
@@ -343,58 +345,7 @@ public class Notary {
 	}
 
 	public static String connectToServers(String host, int port, JSONObject j){
-		String answer = null;
-		int maxRetries = 10;
-		int retries = 0;
-
-
-		while (true) {
-			try {
-				System.out.println("Connecting to " + port);
-				InetAddress ip = InetAddress.getByName(host);
-
-				Socket s = new Socket(ip, port);
-				s.setSoTimeout(10 * 1000);
-
-				DataInputStream dis = new DataInputStream(s.getInputStream());
-				DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
-
-				try {
-
-					dos.writeUTF(j.toString());
-					dis.close();
-					dos.close();
-					s.close();
-
-
-				} catch (java.net.SocketTimeoutException timeout) {
-					timeout.printStackTrace();
-					s.close();
-					break;
-
-				} catch (java.io.EOFException e0) {
-					e0.printStackTrace();
-					s.close();
-					break;
-				} catch (Exception e) {
-					e.printStackTrace();
-					s.close();
-					break;
-				}
-
-
-			} catch (IOException e) {
-				logger.error(e.getMessage() + " on port:" + port);
-				//e.printStackTrace();
-				retries++;
-				if (retries == maxRetries)
-					break;
-				continue;
-			}
-			break;
-		}
-		return answer;
+		return null;
 	}
 
 	public String isServerDebug(String name) {
@@ -414,6 +365,13 @@ public class Notary {
 			String good = val.getString("Good");
 			String sig = j.getString("Hash");
 			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + isServerDebug(signer) + ".pub")){
+				try {
+					Connection conn = this.connect();
+					addToRequests(sig, message.toString(), conn);
+					conn.close();
+				} catch (SQLException e){
+					e.printStackTrace();
+				}
 				if (ts > reg.getGood(good).getTimestamp()){
 					//val.put("wts", ts);
 					reg.write(good,val.toString(), sig, val.getLong("rid"),val.getInt("pid"), ts);
@@ -422,8 +380,23 @@ public class Notary {
 			reply.put("Action", "ack");
 			reply.put("rid", rid);
 			return reply;
-
-
 	}
 
+	public JSONObject receiveEcho(JSONObject j){
+		JSONObject message = new JSONObject(j.getString("Message"));
+		JSONObject reply = new JSONObject();
+		rm.getEcho(j);
+		while (true){
+			if (rm.quorum()) {
+				reg.write(message.getString("Good"), message.toString(), j.getString("Hash"), message.getLong("rid"), message.getInt("pid"), message.getLong("Timestamp"));
+				reply.put("Action", "YES");
+				return reply;
+			}
+			else if (rm.ackd()){
+				reply.put("Action", "NO");
+				return reply;
+			}
+			System.out.println("Got " + rm.getAcks() + " Echoes");
+		}
+	}
 }

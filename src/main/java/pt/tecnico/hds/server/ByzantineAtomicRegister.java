@@ -12,21 +12,8 @@ public class ByzantineAtomicRegister extends ByzantineRegister {
 
     @Override
     void write(String good, String msg, String sig, long rid, int pid, long ts) {
-        JSONObject e = this.echo(msg, sig);
-        String result;
         acks = 0;
-
-        //if (ts > _goods.get(good).getTimestamp()) {
-        for (int i = 0; i < notary.nServers; i++){
-                result = notary.connectToServers("localhost", notary._port, e);
-                if (result != null){
-                    acks++;
-                }
-            }
-            if (acks == notary.nServers) {
-                _goods.put(good, new RegisterValue(sig, msg, rid, pid, ts));
-            }
-        //}
+        _goods.put(good, new RegisterValue(sig, msg, rid, pid, ts));
     }
 
     @Override
@@ -46,15 +33,7 @@ public class ByzantineAtomicRegister extends ByzantineRegister {
         ack.put("wts", ts);
     }
 
-    JSONObject echo(String msg, String sig){
-        JSONObject echo = new JSONObject();
-        JSONObject message = new JSONObject();
-        message.put("Action", "Echo");
-        message.put("Value", msg);
-        echo.put("Message", message.toString());
-        echo.put("Hash", sig);
-        return echo;
-    }
+
 
 }
 
