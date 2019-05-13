@@ -33,7 +33,10 @@ public class Notary {
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
-			cc = new eIDLib_PKCS11();
+			if (Main.debug)
+				cc = new DebugSigning(0);
+			else
+				cc = new eIDLib_PKCS11();
 			path = "db/hds0.db";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +54,7 @@ public class Notary {
 	public Notary(int i) {
 		try {
 			new DatabaseManager(i).createDatabase();
-		    if (Main.debug && i > 0)
+		    if (Main.debug || i > 0)
 		        cc = new DebugSigning(i);
 		    else
 		        cc = new eIDLib_PKCS11();
