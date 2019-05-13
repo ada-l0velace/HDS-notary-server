@@ -44,7 +44,7 @@ public abstract class ByzantineRegister {
                 value.put("OnSale", onSale);
                 value.put("wts", 0);
                 value.put("pid", notary.notaryIndex);
-                value.put("signer", "server");
+                value.put("signer", notary.cc.getKeyName());
 
                 sig = notary.cc.signWithPrivateKey(value.toString());
 

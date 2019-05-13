@@ -17,7 +17,7 @@ public class HdsServer implements Runnable {
     private DataInputStream dis;
     private Notary nt;
     private DataOutputStream dos;
-
+    private String a;
 
 
     public HdsServer(Socket s, int i, DataInputStream dis, DataOutputStream dos, Notary nt) {

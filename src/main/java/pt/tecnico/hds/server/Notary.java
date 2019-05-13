@@ -33,10 +33,7 @@ public class Notary {
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
-			if (Main.debug)
-				cc = new DebugSigning();
-			else
-				cc = new eIDLib_PKCS11();
+			cc = new eIDLib_PKCS11();
 			path = "db/hds0.db";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,8 +51,8 @@ public class Notary {
 	public Notary(int i) {
 		try {
 			new DatabaseManager(i).createDatabase();
-		    if (Main.debug)
-		        cc = new DebugSigning();
+		    if (Main.debug && i > 0)
+		        cc = new DebugSigning(i);
 		    else
 		        cc = new eIDLib_PKCS11();
 
@@ -78,6 +75,11 @@ public class Notary {
 		Runnable runnable = new NotaryStarter(_port+ notaryIndex, this);
 		Thread thread = new Thread(runnable);
 		thread.start();
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
     public static Connection connect() {
@@ -300,6 +302,7 @@ public class Notary {
         JSONObject reply = new JSONObject();
         j.put("Timestamp", new java.util.Date().getTime());
         j.put("pid", notaryIndex);
+		j.put("signer", cc.getKeyName());
         reply.put("Message", j.toString());
 
 
@@ -413,7 +416,8 @@ public class Notary {
 			JSONObject val = message.getJSONObject("v");
 			String good = val.getString("Good");
 			String sig = j.getString("Hash");
-			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + isServerDebug(signer) + ".pub")){
+
+			if (cc.verifySignWithPubKey(message.toString(), sig)){
 				if (ts > reg.getGood(good).getTimestamp()){
 					//val.put("wts", ts);
 					reg.write(good,val.toString(), sig, val.getLong("rid"),val.getInt("pid"), ts);
