@@ -71,8 +71,6 @@ public class Notary {
 		startServer();
 		//populateRegister();
 		System.out.println("Server Ready");
-		Scanner scan = new Scanner(System.in);
-		scan.next();
 
 	}
 
@@ -256,13 +254,10 @@ public class Notary {
         try {
         	Connection conn = this.connect();
         	PreparedStatement pstmt = conn.prepareStatement(sql);
-			System.out.println("Got Here");
         	if (isReal("userid", "users", seller, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") && verifyReplay(hash, conn)) {
         		addToRequests(hash, message.toString(), conn);
-				System.out.println("Got Here2");
         		if (isReal("goodsId", "goods", goodsId, conn) &&
         				isOwner(seller, goodsId, conn)) {
-					System.out.println("Got Here3");
 
         			pstmt.setBoolean(1, true);
         			pstmt.setString(2, goodsId);
@@ -304,7 +299,9 @@ public class Notary {
     public JSONObject buildReply(JSONObject j) {
         JSONObject reply = new JSONObject();
         j.put("Timestamp", new java.util.Date().getTime());
+        j.put("pid", notaryIndex);
         reply.put("Message", j.toString());
+
 
 		try {
 			reply.put("Hash", cc.signWithPrivateKey(j.toString()));
@@ -324,15 +321,14 @@ public class Notary {
 
 
 	public void updateRegister(JSONObject value, String sig) {
-		System.out.println("Message Value is: ");
-		System.out.println(value);
 		long ts = value.getLong("wts");
 		String good = value.getString("Good");
-		long pid = notaryIndex;
+		int pid = notaryIndex;
+		long rid = value.getLong("rid");
+
 
 		System.out.println("Writing to Register");
-		reg.write(good, value.toString(), sig, pid, ts);
-		System.out.println("Written Something");
+		reg.write(good, value.toString(), sig, rid, pid, ts);
 		/*if (reg.goodExists(good)) {
 			if (!reg.checkTimestamp(good, ts)) {
 				return;
@@ -347,7 +343,6 @@ public class Notary {
 	}
 
 	public static String connectToServers(String host, int port, JSONObject j){
-		System.out.println("Trying Something");
 		String answer = null;
 		int maxRetries = 10;
 		int retries = 0;
@@ -410,10 +405,8 @@ public class Notary {
 	}
 
 	public JSONObject writeback(JSONObject j){
-			System.out.println("Got Here");
 			JSONObject reply = new JSONObject();
 			JSONObject message = new JSONObject(j.getString("Message"));
-			System.out.println(message.toString());
 			String signer = message.getString("signer");
 			long ts = message.getLong("t");
 			long rid = message.getLong("rid");
@@ -423,7 +416,7 @@ public class Notary {
 			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + isServerDebug(signer) + ".pub")){
 				if (ts > reg.getGood(good).getTimestamp()){
 					//val.put("wts", ts);
-					reg.write(good,val.toString(), sig,val.getLong("pid"),ts);
+					reg.write(good,val.toString(), sig, val.getLong("rid"),val.getInt("pid"), ts);
 				}
 			}
 			reply.put("Action", "ack");

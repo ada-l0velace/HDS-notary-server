@@ -5,13 +5,15 @@ public class RegisterValue {
     String _value;
     long _rid;
     long _timestamp;
+    int _pid;
 
 
-    public RegisterValue(String sig, String val, long rid, long ts ){
+    public RegisterValue(String sig, String val, long rid, int pid, long ts ){
         this._signature = sig;
         this._value = val;
         this._rid = rid;
         this._timestamp = ts;
+        this._pid = pid;
     }
 
     public long getTimestamp() {

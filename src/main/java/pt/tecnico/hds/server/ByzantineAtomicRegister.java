@@ -11,7 +11,7 @@ public class ByzantineAtomicRegister extends ByzantineRegister {
     }
 
     @Override
-    void write(String good, String msg, String sig, long pid, long ts) {
+    void write(String good, String msg, String sig, long rid, int pid, long ts) {
         JSONObject e = this.echo(msg, sig);
         String result;
         acks = 0;
@@ -24,7 +24,7 @@ public class ByzantineAtomicRegister extends ByzantineRegister {
                 }
             }
             if (acks == notary.nServers) {
-                _goods.put(good, new RegisterValue(sig, msg, pid, ts));
+                _goods.put(good, new RegisterValue(sig, msg, rid, pid, ts));
             }
         //}
     }

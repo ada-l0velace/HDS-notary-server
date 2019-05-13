@@ -32,115 +32,98 @@ public class HdsServer implements Runnable {
         String received = "";
         String toreturn = "";
         System.out.println("Server " + this.connection + " Opens...");
+         try {
+             // receive the answer from client
+             received = dis.readUTF();
+             this.TimeStamp = new java.util.Date().toString();
+             // write on output stream based on the
+             // answer from the client
 
-        while (true) {
-            try {
-                // receive the answer from client
-                received = dis.readUTF();
-                System.out.println(" _----------######       LOLOLOL _----------######");
-                if (received.equals("Exit")) {
-                    break;
-                }
+             JSONObject json = new JSONObject(received);
+             String hash = json.getString("Hash");
+             JSONObject jsonObj = new JSONObject(json.getString("Message"));
+             Request r = new Request(nt, dis,dos);
+             JSONObject jsontr;
+             if (r.computationalCostChallenge())
+                 received = jsonObj.getString("Action");
+             else
+                 received = "Error";
 
-                this.TimeStamp = new java.util.Date().toString();
-                // write on output stream based on the
-                // answer from the client
+             //String signature;
+             JSONObject message;
+             JSONObject value = new JSONObject(json.getString("Message"));
+             switch (received) {
 
-                JSONObject json = new JSONObject(received);
-                String hash = json.getString("Hash");
-                JSONObject jsonObj = new JSONObject(json.getString("Message"));
-                Request r = new Request(nt, dis,dos);
-                JSONObject jsontr;
-                if (r.computationalCostChallenge())
-                    received = jsonObj.getString("Action");
-                else
-                    received = "Error";
+                 case "transferGood":
+                     JSONObject message2 = new JSONObject(json.getString("Message2"));
+                     //signature = json.getString("ValueSignature");
+                     message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
+                     jsontr = nt.buildReply(message);
+                     //nt.updateRegister(value, hash);
+                     toreturn = jsontr.toString();
+                     dos.writeUTF(toreturn);
+                     System.out.println("Returning message is: " + toreturn);
+                     break;
 
-                //String signature;
-                JSONObject message;
-                JSONObject value = new JSONObject(json.getString("Message"));
-                switch (received) {
+                 case "intentionToSell":
+                     message = nt.intentionToSell(jsonObj, hash);
+                     System.out.println(json);
+                     //signature = json.getString("ValueSignature");
+                     jsontr = nt.buildReply(message);
+                     toreturn = jsontr.toString();
+                     dos.writeUTF(toreturn);
+                     System.out.println("Returning message is: " + toreturn);
+                     break;
 
-                    case "transferGood":
-                        JSONObject message2 = new JSONObject(json.getString("Message2"));
-                        //signature = json.getString("ValueSignature");
-                        message = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
-                        jsontr = nt.buildReply(message);
-                        //nt.updateRegister(value, hash);
-                        toreturn = jsontr.toString();
-                        dos.writeUTF(toreturn);
-                        System.out.println("Returning message is: " + toreturn);
-                        break;
+                 case "getStateOfGood":
+                     String good = jsonObj.getString("Good");
+                     message = nt.getStateOfGood(jsonObj, hash);
+                     message.put("rid",jsonObj.getLong("rid"));
+                     toreturn = nt.buildReply(message).toString();
+                     toreturn = nt.buildState(toreturn, good, jsonObj);
+                     dos.writeUTF(toreturn);
+                     System.out.println("Returning message is: " + toreturn);
+                     break;
 
-                    case "intentionToSell":
-                        message = nt.intentionToSell(jsonObj, hash);
-                        System.out.println(json);
-                        //signature = json.getString("ValueSignature");
-                        jsontr = nt.buildReply(message);
-                        toreturn = jsontr.toString();
-                        dos.writeUTF(toreturn);
-                        System.out.println("Returning message is: " + toreturn);
-                        break;
+                 case "Echo":
+                     System.out.println("Got Something");
+                     dos.writeUTF("ACK");
 
-                    case "getStateOfGood":
-                        String good = jsonObj.getString("Good");
-                        message = nt.getStateOfGood(jsonObj, hash);
-                        message.put("rid",jsonObj.getLong("rid"));
-                        toreturn = nt.buildReply(message).toString();
-                        toreturn = nt.buildState(toreturn, good, jsonObj);
-                        dos.writeUTF(toreturn);
-                        System.out.println("Returning message is: " + toreturn);
-                        break;
-
-                    case "Echo":
-                        System.out.println("Got Something");
-                        dos.writeUTF("ACK");
-
-                    case "WriteBack":
-                        message = nt.writeback(json);
-                        toreturn = nt.buildReply(message).toString();
-                        dos.writeUTF(toreturn);
-                        break;
+                 case "WriteBack":
+                     message = nt.writeback(json);
+                     toreturn = nt.buildReply(message).toString();
+                     dos.writeUTF(toreturn);
+                     break;
 
 
-                    default:
-                    	message = nt.invalid();
-                    	toreturn = nt.buildReply(message).toString();
-                        dos.writeUTF(toreturn);
-                        System.out.println("Returning message is: " + toreturn);
-                        break;
-                }
-            } catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
-                eofError.printStackTrace();
-                //System.out.println(e0.getMessage());
-                break;
-            }
+                 default:
+                     message = nt.invalid();
+                     toreturn = nt.buildReply(message).toString();
+                     dos.writeUTF(toreturn);
+                     System.out.println("Returning message is: " + toreturn);
+                     break;
+             }
+         } catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
+             eofError.printStackTrace();
+         }
 
-            // Client Socket closed
-            //System.out.println(socketEx.getMessage());
-
-            catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("ERROR: " + received );
-                try {
-                    dos.writeUTF("Invalid input");
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        }
-        try {
-            System.out.println("Client " + this.connection + " sends exit...");
-            this.connection.close();
-            System.out.println("Connection closed");
-            this.dis.close();
-            this.dos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+          catch (Exception e) {
+             e.printStackTrace();
+             System.out.println("ERROR: " + received );
+             try {
+                 dos.writeUTF("Invalid input");
+             } catch (IOException e1) {
+                 e1.printStackTrace();
+             }
+         }
+         try {
+             System.out.println("Client " + this.connection + " sends exit...");
+             this.connection.close();
+             System.out.println("Connection closed");
+             this.dis.close();
+             this.dos.close();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
     }
-
-
-
-
 }

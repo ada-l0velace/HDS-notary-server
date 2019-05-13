@@ -49,7 +49,7 @@ public abstract class ByzantineRegister {
                 sig = notary.cc.signWithPrivateKey(value.toString());
 
                 //write(good, value.toString(),sig, 0, 0);
-                _goods.put(good, new RegisterValue(sig, value.toString(), notary.notaryIndex, 0));
+                _goods.put(good, new RegisterValue(sig, value.toString(), 0, notary.notaryIndex, 0));
             }
             conn.close();
         } catch (Exception e) {
@@ -64,7 +64,7 @@ public abstract class ByzantineRegister {
         return _goods.get(good);
     }
 
-    abstract void write(String good, String msg, String sig, long pid, long ts);
+    abstract void write(String good, String msg, String sig, long rid, int pid, long ts);
     abstract String read (String good, String msg, JSONObject request);
     abstract void ack(JSONObject ack, long ts);
 }

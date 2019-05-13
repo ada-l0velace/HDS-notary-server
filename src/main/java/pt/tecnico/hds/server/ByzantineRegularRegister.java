@@ -9,14 +9,11 @@ public class ByzantineRegularRegister extends ByzantineRegister {
     }
 
     @Override
-    void write(String good, String msg, String sig, long pid, long ts) {
-        //System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-        //System.out.println(_goods.values());
-        //System.out.println("######################################################");
+    void write(String good, String msg, String sig, long rid, int pid, long ts) {
         if (ts > _goods.get(good).getTimestamp()) {
 
             JSONObject jMsg = new JSONObject(msg);
-            _goods.put(good, new RegisterValue(sig, msg, 0, ts));
+            _goods.put(good, new RegisterValue(sig, msg, rid, pid, ts));
         }
     }
 

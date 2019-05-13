@@ -33,13 +33,10 @@ public class Request {
         String m = getReply().toString();
         System.out.println(m);
         dos.writeUTF(m);
-        System.out.println("Done");
         String clientAnswer = dis.readUTF();
         JSONObject j = new JSONObject(clientAnswer);
-        System.out.println("Done with that");
         if (!verifySignature(j))
             return false;
-        System.out.println("Donesad");
         String X = new JSONObject(j.getString("Message")).getString("Answer");
 
         return Utils.getSHA256(X + rs.substring(4)).equals(Utils.getSHA256(rs));
