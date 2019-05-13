@@ -34,7 +34,7 @@ public class ByzantineAtomicRegister extends ByzantineRegister {
         JSONObject j = new JSONObject(msg);
         if (_goods.containsKey(good)) {
             RegisterValue val = _goods.get(good);
-            j.put("rid", val.getRid());
+            //j.put("rid", val.getRid());
             j.put("Value", val.getValue());
             j.put("SignatureValue", val.getSignature());
         }

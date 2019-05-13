@@ -65,7 +65,8 @@ public class Notary {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		reg = new ByzantineAtomicRegister(this);
+		//reg = new ByzantineAtomicRegister(this);
+		reg = new ByzantineRegularRegister(this);
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();
@@ -401,22 +402,31 @@ public class Notary {
 		return answer;
 	}
 
+	public String isServerDebug(String name) {
+		if (Main.debug)
+			return "serverDebug";
+		else
+			return name;
+	}
 
 	public JSONObject writeback(JSONObject j){
 			System.out.println("Got Here");
 			JSONObject reply = new JSONObject();
 			JSONObject message = new JSONObject(j.getString("Message"));
+			System.out.println(message.toString());
 			String signer = message.getString("signer");
 			long ts = message.getLong("t");
-			JSONObject val = new JSONObject(message.getString("value"));
+			JSONObject val = message.getJSONObject("v");
 			String good = val.getString("Good");
 			String sig = j.getString("Hash");
-			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + signer + ".pub")){
+			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + isServerDebug(signer) + ".pub")){
 				if (ts > reg.getGood(good).getTimestamp()){
+					//val.put("wts", ts);
 					reg.write(good,val.toString(), sig,val.getLong("pid"),ts);
 				}
 			}
 			reply.put("Action", "ack");
+			reply.put("wts", ts);
 			return reply;
 
 

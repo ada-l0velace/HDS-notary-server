@@ -37,7 +37,7 @@ public class HdsServer implements Runnable {
             try {
                 // receive the answer from client
                 received = dis.readUTF();
-
+                System.out.println(" _----------######       LOLOLOL _----------######");
                 if (received.equals("Exit")) {
                     break;
                 }

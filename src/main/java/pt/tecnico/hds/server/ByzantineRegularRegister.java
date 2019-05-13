@@ -10,8 +10,11 @@ public class ByzantineRegularRegister extends ByzantineRegister {
 
     @Override
     void write(String good, String msg, String sig, long pid, long ts) {
-        System.out.println(_goods);
+        //System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+        //System.out.println(_goods.values());
+        //System.out.println("######################################################");
         if (ts > _goods.get(good).getTimestamp()) {
+
             JSONObject jMsg = new JSONObject(msg);
             _goods.put(good, new RegisterValue(sig, msg, 0, ts));
         }
@@ -23,7 +26,7 @@ public class ByzantineRegularRegister extends ByzantineRegister {
         if (_goods.containsKey(good)) {
             RegisterValue val = _goods.get(good);
             val._rid=request.getLong("rid");
-
+            //val._timestamp = request.getLong("wts");
             j.put("Value", val.getValue());
             j.put("SignatureValue", val.getSignature());
         }
