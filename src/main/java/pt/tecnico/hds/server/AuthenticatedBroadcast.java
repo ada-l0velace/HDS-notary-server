@@ -62,13 +62,15 @@ public class AuthenticatedBroadcast implements Broadcast {
 
     @Override
     public void echo(JSONObject echo) {
+
         JSONObject messageE = new JSONObject(echo.getString("Message"));
         int pid = messageE.getInt("pid");
         BroadcastValue bv = new BroadcastValue(echo, pid);
 
         if(echos[pid] == null) {
+            responses++;
             echos[pid] = bv;
-            for (int i = 0; i < notary.nServers; i++) {
+            for (int i = 0; i < Main.N; i++) {
                 System.out.println("#############################################");
                 System.out.println(echos[i]);
                 System.out.println(bv);
@@ -76,20 +78,24 @@ public class AuthenticatedBroadcast implements Broadcast {
                 if(echos[i].equals(bv)) {
                     acks++;
                     System.out.println("ack echo from: "+ bv+ " total acks: "+ acks);
-                    System.out.println(acks>(notary.nServers+1)/2 );
-                    System.out.println((notary.nServers+1)/2);
-                    if(!sentReady && acks > (notary.nServers+1)/2) {
+                    System.out.println(acks>(Main.N+Main.f)/2 );
+                    System.out.println((Main.N + Main.f)/2);
+                    if(!sentReady && acks > (Main.N + Main.f)/2) {
                         sentReady = true;
-                        //delivered = true;
-                        System.out.println("1st phase completed");
+                        doubleEcho(bv.message);
+                        System.out.println("Echo phase is done...");
                     }
                 }
             }
         }
 
         if(responses > (notary.nServers+1)/2 && acks<2f) {
-            delivered = true;
+            //delivered = true;
             sem.release();
         }
     }
+
+    public void ready(JSONObject ready){}
+    public void doubleEcho(JSONObject ready) {}
+
 }

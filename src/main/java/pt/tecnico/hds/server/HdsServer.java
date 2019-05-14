@@ -45,7 +45,7 @@ public class HdsServer implements Runnable {
              Request r = new Request(nt, dis,dos);
              JSONObject jsontr;
              String action = jsonObj.getString("Action");
-             if (!action.equals("Echo")) {
+             if (!action.equals("Echo") && !action.equals("Ready")) {
                  if (r.computationalCostChallenge())
                      received = action;
                  else
@@ -75,9 +75,7 @@ public class HdsServer implements Runnable {
                      jsontr = nt.intentionToSell(jsonObj, hash);
                      toreturn = nt.buildReply(jsontr).toString();
                      System.out.println(toreturn);
-                     System.out.println("WTFIGOdasd");
                      dos.writeUTF(toreturn);
-                     System.out.println("WTFIGOwritten");
                      System.out.println("Returning message is: " + toreturn);
                      break;
 
@@ -94,6 +92,11 @@ public class HdsServer implements Runnable {
                  case "Echo":
                      System.out.println("new echo from: "+json.toString());
                      nt.rm.echo(json);
+                     break;
+
+                 case "Ready":
+                     System.out.println("Ready phase from: "+json.toString());
+                     nt.rm.ready(json);
                      break;
 
                  case "WriteBack":
