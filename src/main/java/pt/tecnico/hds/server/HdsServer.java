@@ -34,12 +34,13 @@ public class HdsServer implements Runnable {
         System.out.println("Server " + this.connection + " Opens...");
          try {
              // receive the answer from client
+
              received = dis.readUTF();
              System.out.println(received);
              this.TimeStamp = new java.util.Date().toString();
              // write on output stream based on the
              // answer from the client
-
+             System.out.println("##!!-------------------##!!");
              JSONObject json = new JSONObject(received);
              String hash = json.getString("Hash");
              JSONObject jsonObj = new JSONObject(json.getString("Message"));
@@ -61,19 +62,19 @@ public class HdsServer implements Runnable {
              switch (received) {
 
                  case "transferGood":
+                     nt.rm.init();
+                     nt.rm.broadcast(json);
                      JSONObject message2 = new JSONObject(json.getString("Message2"));
                      jsontr = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
-                     if (jsontr.getString("Action").equals("YES"))
-                         jsontr = nt.rm.waitForEcho(json);
                      toreturn = nt.buildReply(jsontr).toString();
                      dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
                      break;
 
                  case "intentionToSell":
+                     nt.rm.init();
+                     nt.rm.broadcast(json);
                      jsontr = nt.intentionToSell(jsonObj, hash);
-                     if (jsontr.getString("Action").equals("YES"))
-                         jsontr = nt.rm.waitForEcho(json);
                      toreturn = nt.buildReply(jsontr).toString();
                      dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
@@ -90,9 +91,9 @@ public class HdsServer implements Runnable {
                      break;
 
                  case "Echo":
-                     nt.receiveEchoes(json);
+                     System.out.println("new echo from: "+json.toString());
+                     nt.rm.echo(json);
                      break;
-
 
                  case "WriteBack":
                      System.out.println(received);

@@ -10,9 +10,6 @@ public class ByzantineRegularRegister extends ByzantineRegister {
 
     @Override
     void write(String good, String msg, String sig, long rid, int pid, long ts) {
-        System.out.println("Comparing TSs");
-        System.out.println(ts);
-        System.out.println(_goods.get(good).getTimestamp());
         if (ts > _goods.get(good).getTimestamp()) {
 
             JSONObject jMsg = new JSONObject(msg);

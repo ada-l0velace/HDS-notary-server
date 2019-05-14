@@ -44,7 +44,7 @@ public class Notary {
 			System.exit(1);
 		}
 		reg = new ByzantineAtomicRegister(this);
-		rm = new AuthenticatedBroadcast(1, nServers , "localhost", _port, notaryIndex, this);
+		rm = new AuthenticatedBroadcast(this);
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
@@ -69,7 +69,7 @@ public class Notary {
 		}
 		//reg = new ByzantineAtomicRegister(this);
 		reg = new ByzantineRegularRegister(this);
-		rm = new AuthenticatedBroadcast(1, nServers , "localhost", _port, notaryIndex, this);
+		rm = new AuthenticatedBroadcast(this);
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();
@@ -231,7 +231,7 @@ public class Notary {
     					pstmt.executeUpdate();
     					reply.put("Action", "YES");
     					System.out.println("Updating register");
-						updateRegister(message, hash, reply);
+						updateRegister(message, hash);
     				} else {
     					reply.put("Action", "NO");
     				}
@@ -273,7 +273,7 @@ public class Notary {
         			pstmt.executeUpdate();
         			//query();
         			reply.put("Action", "YES");
-					updateRegister(message, hash, reply);
+					updateRegister(message, hash);
         		} else
         			reply.put("Action", "NO");
         	} else {
@@ -331,31 +331,19 @@ public class Notary {
     }
 
 
-	public void updateRegister(JSONObject value, String sig, JSONObject reply) {
+	public void updateRegister(JSONObject value, String sig) {
+		long ts = value.getLong("wts");
+		String good = value.getString("Good");
+		int pid = notaryIndex;
+		long rid = value.getLong("rid");
 
-		JSONObject msg = rm.echo(value.toString(), sig);
-		System.out.println("This is msg: " + msg);
+
 		System.out.println("Writing to Register");
-		System.out.println(msg);
-		rm.setManager(msg, reply);
-		System.out.println("Sending Echoes");
-		rm.broadcast();
-		//reg.write(good, value.toString(), sig, rid, pid, ts);
-		/*if (reg.goodExists(good)) {
-			if (!reg.checkTimestamp(good, ts)) {
-				return;
-			}
-		}
-		reg.deliveryWrite(good, value.toString(), sig, pid, ts);
-		*/
+		reg.write(good, value.toString(), sig, rid, pid, ts);
 	}
 
 	public String buildState(String msg, String good, JSONObject request) {
 		return reg.read(good, msg, request);
-	}
-
-	public static String connectToServers(String host, int port, JSONObject j){
-		return null;
 	}
 
 	public String isServerDebug(String name) {
@@ -441,10 +429,4 @@ public class Notary {
 		}
 		return answer;
 	}
-
-
-	public void receiveEchoes(JSONObject json){
-		rm.getEcho(json);
-	}
-
 }
