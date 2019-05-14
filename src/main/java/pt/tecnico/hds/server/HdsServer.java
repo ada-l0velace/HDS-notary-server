@@ -64,7 +64,7 @@ public class HdsServer implements Runnable {
                      JSONObject message2 = new JSONObject(json.getString("Message2"));
                      jsontr = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
                      if (jsontr.getString("Action").equals("YES"))
-                         jsontr = nt.waitForEcho(json);
+                         jsontr = nt.rm.waitForEcho(json);
                      toreturn = nt.buildReply(jsontr).toString();
                      dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
@@ -73,7 +73,7 @@ public class HdsServer implements Runnable {
                  case "intentionToSell":
                      jsontr = nt.intentionToSell(jsonObj, hash);
                      if (jsontr.getString("Action").equals("YES"))
-                         jsontr = nt.waitForEcho(json);
+                         jsontr = nt.rm.waitForEcho(json);
                      toreturn = nt.buildReply(jsontr).toString();
                      dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);

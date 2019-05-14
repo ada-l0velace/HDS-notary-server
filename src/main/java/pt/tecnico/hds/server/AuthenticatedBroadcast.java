@@ -1,18 +1,10 @@
 package pt.tecnico.hds.server;
 
 import org.json.JSONObject;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ReplicaManager {
+public class AuthenticatedBroadcast implements Broadcast {
 
     private int _ansN;
     private int _pid;
@@ -21,12 +13,15 @@ public class ReplicaManager {
     private String _host;
     private int _port;
     private int _q;
+    private boolean sentEcho;
+    private boolean delivered;
     private JSONObject _reply;
     private JSONObject _msg;
-    private final static Logger logger = LoggerFactory.getLogger(ReplicaManager.class);
+    private Notary _notary;
+    private final static Logger logger = LoggerFactory.getLogger(AuthenticatedBroadcast.class);
 
 
-    public ReplicaManager(int f, int n, String host, int port, int pid){
+    public AuthenticatedBroadcast(int f, int n, String host, int port, int pid, Notary notary) {
         _q = (f + _nServers) / 2;
         _port = port;
         _host = host;
@@ -34,7 +29,12 @@ public class ReplicaManager {
         _nServers = n;
         _acks = 1;
         _ansN = 1;
+        _notary = notary;
+        sentEcho = false;
+        delivered = false;
+
     }
+
 
     public int getAcks(){ ;return _ansN; }
 
@@ -42,7 +42,7 @@ public class ReplicaManager {
         return _reply;
     }
 
-    public void getEcho(JSONObject j){
+    public void getEcho(JSONObject j) {
         JSONObject val = new JSONObject(j.getString("Message"));
         System.out.println("Got Here too");
         System.out.println(j);
@@ -63,6 +63,8 @@ public class ReplicaManager {
         System.out.println(reply);
         _acks = 1;
         _ansN = 1;
+        sentEcho = false;
+        delivered = false;
         _msg = j;
         _reply = reply;
     }
@@ -91,7 +93,7 @@ public class ReplicaManager {
         return true;
     }
 
-    JSONObject echo(String msg, String sig){
+    public JSONObject echo(String msg, String sig){
         JSONObject echo = new JSONObject();
         JSONObject message = new JSONObject();
         message.put("Action", "Echo");
@@ -103,70 +105,38 @@ public class ReplicaManager {
         return echo;
     }
 
+    public JSONObject waitForEcho(JSONObject request){
+        JSONObject message = new JSONObject(request.getString("Message"));
+        JSONObject reply = new JSONObject();
 
-    public JSONObject connectToServer(int port){
-        JSONObject answer = null;
-        int maxRetries = 10;
-        int retries = 0;
-
-
-        while (true) {
-            try {
-                System.out.println("Connecting to " + port);
-                InetAddress ip = InetAddress.getByName(_host);
-
-                Socket s = new Socket(ip, port);
-                s.setSoTimeout(10 * 1000);
-
-                DataInputStream dis = new DataInputStream(s.getInputStream());
-                DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
-
-                try {
-
-                    System.out.println("Message to be Sent->" +_msg.toString());
-                    dos.writeUTF(_msg.toString());
-
-                    dis.close();
-                    dos.close();
-                    s.close();
-
-
-                } catch (java.net.SocketTimeoutException timeout) {
-                    timeout.printStackTrace();
-                    s.close();
-                    break;
-
-                } catch (java.io.EOFException e0) {
-                    e0.printStackTrace();
-                    s.close();
-                    break;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    s.close();
-                    break;
-                }
-
-
-            } catch (IOException e) {
-                logger.error(e.getMessage() + " on port:" + port);
-                //e.printStackTrace();
-                retries++;
-                if (retries == maxRetries)
-                    break;
-                continue;
+        while (!delivered){
+            System.out.println("Got " + getAcks() + " Echoes");
+            if (quorum()) {
+                delivered = true;
+                System.out.println("Success");
+                _notary.reg.write(message.getString("Good"), message.toString(), request.getString("Hash"), message.getLong("rid"), _notary.notaryIndex, message.getLong("Timestamp"));
+                reply = getReply();
+                return reply;
             }
-            break;
+            else if (ackd()){
+                delivered = true;
+                System.out.println("Failed");
+                reply.put("Action", "NO");
+                return reply;
+            }
         }
-        return answer;
+        return null;
     }
 
-    public void broadcast(){
-        int notaryPort = _port + _pid;
-        for (int s = _port; s < _port + _nServers; s++){
-            if (s != notaryPort){
-                connectToServer(s);
-                System.out.println(_msg + "Sent to " + s);
+    public void broadcast() {
+        if (!sentEcho) {
+            sentEcho = true;
+            int notaryPort = _port + _pid;
+            for (int s = _port; s < _port + _nServers; s++) {
+                if (s != notaryPort) {
+                    _notary.connectToServer(_host,_port,_msg);
+                    System.out.println(_msg + "Sent to " + s);
+                }
             }
         }
     }

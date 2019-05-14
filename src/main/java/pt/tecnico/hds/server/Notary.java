@@ -26,8 +26,8 @@ public class Notary {
 	public int notaryIndex;
 	public static final int nServers = 4;
 	public static String path;
-	private ByzantineRegister reg;
-	private ReplicaManager rm;
+	public ByzantineRegister reg;
+	protected Broadcast rm;
 	public final static Logger logger = LoggerFactory.getLogger(HdsServer.class);
 
 
@@ -44,7 +44,7 @@ public class Notary {
 			System.exit(1);
 		}
 		reg = new ByzantineAtomicRegister(this);
-		rm = new ReplicaManager(1, nServers , "localhost", _port, notaryIndex);
+		rm = new AuthenticatedBroadcast(1, nServers , "localhost", _port, notaryIndex, this);
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
@@ -69,7 +69,7 @@ public class Notary {
 		}
 		//reg = new ByzantineAtomicRegister(this);
 		reg = new ByzantineRegularRegister(this);
-		rm = new ReplicaManager(1, nServers , "localhost", _port, notaryIndex);
+		rm = new AuthenticatedBroadcast(1, nServers , "localhost", _port, notaryIndex, this);
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();
@@ -385,26 +385,63 @@ public class Notary {
 			return reply;
 	}
 
-	public JSONObject waitForEcho(JSONObject request){
-		JSONObject message = new JSONObject(request.getString("Message"));
-		JSONObject reply = new JSONObject();
+	public JSONObject connectToServer(String _host, int port, JSONObject _msg){
+		JSONObject answer = null;
+		int maxRetries = 10;
+		int retries = 0;
 
 
-		while (true){
-			System.out.println("Got " + rm.getAcks() + " Echoes");
-			if (rm.quorum()) {
-				System.out.println("Success");
-				reg.write(message.getString("Good"), message.toString(), request.getString("Hash"), message.getLong("rid"), notaryIndex, message.getLong("Timestamp"));
-				reply = rm.getReply();
-				return reply;
+		while (true) {
+			try {
+				System.out.println("Connecting to " + port);
+				InetAddress ip = InetAddress.getByName(_host);
+
+				Socket s = new Socket(ip, port);
+				s.setSoTimeout(10 * 1000);
+
+				DataInputStream dis = new DataInputStream(s.getInputStream());
+				DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+
+
+				try {
+
+					System.out.println("Message to be Sent->" +_msg.toString());
+					dos.writeUTF(_msg.toString());
+
+					dis.close();
+					dos.close();
+					s.close();
+
+
+				} catch (java.net.SocketTimeoutException timeout) {
+					timeout.printStackTrace();
+					s.close();
+					break;
+
+				} catch (java.io.EOFException e0) {
+					e0.printStackTrace();
+					s.close();
+					break;
+				} catch (Exception e) {
+					e.printStackTrace();
+					s.close();
+					break;
+				}
+
+
+			} catch (IOException e) {
+				logger.error(e.getMessage() + " on port:" + port);
+				//e.printStackTrace();
+				retries++;
+				if (retries == maxRetries)
+					break;
+				continue;
 			}
-			else if (rm.ackd()){
-				System.out.println("Failed");
-				reply.put("Action", "NO");
-				return reply;
-			}
+			break;
 		}
+		return answer;
 	}
+
 
 	public void receiveEchoes(JSONObject json){
 		rm.getEcho(json);
