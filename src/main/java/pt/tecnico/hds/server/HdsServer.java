@@ -74,8 +74,12 @@ public class HdsServer implements Runnable {
                      jsontr = nt.intentionToSell(jsonObj, hash);
                      if (jsontr.getString("Action").equals("YES"))
                          jsontr = nt.rm.waitForEcho(json);
+                     System.out.println("WTFIGO");
                      toreturn = nt.buildReply(jsontr).toString();
+                     System.out.println(toreturn);
+                     System.out.println("WTFIGOdasd");
                      dos.writeUTF(toreturn);
+                     System.out.println("WTFIGOwritten");
                      System.out.println("Returning message is: " + toreturn);
                      break;
 
@@ -90,7 +94,7 @@ public class HdsServer implements Runnable {
                      break;
 
                  case "Echo":
-                     nt.receiveEchoes(json);
+                     nt.receiveEchoes(jsonObj);
                      break;
 
 

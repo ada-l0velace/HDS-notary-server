@@ -8,10 +8,8 @@ import java.util.HashMap;
 
 public class AuthenticatedBroadcast implements Broadcast {
 
-    private int _ansN;
     private int _pid;
-    private HashMap<String, Boolean[]> _echoes;
-    private int _acks;
+    private HashMap<String, BroadcastValue> _echoes;
     private int _nServers;
     private String _host;
     private int _port;
@@ -19,39 +17,21 @@ public class AuthenticatedBroadcast implements Broadcast {
     private boolean sentEcho;
     private boolean delivered;
     private JSONObject _reply;
-    private JSONObject _msg;
     private Notary _notary;
     private final static Logger logger = LoggerFactory.getLogger(AuthenticatedBroadcast.class);
 
 
     public AuthenticatedBroadcast(int f, int n, String host, int port, int pid, Notary notary) {
         _echoes = new HashMap<>();
-        _q = (f + _nServers) / 2;
+        _q = 3;
         _port = port;
         _host = host;
         _pid = pid;
         _nServers = n;
-        _acks = 1;
-        _ansN = 1;
         _notary = notary;
         sentEcho = false;
         delivered = false;
 
-    }
-
-
-    public int getAcks(){ return _ansN; }
-
-    public int nEchoes(JSONObject j){
-        int count = 0;
-        Boolean[] list = _echoes.get(j.toString());
-        System.out.println(list);
-        for (Boolean b : list){
-            if (b){
-                ++count;
-            }
-        }
-        return count;
     }
 
 
@@ -60,73 +40,36 @@ public class AuthenticatedBroadcast implements Broadcast {
     }
 
     public void getEcho(JSONObject j) {
-        JSONObject val = new JSONObject(j.getString("Message"));
         System.out.println("Got Something");
-        insertEcho(j);
+        JSONObject val = new JSONObject(j.getString("Value"));
+        insertEcho(val, j.getInt("pid"));
         System.out.println(_echoes);
-        /*
-        if (_msg == null) {
-            _msg = j;
-            _acks++;
-        }
-        else if (this.compareEchoes(new JSONObject(val.getString("Value")))){
-            _acks++;
-        }
-        */
-        _ansN++;
-        System.out.println("Got " + _ansN + " Answers: " + nEchoes(j) + " correct");
+        int ansN = _echoes.get(val.toString()).getAnsNum();
+        System.out.println("Got " + ansN + " Answers: " + _echoes.get(val.toString()).nEchoes() + " correct");
     }
 
-    public void insertEcho(JSONObject j){
-        if (_echoes.containsKey(j)){
-            _echoes.get(j)[_pid] = true;
+    public void insertEcho(JSONObject j, int pid){
+        if (!_echoes.containsKey(j.toString())){
+            _echoes.put(j.toString(), new BroadcastValue(j.toString(), _nServers));
+            _echoes.get(j.toString()).insertEcho(_pid);
         }
-        else {
-            Boolean[] echoes = new Boolean[_nServers];
-            for (int i = 0; i < _nServers; i++){
-                if (i != _pid){ echoes[i] = false; }
-                else { echoes[_pid] = true; }
-            }
-            _echoes.put(j.toString(), echoes);
-        }
+        _echoes.get(j.toString()).insertEcho(pid);
+
     }
 
 
     public void setManager(JSONObject j, JSONObject reply){
-        insertEcho(j);
-        _acks = 1;
-        _ansN = 1;
+        insertEcho(j, _pid);
         sentEcho = false;
         delivered = false;
-        _msg = j;
         _reply = reply;
     }
 
-    public Boolean ackd(){ return _ansN == _nServers; }
+    public Boolean ackd(String s){ return _echoes.get(s).getAnsNum() == _nServers; }
 
-    public Boolean quorum(JSONObject j){
+    public Boolean quorum(String s){
         //return _acks >= _q;
-        return nEchoes(j) >= _q;
-    }
-
-    public Boolean compareEchoes(JSONObject j){
-
-        JSONObject val = new JSONObject(_msg.getString("Message"));
-        JSONObject message = new JSONObject(val.getString("Value"));
-        for (String k : j.keySet()) {
-            if (!k.equals("Timestamp") &&
-                    !k.equals("rid") &&
-                    !k.equals("wts") &&
-                    message.has(k)) {
-                if (!j.getString(k).equals(message.getString(k)))
-                    return false;
-            }
-        }
-        if (j.getLong("rid") != message.getLong("rid") ||
-            j.getLong("wts") != message.getLong("wts"))
-            return false;
-
-        return true;
+        return _echoes.get(s).nEchoes() >= _q;
     }
 
     public JSONObject echo(String msg, String sig){
@@ -134,10 +77,9 @@ public class AuthenticatedBroadcast implements Broadcast {
         JSONObject message = new JSONObject();
         message.put("Action", "Echo");
         message.put("Value", msg);
+        message.put("pid", _pid);
         echo.put("Message", message.toString());
         echo.put("Hash", sig);
-        System.out.println("Echo Message:");
-        System.out.println(echo);
         return echo;
     }
 
@@ -146,16 +88,15 @@ public class AuthenticatedBroadcast implements Broadcast {
         JSONObject reply = new JSONObject();
 
         while (!delivered){
-            System.out.println("Got " + getAcks() + " Echoes");
-            System.out.println(request);
-            if (quorum(echo(message.toString(), request.getString("Hash")))) {
+            System.out.println(quorum(message.toString()));
+            if (quorum(message.toString())) {
                 delivered = true;
                 System.out.println("Success");
                 _notary.reg.write(message.getString("Good"), message.toString(), request.getString("Hash"), message.getLong("rid"), _notary.notaryIndex, message.getLong("Timestamp"));
                 reply = getReply();
                 return reply;
             }
-            else if (ackd()){
+            else if (ackd(message.toString())){
                 delivered = true;
                 System.out.println("Failed");
                 reply.put("Action", "NO");
@@ -165,14 +106,15 @@ public class AuthenticatedBroadcast implements Broadcast {
         return null;
     }
 
-    public void broadcast() {
+
+    public void broadcast(String msg) {
         if (!sentEcho) {
             sentEcho = true;
             int notaryPort = _port + _pid;
             for (int s = _port; s < _port + _nServers; s++) {
                 if (s != notaryPort) {
-                    _notary.connectToServer(_host,_port,_msg);
-                    System.out.println(_msg + "Sent to " + s);
+                    _notary.connectToServer(_host, s, msg);
+                    System.out.println(msg + "Sent to " + s);
                 }
             }
         }
