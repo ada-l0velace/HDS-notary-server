@@ -38,6 +38,8 @@ public class AuthenticatedBroadcast implements Broadcast {
             sentEcho = true;
             for (int i = 0; i < notary.nServers; i++) {
                 notary.connectToServer("localhost", notary._port + i, buildMessage(request));
+                // new BroadcastThread(notary,"localhost", notary._port + i, buildMessage(request));
+                // for some reason threads don't work
             }
         }
 
@@ -75,17 +77,17 @@ public class AuthenticatedBroadcast implements Broadcast {
                 System.out.println(echos[i]);
                 System.out.println(bv);
                 System.out.println("#############################################");
-                if(echos[i] != null && echos[i].equals(bv)) {
+                if(echos[i] != null & echos[i].equals(bv)) {
                     acks++;
                     System.out.println("ack echo from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>(Main.N+Main.f)/2 );
                     System.out.println((Main.N + Main.f)/2);
-                    if(!delivered && acks > (Main.N + Main.f)/2) {
+                    if(!delivered & acks > (Main.N + Main.f)/2) {
                         sentReady = true;
                         delivered = true;
                         sem.release();
-                        acks = 0;
-                        responses = 0;
+                        //acks = 0;
+                        //responses = 0;
                         System.out.println(bv.message.toString());
                         doubleEcho(bv.message);
                         System.out.println("Echo phase is done...");

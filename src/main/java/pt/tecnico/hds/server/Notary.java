@@ -44,7 +44,7 @@ public class Notary {
 			System.exit(1);
 		}
 		reg = new ByzantineAtomicRegister(this);
-		rm = new AuthenticatedBroadcast(this);
+		rm = new AuthenticatedDoubleEchoBroadcast(this);
 		notaryIndex = 0;
 		System.out.println("HDS-server starting");
 		startServer();
@@ -69,7 +69,7 @@ public class Notary {
 		}
 		//reg = new ByzantineAtomicRegister(this);
 		reg = new ByzantineAtomicRegister(this);
-		rm = new AuthenticatedBroadcast(this);
+		rm = new AuthenticatedDoubleEchoBroadcast(this);
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();

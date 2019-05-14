@@ -21,10 +21,12 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
 
     @Override
     public JSONObject buildMessage(JSONObject request) {
+
         JSONObject echoMessage = new JSONObject();
         echoMessage.put("Action","Ready");
         echoMessage.put("pid",notary.notaryIndex);
-        echoMessage.put("Value",request);
+        if (request.has("Message"))
+            echoMessage.put("Value",request.getString("Message"));
         return notary.buildReply(echoMessage);
     }
 
@@ -52,7 +54,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
                 System.out.println(echos[i]);
                 System.out.println(bv);
                 System.out.println("#############################################");
-                if(reads[i]!= null && reads[i].equals(bv)) {
+                if(reads[i]!= null & reads[i].equals(bv)) {
                     acks++;
                     System.out.println("ack ready from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>Main.f);
@@ -60,7 +62,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
                     if(acks>Main.f && !sentReady) {
                         doubleEcho(bv.message);
                     }
-                    if(acks>2f && !this.delivered) {
+                    if(acks>2f & !this.delivered) {
                         System.out.println("###################WIN#######################");
                         System.out.println(echos[i]);
                         System.out.println("#############################################");
