@@ -4,10 +4,13 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+
 public class AuthenticatedBroadcast implements Broadcast {
 
     private int _ansN;
     private int _pid;
+    private HashMap<String, Boolean[]> _echoes;
     private int _acks;
     private int _nServers;
     private String _host;
@@ -22,6 +25,7 @@ public class AuthenticatedBroadcast implements Broadcast {
 
 
     public AuthenticatedBroadcast(int f, int n, String host, int port, int pid, Notary notary) {
+        _echoes = new HashMap<>();
         _q = (f + _nServers) / 2;
         _port = port;
         _host = host;
@@ -36,7 +40,20 @@ public class AuthenticatedBroadcast implements Broadcast {
     }
 
 
-    public int getAcks(){ ;return _ansN; }
+    public int getAcks(){ return _ansN; }
+
+    public int nEchoes(JSONObject j){
+        int count = 0;
+        Boolean[] list = _echoes.get(j.toString());
+        System.out.println(list);
+        for (Boolean b : list){
+            if (b){
+                ++count;
+            }
+        }
+        return count;
+    }
+
 
     public JSONObject getReply(){
         return _reply;
@@ -44,8 +61,10 @@ public class AuthenticatedBroadcast implements Broadcast {
 
     public void getEcho(JSONObject j) {
         JSONObject val = new JSONObject(j.getString("Message"));
-        System.out.println("Got Here too");
-        System.out.println(j);
+        System.out.println("Got Something");
+        insertEcho(j);
+        System.out.println(_echoes);
+        /*
         if (_msg == null) {
             _msg = j;
             _acks++;
@@ -53,14 +72,28 @@ public class AuthenticatedBroadcast implements Broadcast {
         else if (this.compareEchoes(new JSONObject(val.getString("Value")))){
             _acks++;
         }
+        */
         _ansN++;
-        System.out.println("Got " + _ansN + " Answers: " + _acks + " correct");
+        System.out.println("Got " + _ansN + " Answers: " + nEchoes(j) + " correct");
     }
 
+    public void insertEcho(JSONObject j){
+        if (_echoes.containsKey(j)){
+            _echoes.get(j)[_pid] = true;
+        }
+        else {
+            Boolean[] echoes = new Boolean[_nServers];
+            for (int i = 0; i < _nServers; i++){
+                if (i != _pid){ echoes[i] = false; }
+                else { echoes[_pid] = true; }
+            }
+            _echoes.put(j.toString(), echoes);
+        }
+    }
+
+
     public void setManager(JSONObject j, JSONObject reply){
-        System.out.println("Got Here");
-        System.out.println(j);
-        System.out.println(reply);
+        insertEcho(j);
         _acks = 1;
         _ansN = 1;
         sentEcho = false;
@@ -71,7 +104,10 @@ public class AuthenticatedBroadcast implements Broadcast {
 
     public Boolean ackd(){ return _ansN == _nServers; }
 
-    public Boolean quorum(){ return _acks >= _q; }
+    public Boolean quorum(JSONObject j){
+        //return _acks >= _q;
+        return nEchoes(j) >= _q;
+    }
 
     public Boolean compareEchoes(JSONObject j){
 
@@ -111,7 +147,8 @@ public class AuthenticatedBroadcast implements Broadcast {
 
         while (!delivered){
             System.out.println("Got " + getAcks() + " Echoes");
-            if (quorum()) {
+            System.out.println(request);
+            if (quorum(echo(message.toString(), request.getString("Hash")))) {
                 delivered = true;
                 System.out.println("Success");
                 _notary.reg.write(message.getString("Good"), message.toString(), request.getString("Hash"), message.getLong("rid"), _notary.notaryIndex, message.getLong("Timestamp"));

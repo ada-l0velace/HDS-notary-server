@@ -96,7 +96,6 @@ public class HdsServer implements Runnable {
 
                  case "WriteBack":
                      System.out.println(received);
-                     System.out.println("WTF " + json);
                      message = nt.writeback(json);
                      toreturn = nt.buildReply(message).toString();
                      dos.writeUTF(toreturn);
