@@ -68,7 +68,7 @@ public class Notary {
 			System.exit(1);
 		}
 		//reg = new ByzantineAtomicRegister(this);
-		reg = new ByzantineRegularRegister(this);
+		reg = new ByzantineAtomicRegister(this);
 		rm = new AuthenticatedBroadcast(this);
 		System.out.println("HDS-server starting");
 		startServer();
