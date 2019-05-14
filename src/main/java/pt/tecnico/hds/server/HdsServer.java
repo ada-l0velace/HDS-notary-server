@@ -1,10 +1,9 @@
 package pt.tecnico.hds.server;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
-import java.sql.*;
+
 
 
 import org.json.JSONObject;
@@ -40,7 +39,6 @@ public class HdsServer implements Runnable {
              this.TimeStamp = new java.util.Date().toString();
              // write on output stream based on the
              // answer from the client
-             System.out.println("##!!-------------------##!!");
              JSONObject json = new JSONObject(received);
              String hash = json.getString("Hash");
              JSONObject jsonObj = new JSONObject(json.getString("Message"));
@@ -76,7 +74,10 @@ public class HdsServer implements Runnable {
                      nt.rm.broadcast(json);
                      jsontr = nt.intentionToSell(jsonObj, hash);
                      toreturn = nt.buildReply(jsontr).toString();
+                     System.out.println(toreturn);
+                     System.out.println("WTFIGOdasd");
                      dos.writeUTF(toreturn);
+                     System.out.println("WTFIGOwritten");
                      System.out.println("Returning message is: " + toreturn);
                      break;
 

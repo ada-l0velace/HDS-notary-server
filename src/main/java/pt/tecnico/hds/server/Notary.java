@@ -337,7 +337,6 @@ public class Notary {
 		int pid = notaryIndex;
 		long rid = value.getLong("rid");
 
-
 		System.out.println("Writing to Register");
 		reg.write(good, value.toString(), sig, rid, pid, ts);
 	}
@@ -373,7 +372,7 @@ public class Notary {
 			return reply;
 	}
 
-	public JSONObject connectToServer(String _host, int port, JSONObject _msg){
+	public JSONObject connectToServer(String _host, int port, String _msg){
 		JSONObject answer = null;
 		int maxRetries = 10;
 		int retries = 0;
@@ -393,8 +392,8 @@ public class Notary {
 
 				try {
 
-					System.out.println("Message to be Sent->" +_msg.toString());
-					dos.writeUTF(_msg.toString());
+					System.out.println("Message to be Sent->" +_msg);
+					dos.writeUTF(_msg);
 
 					dis.close();
 					dos.close();

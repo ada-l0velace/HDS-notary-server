@@ -6,6 +6,4 @@ public interface Broadcast {
     void init();
     void  broadcast(JSONObject request) throws InterruptedException;
     void echo(JSONObject echo);
-
-
 }

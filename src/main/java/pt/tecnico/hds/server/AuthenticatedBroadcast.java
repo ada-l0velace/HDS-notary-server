@@ -1,11 +1,8 @@
 package pt.tecnico.hds.server;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
+import org.json.JSONObject;
+
 import java.util.concurrent.Semaphore;
 
 public class AuthenticatedBroadcast implements Broadcast {
@@ -23,6 +20,7 @@ public class AuthenticatedBroadcast implements Broadcast {
         this.notary = notary;
         init();
     }
+
 
     public void init() {
         echos = new BroadcastValue[notary.nServers];
@@ -50,7 +48,9 @@ public class AuthenticatedBroadcast implements Broadcast {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
+
     }
 
     public JSONObject buildMessage(JSONObject request) {
@@ -66,6 +66,7 @@ public class AuthenticatedBroadcast implements Broadcast {
         JSONObject messageE = new JSONObject(echo.getString("Message"));
         int pid = messageE.getInt("pid");
         BroadcastValue bv = new BroadcastValue(echo, pid);
+
         if(echos[pid] == null) {
             echos[pid] = bv;
             for (int i = 0; i < notary.nServers; i++) {
@@ -75,7 +76,6 @@ public class AuthenticatedBroadcast implements Broadcast {
                 System.out.println("#############################################");
                 if(echos[i].equals(bv)) {
                     acks++;
-
                     System.out.println("ack echo from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>(notary.nServers+1)/2 );
                     System.out.println((notary.nServers+1)/2);
@@ -87,11 +87,9 @@ public class AuthenticatedBroadcast implements Broadcast {
             }
         }
 
-        if(responses>(notary.nServers+1)/2 && acks<2f) {
+        if(responses > (notary.nServers+1)/2 && acks<2f) {
             delivered = true;
             sem.release();
         }
-
     }
-
 }

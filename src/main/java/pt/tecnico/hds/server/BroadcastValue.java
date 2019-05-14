@@ -1,6 +1,4 @@
 package pt.tecnico.hds.server;
-
-import com.sun.org.apache.xpath.internal.operations.Equals;
 import org.json.JSONObject;
 
 public class BroadcastValue {
