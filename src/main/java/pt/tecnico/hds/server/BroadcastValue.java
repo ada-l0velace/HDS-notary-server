@@ -24,7 +24,7 @@ public class BroadcastValue {
 
     public BroadcastValue(JSONObject request, int pid) {
         this.pid = pid;
-        message = new JSONObject(request.getString("Message"));
+        message = new JSONObject(new JSONObject(request.getString("Message")).getString("Value"));
         if (message.has("rid"))
             rid = message.getLong("rid");
         else
@@ -67,14 +67,14 @@ public class BroadcastValue {
 
     @Override
     public String toString() {
-        return action+ " " + pid + " "; //+ message.toString();
+        return action+ "," + pid + ","+ seller+ ","+buyer + ","+good+","+signer+ " "+message; //+ message.toString();
     }
 
 
     public boolean equals(BroadcastValue that){
-        boolean msg = pid == that.pid && action == that.action && seller == that.seller && buyer == that.buyer && good == that.good && signer == that.signer && message == that.message;
-        boolean msg2 = action2 == that.action2 && seller2 == that.seller2 && buyer2 == that.buyer2 && good == that.good && signer == that.signer && message == that.message;
+        //boolean msg =  action.equals(that.action) && seller.equals(that.seller) && buyer.equals(that.buyer) && good.equals(that.good) && signer.equals(that.signer);
+        //boolean msg2 = action2.equals(that.action2) && seller2.equals(that.seller2) && buyer2.equals(that.buyer2) && good2.equals(that.good2) && signer2.equals(that.signer2);
 
-        return msg && msg2;
+        return (rid == that.rid) && wts == that.wts ;
     }
 }

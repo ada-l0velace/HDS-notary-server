@@ -28,7 +28,7 @@ public class AuthenticatedBroadcast implements Broadcast {
         sentReady = false;
         acks = 0;
         responses = 0;
-        sem = new Semaphore(1);
+        sem = new Semaphore(0);
     }
 
     @Override
@@ -51,6 +51,7 @@ public class AuthenticatedBroadcast implements Broadcast {
             }
 
         }
+        System.out.println("OOOOOOOOOUUUUUUUUUUUUT");
 
     }
 
@@ -77,17 +78,17 @@ public class AuthenticatedBroadcast implements Broadcast {
                 System.out.println(echos[i]);
                 System.out.println(bv);
                 System.out.println("#############################################");
-                if(echos[i] != null & echos[i].equals(bv)) {
+                if(echos[i] != null && echos[i].equals(bv)) {
                     acks++;
                     System.out.println("ack echo from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>(Main.N+Main.f)/2 );
                     System.out.println((Main.N + Main.f)/2);
-                    if(!delivered & acks > (Main.N + Main.f)/2) {
+                    if(!sentReady && acks > (Main.N + Main.f)/2) {
                         sentReady = true;
-                        delivered = true;
-                        sem.release();
+                        //delivered = true;
+                        //sem.release();
                         //acks = 0;
-                        //responses = 0;
+                        responses = 0;
                         System.out.println(bv.message.toString());
                         doubleEcho(bv.message);
                         System.out.println("Echo phase is done...");
@@ -96,14 +97,17 @@ public class AuthenticatedBroadcast implements Broadcast {
             }
         }
 
-        /*if(responses > (notary.nServers+1)/2 && acks<2f) {
+        if(responses > (notary.nServers+1)/2 && acks<2f) {
             //delivered = true;
             sem.release();
-        }*/
+        }
     }
 
     public void ready(JSONObject ready){}
 
     public void doubleEcho(JSONObject ready) {}
 
+    public boolean isDelivered(){
+        return delivered;
+    }
 }

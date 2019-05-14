@@ -10,6 +10,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     public AuthenticatedDoubleEchoBroadcast(Notary notary) {
         super(notary);
         reads = new BroadcastValue[notary.nServers];
+        echos = new BroadcastValue[notary.nServers];
     }
 
     @Override
@@ -42,29 +43,31 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
 
     @Override
     public void ready(JSONObject echo) {
+        System.out.println("Receiving "+echo);
         responses++;
         JSONObject messageE = new JSONObject(echo.getString("Message"));
         int pid = messageE.getInt("pid");
         BroadcastValue bv = new BroadcastValue(echo, pid);
 
-        if(echos[pid] == null) {
+        if(reads[pid] == null) {
             reads[pid] = bv;
             for (int i = 0; i < notary.nServers; i++) {
                 System.out.println("###################DOUBLE###################");
-                System.out.println(echos[i]);
+                System.out.println(reads[i]);
                 System.out.println(bv);
                 System.out.println("#############################################");
-                if(reads[i]!= null & reads[i].equals(bv)) {
+                if(reads[i]!= null && reads[i].equals(bv)) {
                     acks++;
                     System.out.println("ack ready from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>Main.f);
-                    System.out.println(acks>2f);
+                    System.out.println(acks>2*Main.f);
                     if(acks>Main.f && !sentReady) {
+                        sentReady = true;
                         doubleEcho(bv.message);
                     }
-                    if(acks>2f & !this.delivered) {
+                    if(acks>2*Main.f && !this.delivered) {
                         System.out.println("###################WIN#######################");
-                        System.out.println(echos[i]);
+                        System.out.println(reads[i]);
                         System.out.println("#############################################");
                         delivered=true;
                         sem.release();
@@ -72,9 +75,10 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
                     }
                 }
             }
+            if(responses > (Main.N+Main.f)/2 && acks<2f) {
+                sem.release();
+            }
         }
-        if(responses > (Main.N+Main.f)/2 && acks<2f) {
-            sem.release();
-        }
+
     }
 }

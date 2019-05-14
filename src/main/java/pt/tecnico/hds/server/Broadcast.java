@@ -8,4 +8,5 @@ public interface Broadcast {
     void echo(JSONObject echo);
     void ready(JSONObject ready);
     void doubleEcho(JSONObject request);
+    boolean isDelivered();
 }

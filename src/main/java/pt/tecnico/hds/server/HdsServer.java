@@ -63,8 +63,20 @@ public class HdsServer implements Runnable {
                  case "transferGood":
                      nt.rm.init();
                      nt.rm.broadcast(json);
-                     JSONObject message2 = new JSONObject(json.getString("Message2"));
-                     jsontr = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
+                     System.out.println("-----------------------------__############");
+                     System.out.println("-----------------------------__############");
+                     System.out.println("-----------------------------__############");
+                     System.out.println("-----------------------------__############");
+                     System.out.println("-----------------------------__############");
+                     System.out.println("-----------------------------__############");
+                     if(nt.rm.isDelivered()) {
+                         JSONObject message2 = new JSONObject(json.getString("Message2"));
+                         jsontr = nt.transferGood(jsonObj, message2, hash, json.getString("Hash2"));
+                     }
+                     else {
+                         jsontr = new JSONObject();
+                         jsontr.put("Action", "NO");
+                     }
                      toreturn = nt.buildReply(jsontr).toString();
                      dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
@@ -73,7 +85,13 @@ public class HdsServer implements Runnable {
                  case "intentionToSell":
                      nt.rm.init();
                      nt.rm.broadcast(json);
-                     jsontr = nt.intentionToSell(jsonObj, hash);
+                     if(nt.rm.isDelivered()) {
+                         jsontr = nt.intentionToSell(jsonObj, hash);
+                     }
+                     else {
+                         jsontr = new JSONObject();
+                         jsontr.put("Action", "NO");
+                     }
                      toreturn = nt.buildReply(jsontr).toString();
                      System.out.println(toreturn);
                      dos.writeUTF(toreturn);
