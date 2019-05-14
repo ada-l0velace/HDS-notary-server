@@ -1,5 +1,6 @@
 package pt.tecnico.hds.server;
 
+import com.sun.net.httpserver.Authenticator;
 import com.sun.org.apache.bcel.internal.generic.JsrInstruction;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +35,7 @@ public class Notary {
 		try {
 			new DatabaseManager().createDatabase();
 			if (Main.debug)
-				cc = new DebugSigning();
+				cc = new DebugSigning(0);
 			else
 				cc = new eIDLib_PKCS11();
 			path = "db/hds0.db";
@@ -55,8 +56,8 @@ public class Notary {
 	public Notary(int i) {
 		try {
 			new DatabaseManager(i).createDatabase();
-		    if (Main.debug)
-		        cc = new DebugSigning();
+		    if (Main.debug || i > 0)
+		        cc = new DebugSigning(i);
 		    else
 		        cc = new eIDLib_PKCS11();
 
@@ -80,6 +81,11 @@ public class Notary {
 		Runnable runnable = new NotaryStarter(_port+ notaryIndex, this);
 		Thread thread = new Thread(runnable);
 		thread.start();
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
     public static Connection connect() {
@@ -224,7 +230,8 @@ public class Notary {
     					pstmt.setString(2, good);
     					pstmt.executeUpdate();
     					reply.put("Action", "YES");
-						updateRegister(message, hash);
+    					System.out.println("Updating register");
+						updateRegister(message, hash, reply);
     				} else {
     					reply.put("Action", "NO");
     				}
@@ -266,7 +273,7 @@ public class Notary {
         			pstmt.executeUpdate();
         			//query();
         			reply.put("Action", "YES");
-					updateRegister(message, hash);
+					updateRegister(message, hash, reply);
         		} else
         			reply.put("Action", "NO");
         	} else {
@@ -300,8 +307,10 @@ public class Notary {
 
     public JSONObject buildReply(JSONObject j) {
         JSONObject reply = new JSONObject();
+        System.out.println(j);
         j.put("Timestamp", new java.util.Date().getTime());
         j.put("pid", notaryIndex);
+		j.put("signer", cc.getKeyName());
         reply.put("Message", j.toString());
 
 
@@ -322,12 +331,13 @@ public class Notary {
     }
 
 
-	public void updateRegister(JSONObject value, String sig) {
+	public void updateRegister(JSONObject value, String sig, JSONObject reply) {
 
 		JSONObject msg = rm.echo(value.toString(), sig);
-
+		System.out.println("This is msg: " + msg);
 		System.out.println("Writing to Register");
-		rm.setManager(msg);
+		System.out.println(msg);
+		rm.setManager(msg, reply);
 		System.out.println("Sending Echoes");
 		rm.broadcast();
 		//reg.write(good, value.toString(), sig, rid, pid, ts);
@@ -364,14 +374,7 @@ public class Notary {
 			JSONObject val = message.getJSONObject("v");
 			String good = val.getString("Good");
 			String sig = j.getString("Hash");
-			if (Utils.verifySignWithPubKeyFile(message.toString(), sig,"assymetricKeys/" + isServerDebug(signer) + ".pub")){
-				try {
-					Connection conn = this.connect();
-					addToRequests(sig, message.toString(), conn);
-					conn.close();
-				} catch (SQLException e){
-					e.printStackTrace();
-				}
+			if (cc.verifySignWithPubKey(message.toString(), sig)){
 				if (ts > reg.getGood(good).getTimestamp()){
 					//val.put("wts", ts);
 					reg.write(good,val.toString(), sig, val.getLong("rid"),val.getInt("pid"), ts);
@@ -382,21 +385,29 @@ public class Notary {
 			return reply;
 	}
 
-	public JSONObject receiveEcho(JSONObject j){
-		JSONObject message = new JSONObject(j.getString("Message"));
+	public JSONObject waitForEcho(JSONObject request){
+		JSONObject message = new JSONObject(request.getString("Message"));
 		JSONObject reply = new JSONObject();
-		rm.getEcho(j);
+
+
 		while (true){
+			System.out.println("Got " + rm.getAcks() + " Echoes");
 			if (rm.quorum()) {
-				reg.write(message.getString("Good"), message.toString(), j.getString("Hash"), message.getLong("rid"), message.getInt("pid"), message.getLong("Timestamp"));
-				reply.put("Action", "YES");
+				System.out.println("Success");
+				reg.write(message.getString("Good"), message.toString(), request.getString("Hash"), message.getLong("rid"), notaryIndex, message.getLong("Timestamp"));
+				reply = rm.getReply();
 				return reply;
 			}
 			else if (rm.ackd()){
+				System.out.println("Failed");
 				reply.put("Action", "NO");
 				return reply;
 			}
-			System.out.println("Got " + rm.getAcks() + " Echoes");
 		}
 	}
+
+	public void receiveEchoes(JSONObject json){
+		rm.getEcho(json);
+	}
+
 }

@@ -32,7 +32,7 @@ public class NotaryStarter implements Runnable  {
             }
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

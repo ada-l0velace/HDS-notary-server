@@ -144,6 +144,11 @@ public class eIDLib_PKCS11 implements SigningInterface {
         return encoder.encodeToString(signature);
     }
 
+    @Override
+    public String getKeyName() {
+        return "server";
+    }
+
     private static  byte[] getCertificateInBytes(int n) {
         byte[] certificate_bytes = null;
         try {

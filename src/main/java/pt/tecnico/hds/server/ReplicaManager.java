@@ -21,12 +21,13 @@ public class ReplicaManager {
     private String _host;
     private int _port;
     private int _q;
+    private JSONObject _reply;
     private JSONObject _msg;
     private final static Logger logger = LoggerFactory.getLogger(ReplicaManager.class);
 
 
     public ReplicaManager(int f, int n, String host, int port, int pid){
-        _q = f + 1;
+        _q = (f + _nServers) / 2;
         _port = port;
         _host = host;
         _pid = pid;
@@ -35,20 +36,35 @@ public class ReplicaManager {
         _ansN = 1;
     }
 
-    public int getAcks(){ return _ansN; }
+    public int getAcks(){ ;return _ansN; }
+
+    public JSONObject getReply(){
+        return _reply;
+    }
 
     public void getEcho(JSONObject j){
         JSONObject val = new JSONObject(j.getString("Message"));
-        if (this.compareEchoes(val)){
+        System.out.println("Got Here too");
+        System.out.println(j);
+        if (_msg == null) {
+            _msg = j;
+            _acks++;
+        }
+        else if (this.compareEchoes(new JSONObject(val.getString("Value")))){
             _acks++;
         }
         _ansN++;
-
+        System.out.println("Got " + _ansN + " Answers: " + _acks + " correct");
     }
 
-    public void setManager(JSONObject j){
+    public void setManager(JSONObject j, JSONObject reply){
+        System.out.println("Got Here");
+        System.out.println(j);
+        System.out.println(reply);
         _acks = 1;
+        _ansN = 1;
         _msg = j;
+        _reply = reply;
     }
 
     public Boolean ackd(){ return _ansN == _nServers; }
@@ -56,17 +72,20 @@ public class ReplicaManager {
     public Boolean quorum(){ return _acks >= _q; }
 
     public Boolean compareEchoes(JSONObject j){
+
+        JSONObject val = new JSONObject(_msg.getString("Message"));
+        JSONObject message = new JSONObject(val.getString("Value"));
         for (String k : j.keySet()) {
             if (!k.equals("Timestamp") &&
                     !k.equals("rid") &&
                     !k.equals("wts") &&
-                    _msg.has(k)) {
-                if (j.getString(k).equals(_msg.getString(k)))
+                    message.has(k)) {
+                if (!j.getString(k).equals(message.getString(k)))
                     return false;
             }
         }
-        if (j.getLong("rid") != _msg.getLong("rid") ||
-            j.getLong("wts") != _msg.getLong("wts"))
+        if (j.getLong("rid") != message.getLong("rid") ||
+            j.getLong("wts") != message.getLong("wts"))
             return false;
 
         return true;
@@ -79,11 +98,14 @@ public class ReplicaManager {
         message.put("Value", msg);
         echo.put("Message", message.toString());
         echo.put("Hash", sig);
+        System.out.println("Echo Message:");
+        System.out.println(echo);
         return echo;
     }
 
-    public String connectToServer(int port ){
-        String answer = null;
+
+    public JSONObject connectToServer(int port){
+        JSONObject answer = null;
         int maxRetries = 10;
         int retries = 0;
 
@@ -102,7 +124,9 @@ public class ReplicaManager {
 
                 try {
 
+                    System.out.println("Message to be Sent->" +_msg.toString());
                     dos.writeUTF(_msg.toString());
+
                     dis.close();
                     dos.close();
                     s.close();

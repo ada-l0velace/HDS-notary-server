@@ -30,8 +30,8 @@ public class Request {
         reply.put("Action", "Challenge");
         reply.put("RandomString", rs.substring(4));
         reply.put("SHA512", hash.substring(0,32));
+        reply.put("signer", notary.cc.getKeyName());
         String m = getReply().toString();
-        System.out.println(m);
         dos.writeUTF(m);
         String clientAnswer = dis.readUTF();
         JSONObject j = new JSONObject(clientAnswer);
