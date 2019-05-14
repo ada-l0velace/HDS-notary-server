@@ -372,7 +372,7 @@ public class Notary {
 			return reply;
 	}
 
-	public JSONObject connectToServer(String _host, int port, String _msg){
+	public JSONObject connectToServer(String _host, int port, JSONObject _msg){
 		JSONObject answer = null;
 		int maxRetries = 10;
 		int retries = 0;
@@ -392,8 +392,8 @@ public class Notary {
 
 				try {
 
-					System.out.println("Message to be Sent->" +_msg);
-					dos.writeUTF(_msg);
+					System.out.println("Message to be Sent->" +_msg.toString());
+					dos.writeUTF(_msg.toString());
 
 					dis.close();
 					dos.close();

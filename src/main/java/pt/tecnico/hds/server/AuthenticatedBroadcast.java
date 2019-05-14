@@ -10,7 +10,6 @@ public class AuthenticatedBroadcast implements Broadcast {
     boolean sentEcho;
     boolean delivered;
     boolean sentReady;
-    long waitID;
     int acks;
     int responses;
     Semaphore sem;
@@ -79,8 +78,9 @@ public class AuthenticatedBroadcast implements Broadcast {
                     System.out.println("ack echo from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>(notary.nServers+1)/2 );
                     System.out.println((notary.nServers+1)/2);
-                    if(acks > (notary.nServers+1)/2 & sentReady==false) {
+                    if(!sentReady && acks > (notary.nServers+1)/2) {
                         sentReady = true;
+                        //delivered = true;
                         System.out.println("1st phase completed");
                     }
                 }
