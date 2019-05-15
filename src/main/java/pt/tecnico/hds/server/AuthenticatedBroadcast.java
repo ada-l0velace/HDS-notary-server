@@ -4,6 +4,7 @@ package pt.tecnico.hds.server;
 import org.json.JSONObject;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 public class AuthenticatedBroadcast implements Broadcast {
     Notary notary;
@@ -11,6 +12,7 @@ public class AuthenticatedBroadcast implements Broadcast {
     boolean delivered;
     boolean sentReady;
     int acks;
+    int acks2;
     int responses;
     Semaphore sem;
     BroadcastValue[] echos;
@@ -23,12 +25,14 @@ public class AuthenticatedBroadcast implements Broadcast {
 
     public void init() {
         echos = new BroadcastValue[notary.nServers];
+        sem=new Semaphore(0);
         sentEcho = false;
         delivered = false;
         sentReady = false;
         acks = 0;
+        acks2 = 0;
         responses = 0;
-        sem = new Semaphore(0);
+
     }
 
     @Override
@@ -37,68 +41,78 @@ public class AuthenticatedBroadcast implements Broadcast {
         if (!sentEcho) {
             sentEcho = true;
             for (int i = 0; i < notary.nServers; i++) {
-                notary.connectToServer("localhost", notary._port + i, buildMessage(request));
-                // new BroadcastThread(notary,"localhost", notary._port + i, buildMessage(request));
+                notary.connectToServer("localhost", notary._port + i, buildMessage(request).toString());
+                //new BroadcastThread(notary,"localhost", notary._port + i, buildMessage(request));
                 // for some reason threads don't work
             }
         }
 
-        if(!delivered) {
+        if (!delivered) {
+
             try {
+                System.out.println(String.format("#########%d is LOCKED########", notary.notaryIndex));
                 sem.acquire();
+                //sem.acquire();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
         }
-        System.out.println("OOOOOOOOOUUUUUUUUUUUUT");
-
+        System.out.println(String.format("%d is OUT BEWARE!!!!!!!!!!!!!!!!!!!!!!!!!!", notary.notaryIndex));
+        System.out.println("THE DELIVERED VAR IS "+delivered);
     }
 
     public JSONObject buildMessage(JSONObject request) {
         JSONObject echoMessage = new JSONObject();
         echoMessage.put("Action","Echo");
         echoMessage.put("pid",notary.notaryIndex);
-        echoMessage.put("Value",request);
+        echoMessage.put("Value",request.toString());
         return notary.buildReply(echoMessage);
     }
 
-    @Override
-    public void echo(JSONObject echo) {
+    // pid, message
 
-        JSONObject messageE = new JSONObject(echo.getString("Message"));
-        int pid = messageE.getInt("pid");
-        BroadcastValue bv = new BroadcastValue(echo, pid);
+    @Override
+    public void echo(int pid, String message) {
+
+        JSONObject messageE = new JSONObject(message);
+        BroadcastValue bv = new BroadcastValue(new JSONObject(message), pid);
 
         if(echos[pid] == null) {
             responses++;
             echos[pid] = bv;
+            System.out.println(String.format("%d is OUT BEWARE!!!!!!!!!!!!!!!!!!!!!!!!!!", notary.notaryIndex));
             for (int i = 0; i < Main.N; i++) {
-                System.out.println("#####################ECHOLOL#################");
+                /*System.out.println("#####################ECHOLOL#################");
                 System.out.println(echos[i]);
                 System.out.println(bv);
-                System.out.println("#############################################");
+                System.out.println("#############################################");*/
                 if(echos[i] != null && echos[i].equals(bv)) {
                     acks++;
                     System.out.println("ack echo from: "+ bv+ " total acks: "+ acks);
                     System.out.println(acks>(Main.N+Main.f)/2 );
                     System.out.println((Main.N + Main.f)/2);
                     if(!sentReady && acks > (Main.N + Main.f)/2) {
-                        sentReady = true;
-                        //delivered = true;
-                        //sem.release();
-                        //acks = 0;
-                        responses = 0;
+                        System.out.println("#####################QORUM#################");
                         System.out.println(bv.message.toString());
-                        doubleEcho(bv.message);
+                        System.out.println("#############################################");
+                        delivered = true;
+                        sem.release();
+                        doubleEcho(messageE);
+                        sentReady = true;
+                        responses = 0;
+                        //delivered = true;
+                        //acks = 0;
+                 ;
+
                         System.out.println("Echo phase is done...");
                     }
                 }
             }
         }
 
-        if(responses > (notary.nServers+1)/2 && acks<2f) {
-            //delivered = true;
+        if(responses > (notary.nServers+Main.f)/2 && acks<2*Main.f) {
+            delivered = false;
             sem.release();
         }
     }
@@ -109,5 +123,10 @@ public class AuthenticatedBroadcast implements Broadcast {
 
     public boolean isDelivered(){
         return delivered;
+    }
+
+    @Override
+    public Semaphore getLock() {
+        return sem;
     }
 }

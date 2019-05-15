@@ -13,13 +13,18 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.concurrent.Semaphore;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 public class Notary {
+	public Semaphore echoLock = new Semaphore(1);
+	public HashMap<String, Semaphore> broadcastLock = new HashMap<String,Semaphore>();
+
 
 	public SigningInterface cc;
 	public static final int _port = 19999;
@@ -27,13 +32,33 @@ public class Notary {
 	public static final int nServers = 4;
 	public static String path;
 	public ByzantineRegister reg;
-	protected Broadcast rm;
 	public final static Logger logger = LoggerFactory.getLogger(HdsServer.class);
 
+	public Broadcast getBroadcaster(String good) {
+		if (!broadcasters.containsKey(good))
+			broadcasters.put(good, new AuthenticatedBroadcast(this));
+		return broadcasters.get(good);
+	}
+
+	public Semaphore getBroadcasterLock(String good) {
+		if (!broadcastLock.containsKey(good))
+			broadcastLock.put(good, new Semaphore(1));
+		return broadcastLock.get(good);
+	}
+
+	public void reset() {
+		for (int i = 0; i < 21; i++) {
+			if(getBroadcaster(String.format("good%d", i)).getLock().availablePermits() == 0)
+				getBroadcaster(String.format("good%d", i)).getLock().release();
+		}
+	}
+
+	private HashMap<String, Broadcast> broadcasters;
 
 	public Notary() {
 		try {
 			new DatabaseManager().createDatabase();
+
 			if (Main.debug)
 				cc = new DebugSigning(0);
 			else
@@ -44,8 +69,9 @@ public class Notary {
 			System.exit(1);
 		}
 		reg = new ByzantineAtomicRegister(this);
-		rm = new AuthenticatedDoubleEchoBroadcast(this);
+		broadcasters = new HashMap<>();
 		notaryIndex = 0;
+
 		System.out.println("HDS-server starting");
 		startServer();
 
@@ -69,7 +95,7 @@ public class Notary {
 		}
 		//reg = new ByzantineAtomicRegister(this);
 		reg = new ByzantineAtomicRegister(this);
-		rm = new AuthenticatedDoubleEchoBroadcast(this);
+		broadcasters = new HashMap<>();
 		System.out.println("HDS-server starting");
 		startServer();
 		//populateRegister();
@@ -372,7 +398,7 @@ public class Notary {
 			return reply;
 	}
 
-	public JSONObject connectToServer(String _host, int port, JSONObject _msg){
+	public JSONObject connectToServer(String _host, int port, String _msg){
 		JSONObject answer = null;
 		int maxRetries = 10;
 		int retries = 0;
@@ -392,8 +418,8 @@ public class Notary {
 
 				try {
 
-					System.out.println("Message to be Sent->" +_msg.toString());
-					dos.writeUTF(_msg.toString());
+					System.out.println("Message to be Sent->" +_msg);
+					dos.writeUTF(_msg);
 
 					dis.close();
 					dos.close();

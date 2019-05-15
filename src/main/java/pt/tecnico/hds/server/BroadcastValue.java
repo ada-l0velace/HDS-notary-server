@@ -24,7 +24,9 @@ public class BroadcastValue {
 
     public BroadcastValue(JSONObject request, int pid) {
         this.pid = pid;
-        message = new JSONObject(new JSONObject(request.getString("Message")).getString("Value"));
+        System.out.println(request.getString("Message"));
+        JSONObject m0 = new JSONObject(request.getString("Message"));
+        message = m0;
         if (message.has("rid"))
             rid = message.getLong("rid");
         else
@@ -50,12 +52,13 @@ public class BroadcastValue {
             signer = message.getString("signer");
         else
             signer = "";
+        System.out.println(message.toString());
         action = message.getString("Action");
 
         if (request.has("Message2")) {
 
             message2 = new JSONObject(request.getString("Message2"));
-            action2 = message.getString("Action2");
+            action2 = message.getString("Action");
             rid2 = message2.getLong("rid");
             wts2 = message2.getLong("wts");
             seller2 = message2.getString("Seller");
