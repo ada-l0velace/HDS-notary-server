@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AuthenticatedBroadcast implements Broadcast {
     Notary notary;
+<<<<<<< HEAD
     boolean sentEcho;
     boolean delivered;
     boolean sentReady;
@@ -19,6 +20,16 @@ public class AuthenticatedBroadcast implements Broadcast {
     int responses;
     long waitID;
     Mutex[] mutex;
+=======
+    boolean[] sentEcho;
+    boolean[] delivered;
+    boolean[] sentReady;
+    int[] acks;
+    int[] responses;
+    Mutex mutex;
+
+    long waitID;
+>>>>>>> 5a21496b414f94f7892dffba6c962a436aa2ca4a
     int ni;
     Mutex echoMutex;
     Semaphore[] sem;
@@ -71,9 +82,13 @@ public class AuthenticatedBroadcast implements Broadcast {
             try {
                 logger.info(String.format("#########%d is LOCKED########", notary.notaryIndex));
                 waitID=Thread.currentThread().getId();
+<<<<<<< HEAD
                 wait();
 
                 //getLock().acquire();
+=======
+                getLock().acquire();
+>>>>>>> 5a21496b414f94f7892dffba6c962a436aa2ca4a
                 //sem.acquire();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -116,6 +131,7 @@ public class AuthenticatedBroadcast implements Broadcast {
                     sentReady = true;
                     doubleEcho(message);
                 }
+<<<<<<< HEAD
                 else if (responses > (Main.N + Main.f) / 2 && acks < 2 * Main.f) {
                     Thread[] list = new Thread[Thread.activeCount()];
                     Thread.currentThread().getThreadGroup().enumerate(list);
@@ -129,6 +145,16 @@ public class AuthenticatedBroadcast implements Broadcast {
 
         }
         //echoMutex.unlock();
+=======
+            }
+            if (responses[ni] > (Main.N + Main.f) / 2 && acks[ni] < 2 * Main.f) {
+                logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
+                releaseLock();
+            }
+
+        }
+
+>>>>>>> 5a21496b414f94f7892dffba6c962a436aa2ca4a
     }
 
     public void ready(int pid, String message){}

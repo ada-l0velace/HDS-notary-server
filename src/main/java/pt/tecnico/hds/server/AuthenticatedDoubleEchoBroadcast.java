@@ -53,10 +53,15 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
                         sentReady = true;
                         doubleEcho(message);
                     }
+<<<<<<< HEAD
                     if(acks2>2*Main.f && !this.delivered) {
                         //releaseLock();
                         delivered=true;
                         notifyAll();
+=======
+                    if(acks2[ni]>2*Main.f && !this.delivered[ni]) {
+                        delivered[ni]=true;
+>>>>>>> 5a21496b414f94f7892dffba6c962a436aa2ca4a
                         logger.info(String.format("|Ready :) %d Achieved QORUM|",notary.notaryIndex));
                         //logger.info(message);
 
@@ -65,6 +70,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
             }
             if(responses2 > (Main.N+Main.f)/2 && acks2<2*Main.f) {
                 logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
+<<<<<<< HEAD
                 Thread[] list = new Thread[Thread.activeCount()];
                 Thread.currentThread().getThreadGroup().enumerate(list);
                 for(Thread t:list) {
@@ -76,6 +82,9 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
 
             }
                 //releaseLock();
+=======
+                releaseLock();
+>>>>>>> 5a21496b414f94f7892dffba6c962a436aa2ca4a
             }
 
         }
