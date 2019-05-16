@@ -36,7 +36,7 @@ public class Notary {
 
 	public Broadcast getBroadcaster(String good) {
 		if (!broadcasters.containsKey(good))
-			broadcasters.put(good, new AuthenticatedBroadcast(this));
+			broadcasters.put(good, new AuthenticatedDoubleEchoBroadcast(this));
 		return broadcasters.get(good);
 	}
 
@@ -190,7 +190,7 @@ public class Notary {
 
     public JSONObject getStateOfGood(JSONObject message, String hash) {
     	JSONObject reply = new JSONObject();
-    	System.out.println("Starting GetStateOfGood");
+    	//System.out.println("Starting GetStateOfGood");
     	try {
     		Connection conn = this.connect();
     		String buyer = message.getString("Buyer");
@@ -220,7 +220,7 @@ public class Notary {
 				reply.put("Action", "NO");
     		}
     		conn.close();
-        	System.out.println("Connection Closing");
+        	//System.out.println("Connection Closing");
 
     	} catch (SQLException e) {
     		reply.put("Action", "NO");
@@ -231,7 +231,7 @@ public class Notary {
 
     public JSONObject transferGood(JSONObject message, JSONObject message2, String hash, String hash2) {
 		JSONObject reply = new JSONObject();
-    	System.out.println("Starting TransferGood");
+    	//System.out.println("Starting TransferGood");
 		String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
 		
     	try {
@@ -268,7 +268,7 @@ public class Notary {
     			reply.put("Action", "NO");
     		}
 			conn.close();
-        	System.out.println("Connection Closing");
+        	//System.out.println("Connection Closing");
 
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
@@ -281,7 +281,7 @@ public class Notary {
 
     public JSONObject intentionToSell(JSONObject message, String hash) {
         String seller = message.getString("Seller");
-		System.out.println("Starting IntentionToSell");
+		//System.out.println("Starting IntentionToSell");
 
         JSONObject reply = new JSONObject();
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
@@ -306,7 +306,7 @@ public class Notary {
         		reply.put("Action", "NO");
         	}
         conn.close();
-    	System.out.println("Connection Closing");
+    	//System.out.println("Connection Closing");
 
         } catch (SQLException e) {
         	reply.put("Action", "NO");
@@ -333,7 +333,7 @@ public class Notary {
 
     public JSONObject buildReply(JSONObject j) {
         JSONObject reply = new JSONObject();
-        System.out.println(j);
+        //System.out.println(j);
         j.put("Timestamp", new java.util.Date().getTime());
         j.put("pid", notaryIndex);
 		j.put("signer", cc.getKeyName());
@@ -363,7 +363,7 @@ public class Notary {
 		int pid = notaryIndex;
 		long rid = value.getLong("rid");
 
-		System.out.println("Writing to Register");
+		//System.out.println("Writing to Register");
 		reg.write(good, value.toString(), sig, rid, pid, ts);
 	}
 
@@ -406,19 +406,19 @@ public class Notary {
 
 		while (true) {
 			try {
-				System.out.println("Connecting to " + port);
+				//System.out.println("Connecting to " + port);
 				InetAddress ip = InetAddress.getByName(_host);
 
 				Socket s = new Socket(ip, port);
-				s.setSoTimeout(10 * 1000);
-
+				//s.setSoTimeout(100 * 1000);
+				//s.setKeepAlive(true);
 				DataInputStream dis = new DataInputStream(s.getInputStream());
 				DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
 
 				try {
 
-					System.out.println("Message to be Sent->" +_msg);
+					//System.out.println("Message to be Sent->" +_msg);
 					dos.writeUTF(_msg);
 
 					dis.close();
@@ -428,8 +428,15 @@ public class Notary {
 
 				} catch (java.net.SocketTimeoutException timeout) {
 					timeout.printStackTrace();
+					logger.error(timeout.getMessage() + " on port:" + port);
+					//e.printStackTrace();
+					retries++;
+					dis.close();
+					dos.close();
 					s.close();
-					break;
+					if (retries == maxRetries)
+						break;
+					continue;
 
 				} catch (java.io.EOFException e0) {
 					e0.printStackTrace();

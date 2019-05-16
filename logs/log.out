@@ -1,0 +1,727 @@
+2019-05-15 16:16:50 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:16:50 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:16:50 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:16:50 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:16:50 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:16:50 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557933500815,\"signer\":\"user10\"}","Hash":"JFV1j8l2wAMLuW0hNZoHYUwDamNcJxEs26FBmWUHCK6u4Jbe1O8IY6vzHpPRkAvKo1rn3ATe5eZU\nFsA1eAXQ8egnWwlFAHZltid5C00Hi7Q7Ua5Oh/2ThUkOEjDAr+2qQU5CY8MbESRHgpIMsJfA+9fw\n92HQb49uj/8zLfdvm7Fla6pPNfI05frk28nSgAEt0kRaCmu8JlXRiewN+5+9VdP7iizOvcjWsoVB\nIqWuD8hvR6kEenftSNV0gddttsWTMvqhOOvN1C+o6hvUI3E4M3FFZdD3sYwwNJlud+7N1dcOI9d7\nXstolLGp2PPgqMtsqzHROa4/0jesLgzFIkRYSA=="}
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557933500815,\"signer\":\"user10\"}","Hash":"JFV1j8l2wAMLuW0hNZoHYUwDamNcJxEs26FBmWUHCK6u4Jbe1O8IY6vzHpPRkAvKo1rn3ATe5eZU\nFsA1eAXQ8egnWwlFAHZltid5C00Hi7Q7Ua5Oh/2ThUkOEjDAr+2qQU5CY8MbESRHgpIMsJfA+9fw\n92HQb49uj/8zLfdvm7Fla6pPNfI05frk28nSgAEt0kRaCmu8JlXRiewN+5+9VdP7iizOvcjWsoVB\nIqWuD8hvR6kEenftSNV0gddttsWTMvqhOOvN1C+o6hvUI3E4M3FFZdD3sYwwNJlud+7N1dcOI9d7\nXstolLGp2PPgqMtsqzHROa4/0jesLgzFIkRYSA=="}
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557933500815,\"signer\":\"user10\"}","Hash":"JFV1j8l2wAMLuW0hNZoHYUwDamNcJxEs26FBmWUHCK6u4Jbe1O8IY6vzHpPRkAvKo1rn3ATe5eZU\nFsA1eAXQ8egnWwlFAHZltid5C00Hi7Q7Ua5Oh/2ThUkOEjDAr+2qQU5CY8MbESRHgpIMsJfA+9fw\n92HQb49uj/8zLfdvm7Fla6pPNfI05frk28nSgAEt0kRaCmu8JlXRiewN+5+9VdP7iizOvcjWsoVB\nIqWuD8hvR6kEenftSNV0gddttsWTMvqhOOvN1C+o6hvUI3E4M3FFZdD3sYwwNJlud+7N1dcOI9d7\nXstolLGp2PPgqMtsqzHROa4/0jesLgzFIkRYSA=="}
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:18:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:21:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:21:22 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:21:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:21:22 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557933800122,\"signer\":\"user10\"}","Hash":"x/lqShL9rGEVFYs1nlgagtSI2Yp8wMv/aDv202/SDMCfSIFHmnuZwRGjsgspa/OjJi8ivmyn2DcE\nv8IEseVBL6+Ndu5KHpN+RzkJtS1JZQb65/n8aoyQ8ZtzrMdPSAI+XMAmq+usB4EyoPyHL9YDEmKq\nyeHT1VG9sFwcklazZS4jpimVTL1BQNWiV7apxICT+v9RJ2KIbTadJdbYah3LYt0CtTNjikfRb9O+\n6VpjYLYsQBvFnUiBTO6w43/0bVaijqtDyevP832WytZZ67XqfFEIyPzXGG0ulxF3oizgXlGAqq+y\nJqvo5qzYf7ZzIDwXX+jblQdeJorRw1SfoJnlEQ=="}
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557933800122,\"signer\":\"user10\"}","Hash":"x/lqShL9rGEVFYs1nlgagtSI2Yp8wMv/aDv202/SDMCfSIFHmnuZwRGjsgspa/OjJi8ivmyn2DcE\nv8IEseVBL6+Ndu5KHpN+RzkJtS1JZQb65/n8aoyQ8ZtzrMdPSAI+XMAmq+usB4EyoPyHL9YDEmKq\nyeHT1VG9sFwcklazZS4jpimVTL1BQNWiV7apxICT+v9RJ2KIbTadJdbYah3LYt0CtTNjikfRb9O+\n6VpjYLYsQBvFnUiBTO6w43/0bVaijqtDyevP832WytZZ67XqfFEIyPzXGG0ulxF3oizgXlGAqq+y\nJqvo5qzYf7ZzIDwXX+jblQdeJorRw1SfoJnlEQ=="}
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:133 - #0#####################QORUM#################0#
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557933800122,\"signer\":\"user10\"}","Hash":"x/lqShL9rGEVFYs1nlgagtSI2Yp8wMv/aDv202/SDMCfSIFHmnuZwRGjsgspa/OjJi8ivmyn2DcE\nv8IEseVBL6+Ndu5KHpN+RzkJtS1JZQb65/n8aoyQ8ZtzrMdPSAI+XMAmq+usB4EyoPyHL9YDEmKq\nyeHT1VG9sFwcklazZS4jpimVTL1BQNWiV7apxICT+v9RJ2KIbTadJdbYah3LYt0CtTNjikfRb9O+\n6VpjYLYsQBvFnUiBTO6w43/0bVaijqtDyevP832WytZZ67XqfFEIyPzXGG0ulxF3oizgXlGAqq+y\nJqvo5qzYf7ZzIDwXX+jblQdeJorRw1SfoJnlEQ=="}
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:23:20 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:21 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:134 - {"Hash2":"mJ2J/C6mHC3oiU7u3vSxn6Ab3lt6u5JAEZ4KJfy0hCkegvayPz4hWFFrSSQtVT0Ya6H+iMnZL+uj\n+CjoXClxFGncg6hpGRyvLQIvfBypF1tq4QHIc03rma4/PZog1k9pyRL9GqZEC9XEFaw4TD0YwNdt\nkFE1PBZaMxhMYMvy5EvPXFLIOz2rBTxqoJhYjRw9Qm8bRcdkxhrDJ84+Pz9Y07QTeFSF7c7kCLps\nY1JahymFCAbMVm9X7N+eUQ+uZVM2Iz6J37SAJjCcCqrEih0DeEwD+/QKCU+r/7yqY/z1SyS8ozNS\n/lLRmpglqyJr1A3621P18TcZsgNMDTiFWqLKSA==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557933801202,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557933801134,\"signer\":\"user1\"}","Hash":"uEU+Gfc52QbiAxUvmk7Ckk00lbV7Ee0eRuBif/pb6zlQR+TB04P0FYEkXIG1iR3AuRW+vkSXHZ8M\nsSB1Q/oJKmKl1+QlJq+YxdaQktqQEXatadZXMtLbV3FackxQNK4HZ/J0MlYArm6OX5w0oJFKj23d\nIVO/8IzDr9eDPdtwwTIGE9SKDdDd1Y1h6rbRJm5Ee7c9FAd8rJ2zYkY739aD/xtOAZKgJcXEIZvB\nyiWe+sns9TApLX2uHB6/jzUJZcC8ZO1HPLJVqHfwbHVWuN0CrAhwsfYTslzVCFo427ofgDFE72yW\nU0+K/KbozCW+Z1NuRMvYmyxD4WlMH4HneBNwPA=="}
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:134 - {"Hash2":"mJ2J/C6mHC3oiU7u3vSxn6Ab3lt6u5JAEZ4KJfy0hCkegvayPz4hWFFrSSQtVT0Ya6H+iMnZL+uj\n+CjoXClxFGncg6hpGRyvLQIvfBypF1tq4QHIc03rma4/PZog1k9pyRL9GqZEC9XEFaw4TD0YwNdt\nkFE1PBZaMxhMYMvy5EvPXFLIOz2rBTxqoJhYjRw9Qm8bRcdkxhrDJ84+Pz9Y07QTeFSF7c7kCLps\nY1JahymFCAbMVm9X7N+eUQ+uZVM2Iz6J37SAJjCcCqrEih0DeEwD+/QKCU+r/7yqY/z1SyS8ozNS\n/lLRmpglqyJr1A3621P18TcZsgNMDTiFWqLKSA==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557933801202,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557933801134,\"signer\":\"user1\"}","Hash":"uEU+Gfc52QbiAxUvmk7Ckk00lbV7Ee0eRuBif/pb6zlQR+TB04P0FYEkXIG1iR3AuRW+vkSXHZ8M\nsSB1Q/oJKmKl1+QlJq+YxdaQktqQEXatadZXMtLbV3FackxQNK4HZ/J0MlYArm6OX5w0oJFKj23d\nIVO/8IzDr9eDPdtwwTIGE9SKDdDd1Y1h6rbRJm5Ee7c9FAd8rJ2zYkY739aD/xtOAZKgJcXEIZvB\nyiWe+sns9TApLX2uHB6/jzUJZcC8ZO1HPLJVqHfwbHVWuN0CrAhwsfYTslzVCFo427ofgDFE72yW\nU0+K/KbozCW+Z1NuRMvYmyxD4WlMH4HneBNwPA=="}
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:35 - STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!
+2019-05-15 16:23:22 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:133 - #0#####################QORUM#################0#
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934021961,\"signer\":\"user10\"}","Hash":"ho0L5bpkIFNSJbJkhU8uK+ta5xTwywDBniz0HqMXTbpcDkRF9zs6JIkNqEaT/eQ+DFU4o12Qh4R8\ne9mWhpZXUNZEYizKBdrKSr8DOSDJFufTccqezMhw1q432Vv5ISRWarsKaLTfUcEHHCK3OhSVPTIE\nFJe0lwfqx7sTG4PTh2ViwBGpOAo7Lg6HSM6UGg6sYiX73uzKqoq4nA9X61MehinbHqjJD4ZGusT5\nw6jwafxUmBmRK12rPHVvV5ePxc7V45PArWQ5SHpHknGNL6rjMQ/YN7FRJYjUONSGG9ihGzv7UnCV\nHgfDjnpt7ajUMDXm7hpImzQ1DcBPMOG/vlfn5w=="}
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:27:02 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:40 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:40 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:133 - #0#####################QORUM#################0#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934180608,\"signer\":\"user10\"}","Hash":"IU6524YKSSehoGhGzX+IUhoHx+4qIULn25bRSTCLiYL3PzOGwxa3r2JaLu7B+EBeugd8mR2HFlUJ\nsyVRMrUXsQbYN8EN9RPJbmlhssKLVUa4blKU05uh1xfDPk39U2sqQXaF4d/gmIVSSvjjH6EP6AHj\n90Ed/LRETJBR7sFaqLhOJtYHquLiQsSLWIdrCxXAw77kvg2yChX67ye7ZKDTwpB4eXF6nrJLk4jz\nJZBkDaqcmtq6jYXD2w7N3E8g8iidJQNrlWZP8TB1dbYDPO4IQHjbK/AQuAwfCFhnbzToCj77N6Es\nBTM25Fi+RsZX7PfgiV9XYyf+UKZnYUUKjYb7Vg=="}
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934180608,\"signer\":\"user10\"}","Hash":"IU6524YKSSehoGhGzX+IUhoHx+4qIULn25bRSTCLiYL3PzOGwxa3r2JaLu7B+EBeugd8mR2HFlUJ\nsyVRMrUXsQbYN8EN9RPJbmlhssKLVUa4blKU05uh1xfDPk39U2sqQXaF4d/gmIVSSvjjH6EP6AHj\n90Ed/LRETJBR7sFaqLhOJtYHquLiQsSLWIdrCxXAw77kvg2yChX67ye7ZKDTwpB4eXF6nrJLk4jz\nJZBkDaqcmtq6jYXD2w7N3E8g8iidJQNrlWZP8TB1dbYDPO4IQHjbK/AQuAwfCFhnbzToCj77N6Es\nBTM25Fi+RsZX7PfgiV9XYyf+UKZnYUUKjYb7Vg=="}
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934180608,\"signer\":\"user10\"}","Hash":"IU6524YKSSehoGhGzX+IUhoHx+4qIULn25bRSTCLiYL3PzOGwxa3r2JaLu7B+EBeugd8mR2HFlUJ\nsyVRMrUXsQbYN8EN9RPJbmlhssKLVUa4blKU05uh1xfDPk39U2sqQXaF4d/gmIVSSvjjH6EP6AHj\n90Ed/LRETJBR7sFaqLhOJtYHquLiQsSLWIdrCxXAw77kvg2yChX67ye7ZKDTwpB4eXF6nrJLk4jz\nJZBkDaqcmtq6jYXD2w7N3E8g8iidJQNrlWZP8TB1dbYDPO4IQHjbK/AQuAwfCFhnbzToCj77N6Es\nBTM25Fi+RsZX7PfgiV9XYyf+UKZnYUUKjYb7Vg=="}
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934180608,\"signer\":\"user10\"}","Hash":"IU6524YKSSehoGhGzX+IUhoHx+4qIULn25bRSTCLiYL3PzOGwxa3r2JaLu7B+EBeugd8mR2HFlUJ\nsyVRMrUXsQbYN8EN9RPJbmlhssKLVUa4blKU05uh1xfDPk39U2sqQXaF4d/gmIVSSvjjH6EP6AHj\n90Ed/LRETJBR7sFaqLhOJtYHquLiQsSLWIdrCxXAw77kvg2yChX67ye7ZKDTwpB4eXF6nrJLk4jz\nJZBkDaqcmtq6jYXD2w7N3E8g8iidJQNrlWZP8TB1dbYDPO4IQHjbK/AQuAwfCFhnbzToCj77N6Es\nBTM25Fi+RsZX7PfgiV9XYyf+UKZnYUUKjYb7Vg=="}
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #0#####################QORUM#################0#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 8 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 8 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 8 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #1#####################QORUM#################1#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #2#####################QORUM#################2#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #1#####################QORUM#################1#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #3#####################QORUM#################3#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #0#####################QORUM#################0#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:72 - #2#####################QORUM#################2#
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:29:41 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 8
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:72 - #3#####################QORUM#################3#
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 8
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:65 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 8
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:133 - #0#####################QORUM#################0#
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:134 - {"Hash2":"fO3xuaSOT7+TGUs4x80hz5UxIX+5Q4f3cj8oU+dQf8NdDcpt9oNOa8vgBun9dQjqBvLgNL1w+sMG\nNMEGQVZ7c4u7Rr9AqJtlNJuNA5QDeHEis0rXQBqr6RJiYCb12UVrpPA6MU0OWZP+ECDPm17qmasr\neyObVcX4sG4Rs//VYtNXLh7v3v/Y0KHdEIpIEXJWJ5K2aFpkGih5nxYJg9inoOyvrwdSsnYgoW9c\nhRwd+dM2t7Ck1zFCV1nZaaX9adhon4W2zJ+NwuLddRhLpVZj5KL7Y7pYO1tslGBrJ/kdWwaHzkD4\nBFhHHTsk9q8qrX9uc7Qrlgf07GLKbgHghSh9xg==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557934181987,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557934181918,\"signer\":\"user1\"}","Hash":"m9SBITSfeHMAckHS5hNJZzx2aBdYA5plafRCcVVuNvdRQ65tiJORG/0EMwbGQRvKKOjD1WR97XcL\nyCGgQLPP8O8J8q6kFZYbpZdR/jtLnjxR2R/hCGwxKd6tAV4NeTvDzEBuC11/R/+E9R/SKw4hGi6s\nLcZP+DkKQGTu+GxljKD6Pe8noIYJStpgs+7KqhGMT7Kq1r0k8F3XCKPt1l0tm/luWvnIRkXvzJSs\nqV9eCdkPj1AgH+/N4nbzRQWNQPeuugTLuPNTkWdg/pv2UKP05FCauoYEOrI9lD6Sf1sYlQzJSKTa\nbbJF/+2WmY0RzkBB/lAXP48w+q3RZpHyYfAhzA=="}
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:134 - {"Hash2":"fO3xuaSOT7+TGUs4x80hz5UxIX+5Q4f3cj8oU+dQf8NdDcpt9oNOa8vgBun9dQjqBvLgNL1w+sMG\nNMEGQVZ7c4u7Rr9AqJtlNJuNA5QDeHEis0rXQBqr6RJiYCb12UVrpPA6MU0OWZP+ECDPm17qmasr\neyObVcX4sG4Rs//VYtNXLh7v3v/Y0KHdEIpIEXJWJ5K2aFpkGih5nxYJg9inoOyvrwdSsnYgoW9c\nhRwd+dM2t7Ck1zFCV1nZaaX9adhon4W2zJ+NwuLddRhLpVZj5KL7Y7pYO1tslGBrJ/kdWwaHzkD4\nBFhHHTsk9q8qrX9uc7Qrlgf07GLKbgHghSh9xg==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557934181987,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557934181918,\"signer\":\"user1\"}","Hash":"m9SBITSfeHMAckHS5hNJZzx2aBdYA5plafRCcVVuNvdRQ65tiJORG/0EMwbGQRvKKOjD1WR97XcL\nyCGgQLPP8O8J8q6kFZYbpZdR/jtLnjxR2R/hCGwxKd6tAV4NeTvDzEBuC11/R/+E9R/SKw4hGi6s\nLcZP+DkKQGTu+GxljKD6Pe8noIYJStpgs+7KqhGMT7Kq1r0k8F3XCKPt1l0tm/luWvnIRkXvzJSs\nqV9eCdkPj1AgH+/N4nbzRQWNQPeuugTLuPNTkWdg/pv2UKP05FCauoYEOrI9lD6Sf1sYlQzJSKTa\nbbJF/+2WmY0RzkBB/lAXP48w+q3RZpHyYfAhzA=="}
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:29:42 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934252795,\"signer\":\"user10\"}","Hash":"bkhPPyQbQkQQkfXTLzq68EAlLLiKBBLGe7IlHwTrLTX4gYJHBWMSoF/lxoBFhNQWE/Ww660rChgu\n5V7tloQkxNnZmbfiDzbZLu4IdRwaXHfv18l61pAkIVNlF9KPcH4s+WcRchoi9kYMYZPIXER0ASl8\nPH3JmFFVxIsc5ftWruL346xeBQ7eB25R6gvQioSUXtRyRMjHGVBfAy3gYg763D+gTHeHe3S9aQ3y\nO1hDzY00yrdS0LjD+kfEbFiDGS+snsJ48c+WYeOpE4uQTLfIZmyV1MniQQYz5/MvmwtkG5XUM7Bx\nYo6EZF28DPhhC0jRNFY+T4ICJ3p/cEb1RauzvQ=="}
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934252795,\"signer\":\"user10\"}","Hash":"bkhPPyQbQkQQkfXTLzq68EAlLLiKBBLGe7IlHwTrLTX4gYJHBWMSoF/lxoBFhNQWE/Ww660rChgu\n5V7tloQkxNnZmbfiDzbZLu4IdRwaXHfv18l61pAkIVNlF9KPcH4s+WcRchoi9kYMYZPIXER0ASl8\nPH3JmFFVxIsc5ftWruL346xeBQ7eB25R6gvQioSUXtRyRMjHGVBfAy3gYg763D+gTHeHe3S9aQ3y\nO1hDzY00yrdS0LjD+kfEbFiDGS+snsJ48c+WYeOpE4uQTLfIZmyV1MniQQYz5/MvmwtkG5XUM7Bx\nYo6EZF28DPhhC0jRNFY+T4ICJ3p/cEb1RauzvQ=="}
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:35 - --------------------------------------------------------------------------
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 6 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:30:53 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:133 - #0#####################QORUM#################0#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934536609,\"signer\":\"user10\"}","Hash":"V7SJUh6mIOu0L/pYZDqF9YbkmMzmlfVTsO7SDYu5asg7IIgn42+IElko+VK0kiIDifMkME+3fp7W\nox/HSG+DywtfcZx4zYQKugrMU5b9wKTu0R7Rupipaq25W1HE2vmuNHAOlC52VT/18YiXEcvFpCoH\nSNkKQ6CqPF8j+bOcOzmN0jRHr1aOd+ielEYTnk9IuY3LXR7JgRbUexN/qe8UetIHhUj2SfZxAGtR\nKK2OzRM9RSsabZY3iruKkaXCLSNjXF6V3EsYSZbA7tfZhW0OAqCNiOSMwXTS9cYwWHew+z4lFgJl\nd+x+PeUfOQOu6lK7UMHzoQDPpm/aZMypnEcTwg=="}
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934536609,\"signer\":\"user10\"}","Hash":"V7SJUh6mIOu0L/pYZDqF9YbkmMzmlfVTsO7SDYu5asg7IIgn42+IElko+VK0kiIDifMkME+3fp7W\nox/HSG+DywtfcZx4zYQKugrMU5b9wKTu0R7Rupipaq25W1HE2vmuNHAOlC52VT/18YiXEcvFpCoH\nSNkKQ6CqPF8j+bOcOzmN0jRHr1aOd+ielEYTnk9IuY3LXR7JgRbUexN/qe8UetIHhUj2SfZxAGtR\nKK2OzRM9RSsabZY3iruKkaXCLSNjXF6V3EsYSZbA7tfZhW0OAqCNiOSMwXTS9cYwWHew+z4lFgJl\nd+x+PeUfOQOu6lK7UMHzoQDPpm/aZMypnEcTwg=="}
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934536609,\"signer\":\"user10\"}","Hash":"V7SJUh6mIOu0L/pYZDqF9YbkmMzmlfVTsO7SDYu5asg7IIgn42+IElko+VK0kiIDifMkME+3fp7W\nox/HSG+DywtfcZx4zYQKugrMU5b9wKTu0R7Rupipaq25W1HE2vmuNHAOlC52VT/18YiXEcvFpCoH\nSNkKQ6CqPF8j+bOcOzmN0jRHr1aOd+ielEYTnk9IuY3LXR7JgRbUexN/qe8UetIHhUj2SfZxAGtR\nKK2OzRM9RSsabZY3iruKkaXCLSNjXF6V3EsYSZbA7tfZhW0OAqCNiOSMwXTS9cYwWHew+z4lFgJl\nd+x+PeUfOQOu6lK7UMHzoQDPpm/aZMypnEcTwg=="}
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934536609,\"signer\":\"user10\"}","Hash":"V7SJUh6mIOu0L/pYZDqF9YbkmMzmlfVTsO7SDYu5asg7IIgn42+IElko+VK0kiIDifMkME+3fp7W\nox/HSG+DywtfcZx4zYQKugrMU5b9wKTu0R7Rupipaq25W1HE2vmuNHAOlC52VT/18YiXEcvFpCoH\nSNkKQ6CqPF8j+bOcOzmN0jRHr1aOd+ielEYTnk9IuY3LXR7JgRbUexN/qe8UetIHhUj2SfZxAGtR\nKK2OzRM9RSsabZY3iruKkaXCLSNjXF6V3EsYSZbA7tfZhW0OAqCNiOSMwXTS9cYwWHew+z4lFgJl\nd+x+PeUfOQOu6lK7UMHzoQDPpm/aZMypnEcTwg=="}
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 0
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934536609,\"signer\":\"user10\"}","Hash":"V7SJUh6mIOu0L/pYZDqF9YbkmMzmlfVTsO7SDYu5asg7IIgn42+IElko+VK0kiIDifMkME+3fp7W\nox/HSG+DywtfcZx4zYQKugrMU5b9wKTu0R7Rupipaq25W1HE2vmuNHAOlC52VT/18YiXEcvFpCoH\nSNkKQ6CqPF8j+bOcOzmN0jRHr1aOd+ielEYTnk9IuY3LXR7JgRbUexN/qe8UetIHhUj2SfZxAGtR\nKK2OzRM9RSsabZY3iruKkaXCLSNjXF6V3EsYSZbA7tfZhW0OAqCNiOSMwXTS9cYwWHew+z4lFgJl\nd+x+PeUfOQOu6lK7UMHzoQDPpm/aZMypnEcTwg=="}
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:70 - #0#####################QORUM#################0#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:70 - #1#####################QORUM#################1#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 8
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 9
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:70 - #1#####################QORUM#################1#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 7 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 7 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:70 - #2#####################QORUM#################2#
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 7 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 7 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 7 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 8
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 9
+2019-05-15 16:35:37 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 11
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 12
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:70 - #3#####################QORUM#################3#
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 4
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 5
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID3 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 8
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:63 - PID0 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:70 - #3#####################QORUM#################3#
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:134 - {"Hash2":"o+86hAFE7hjR8GZXtnWeoNDYFte/rxNfIbwBEwCgzVR97QtVJ7M9S9Wgq7J7AmHIvG5ZqjIKDEH2\nyGioeWLhIv7eV4dM43LsFStXxM3qWwgniYpUhyJZjbaGkiy6dh5D3CEa8WwzXvPcfexgf17xOd47\n7ywwsqL475Ia3ckg2yzM2/kruHj1Wf0n03K9jKr9c+9e6CyO7qF6zbdaGBWwyUIMnearkApqE540\nE1JCfIAeUOxCmMTWixMip0mzhfa8XXsO28DTzI5IbksaVa8DCFCkRymjbFDDYZ5ihvw72XjPi+Ok\nJUhzSllbjwD/JvtZeQZVwpxLivvDdoY1ya3V3g==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557934538185,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557934538115,\"signer\":\"user1\"}","Hash":"Kdqnkdj6tsS76gHIYdJu6pXIU/fV1s0l1G0Uybt9sj2pdeJI2RAmd9ymPthPOMmSlrrmGd3kkanJ\nk6MBE8DqTbtUysjgs8O3+zcgDD8d35EO/HyJs8rJlQaiEsOkLSmd0LRbSEj1141cElnQwbodSR2V\nGZnNiTewzREYr9d5KSzK7LOsGpTuYII4AssqZ29IvKklY2uMfx97NH5YQIMsDpJfdCxf5s38WkSI\n/U0aqMpFp2AV20EXQti0KhvUZ6lZYSBcphxIKkkYKUTA02D6nXQ7U8fvOqvH1iKkafyeE8J4LHku\nqTKwi/or212kb6oy8NoJtkLyQ5lVvh9naqXFCA=="}
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:134 - {"Hash2":"o+86hAFE7hjR8GZXtnWeoNDYFte/rxNfIbwBEwCgzVR97QtVJ7M9S9Wgq7J7AmHIvG5ZqjIKDEH2\nyGioeWLhIv7eV4dM43LsFStXxM3qWwgniYpUhyJZjbaGkiy6dh5D3CEa8WwzXvPcfexgf17xOd47\n7ywwsqL475Ia3ckg2yzM2/kruHj1Wf0n03K9jKr9c+9e6CyO7qF6zbdaGBWwyUIMnearkApqE540\nE1JCfIAeUOxCmMTWixMip0mzhfa8XXsO28DTzI5IbksaVa8DCFCkRymjbFDDYZ5ihvw72XjPi+Ok\nJUhzSllbjwD/JvtZeQZVwpxLivvDdoY1ya3V3g==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557934538185,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557934538115,\"signer\":\"user1\"}","Hash":"Kdqnkdj6tsS76gHIYdJu6pXIU/fV1s0l1G0Uybt9sj2pdeJI2RAmd9ymPthPOMmSlrrmGd3kkanJ\nk6MBE8DqTbtUysjgs8O3+zcgDD8d35EO/HyJs8rJlQaiEsOkLSmd0LRbSEj1141cElnQwbodSR2V\nGZnNiTewzREYr9d5KSzK7LOsGpTuYII4AssqZ29IvKklY2uMfx97NH5YQIMsDpJfdCxf5s38WkSI\n/U0aqMpFp2AV20EXQti0KhvUZ6lZYSBcphxIKkkYKUTA02D6nXQ7U8fvOqvH1iKkafyeE8J4LHku\nqTKwi/or212kb6oy8NoJtkLyQ5lVvh9naqXFCA=="}
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:134 - {"Hash2":"o+86hAFE7hjR8GZXtnWeoNDYFte/rxNfIbwBEwCgzVR97QtVJ7M9S9Wgq7J7AmHIvG5ZqjIKDEH2\nyGioeWLhIv7eV4dM43LsFStXxM3qWwgniYpUhyJZjbaGkiy6dh5D3CEa8WwzXvPcfexgf17xOd47\n7ywwsqL475Ia3ckg2yzM2/kruHj1Wf0n03K9jKr9c+9e6CyO7qF6zbdaGBWwyUIMnearkApqE540\nE1JCfIAeUOxCmMTWixMip0mzhfa8XXsO28DTzI5IbksaVa8DCFCkRymjbFDDYZ5ihvw72XjPi+Ok\nJUhzSllbjwD/JvtZeQZVwpxLivvDdoY1ya3V3g==","Message":"{\"Action\":\"transferGood\",\"wts\":2,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":2,\"Timestamp\":1557934538185,\"signer\":\"user10\"}","Message2":"{\"Action\":\"buyGood\",\"wts\":0,\"Buyer\":\"user1\",\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":0,\"Timestamp\":1557934538115,\"signer\":\"user1\"}","Hash":"Kdqnkdj6tsS76gHIYdJu6pXIU/fV1s0l1G0Uybt9sj2pdeJI2RAmd9ymPthPOMmSlrrmGd3kkanJ\nk6MBE8DqTbtUysjgs8O3+zcgDD8d35EO/HyJs8rJlQaiEsOkLSmd0LRbSEj1141cElnQwbodSR2V\nGZnNiTewzREYr9d5KSzK7LOsGpTuYII4AssqZ29IvKklY2uMfx97NH5YQIMsDpJfdCxf5s38WkSI\n/U0aqMpFp2AV20EXQti0KhvUZ6lZYSBcphxIKkkYKUTA02D6nXQ7U8fvOqvH1iKkafyeE8J4LHku\nqTKwi/or212kb6oy8NoJtkLyQ5lVvh9naqXFCA=="}
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 0 QORUM: 2 2*F: 2 Acks: 0
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:38 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:39 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:39 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:133 - #0#####################QORUM#################0#
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934551304,\"signer\":\"user10\"}","Hash":"Kdz/pfcZ6N9W9V80fGAH/SykGlNq7wF+N5ULeHpVu+4LvomwZ+9z1jMxl2ANVwpG5mN7RgrOITWY\ndYX9o7dUAHegMToQIn1F7r5mLPv/Mkxo/xnY3uhGXOHVsKBr9hsme/agI0bbl9+ZyqTuBpe44EbV\n620bKmhrGZQQWcf+yvCzXUnRMF6F0uwzJiKrcxNW4s3ayqfWMcBwJGkBBIx0kkJLb/Vt+BkcDzP7\nefqfAOdB4e5wStnaeEbnG8luu7SaBrSh9/bvQufvm6WGQdMMlr4BbfrCJiBxzbcSRBRW23SRB2Rt\nudSzOccyXSNxBJzFKaRllk4BsuGTerCXvEMNpQ=="}
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:133 - #1#####################QORUM#################1#
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934551304,\"signer\":\"user10\"}","Hash":"Kdz/pfcZ6N9W9V80fGAH/SykGlNq7wF+N5ULeHpVu+4LvomwZ+9z1jMxl2ANVwpG5mN7RgrOITWY\ndYX9o7dUAHegMToQIn1F7r5mLPv/Mkxo/xnY3uhGXOHVsKBr9hsme/agI0bbl9+ZyqTuBpe44EbV\n620bKmhrGZQQWcf+yvCzXUnRMF6F0uwzJiKrcxNW4s3ayqfWMcBwJGkBBIx0kkJLb/Vt+BkcDzP7\nefqfAOdB4e5wStnaeEbnG8luu7SaBrSh9/bvQufvm6WGQdMMlr4BbfrCJiBxzbcSRBRW23SRB2Rt\nudSzOccyXSNxBJzFKaRllk4BsuGTerCXvEMNpQ=="}
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 2
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 4 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 6
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 5 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:51 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 8 QORUM: 2 2*F: 2 Acks: 10
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 3 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:133 - #2#####################QORUM#################2#
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:134 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":1,\"Seller\":\"user10\",\"Good\":\"good12\",\"rid\":1,\"Timestamp\":1557934551304,\"signer\":\"user10\"}","Hash":"Kdz/pfcZ6N9W9V80fGAH/SykGlNq7wF+N5ULeHpVu+4LvomwZ+9z1jMxl2ANVwpG5mN7RgrOITWY\ndYX9o7dUAHegMToQIn1F7r5mLPv/Mkxo/xnY3uhGXOHVsKBr9hsme/agI0bbl9+ZyqTuBpe44EbV\n620bKmhrGZQQWcf+yvCzXUnRMF6F0uwzJiKrcxNW4s3ayqfWMcBwJGkBBIx0kkJLb/Vt+BkcDzP7\nefqfAOdB4e5wStnaeEbnG8luu7SaBrSh9/bvQufvm6WGQdMMlr4BbfrCJiBxzbcSRBRW23SRB2Rt\nudSzOccyXSNxBJzFKaRllk4BsuGTerCXvEMNpQ=="}
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 16:35:52 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 7 QORUM: 2 2*F: 2 Acks: 7
+2019-05-15 16:44:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:44:39 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:44:39 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:44:39 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:46:38 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 16:46:39 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:50:55 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:50:55 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:50:55 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:50:55 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 16:50:55 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 16:56:16 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 16:56:16 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:05:04 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:05:04 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 17:05:04 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 17:05:04 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:05:04 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:18:34 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:18:34 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:18:34 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:18:34 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:18:34 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:18:34 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:21:26 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:21:26 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:21:26 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:21:26 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:21:26 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:21:26 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:30:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:30:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:30:52 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:30:52 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:30:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:30:52 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:36:05 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:36:05 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:36:05 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:36:05 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:36:05 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:36:05 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:37:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:37:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:37:52 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:37:52 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:41:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:41:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:41:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:41:42 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:41:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:41:42 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 2 QORUM: 2 2*F: 2 Acks: 3
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:133 - #3#####################QORUM#################3#
+2019-05-15 17:43:23 INFO  AuthenticatedBroadcast:33 - --------------------------------------------------------------------------
+2019-05-15 17:48:58 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:48:58 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:48:58 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:48:58 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:50:19 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:50:19 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:50:19 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:50:19 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:50:19 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 17:50:19 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:54:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:54:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:54:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:54:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 17:54:37 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 17:54:37 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:03:26 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:03:26 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:03:26 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:03:26 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:03:26 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:03:26 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:08:08 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:08:08 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:08:08 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:08:08 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:08:09 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:08:09 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:17:31 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:17:31 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:17:31 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:17:31 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:17:31 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:17:31 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:19:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:19:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:19:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:19:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:19:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:19:53 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:28:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:28:02 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:28:02 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:30:05 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:30:05 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:30:05 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:30:05 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:30:05 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:30:05 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:38:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:38:23 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:38:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:38:23 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:38:23 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:38:23 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:41:52 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:41:52 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:41:53 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 18:49:55 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 18:49:55 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:49:56 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 18:49:56 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 18:52:36 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 19:02:33 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:02:33 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 19:02:33 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:02:33 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:05:49 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:05:49 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:05:49 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:05:49 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:05:49 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:05:49 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:27:58 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:27:58 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:27:58 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:27:58 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:27:58 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:27:58 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:28:54 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 19:28:54 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:28:54 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 19:28:54 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:29:33 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:29:33 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:29:33 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 19:29:33 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:30:56 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 19:30:56 INFO  AuthenticatedBroadcast:130 - PID0 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:35:15 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 19:35:15 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:35:15 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 19:35:15 INFO  AuthenticatedBroadcast:130 - PID3 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:36:13 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 19:36:13 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:36:13 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 19:36:13 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:36:13 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 19:36:13 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:48:34 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 19:48:34 INFO  AuthenticatedBroadcast:107 - Received from PID: 2
+2019-05-15 19:48:34 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:48:34 INFO  AuthenticatedBroadcast:130 - PID2 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:51:33 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 19:51:33 INFO  AuthenticatedBroadcast:130 - PID1 RESPONSES: 1 QORUM: 2 2*F: 2 Acks: 1
+2019-05-15 19:55:03 INFO  AuthenticatedBroadcast:107 - Received from PID: 1
+2019-05-15 19:55:03 INFO  AuthenticatedBroadcast:107 - Received from PID: 3
+2019-05-15 19:56:02 INFO  AuthenticatedBroadcast:46 - Receiving ready 3
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:46 - Receiving ready 0
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:67 - false <- QORUM 0
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:68 - false <- READY GOING Process: 0
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:67 - false <- QORUM 3
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:68 - false <- READY GOING Process: 3
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:46 - Receiving ready 2
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:67 - false <- QORUM 2
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:68 - false <- READY GOING Process: 2
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:67 - false <- QORUM 2
+2019-05-15 19:56:03 INFO  AuthenticatedBroadcast:68 - true <- READY GOING Process: 2
+2019-05-15 20:20:06 INFO  AuthenticatedBroadcast:107 - Received from PID: 0
+2019-05-15 20:25:46 INFO  AuthenticatedBroadcast:110 - ############################################################
+2019-05-15 20:25:46 INFO  AuthenticatedBroadcast:111 - Received from PID: 3
+2019-05-15 20:25:46 INFO  AuthenticatedBroadcast:110 - ############################################################
+2019-05-15 20:25:46 INFO  AuthenticatedBroadcast:111 - Received from PID: 3
+2019-05-15 20:25:46 INFO  AuthenticatedBroadcast:151 - ############################################################
+2019-05-15 20:25:46 INFO  AuthenticatedBroadcast:151 - ############################################################
+2019-05-15 20:53:42 INFO  AuthenticatedBroadcast:107 - ############################################################
+2019-05-15 20:53:42 INFO  AuthenticatedBroadcast:108 - Received from PID: 2
+2019-05-15 20:53:42 INFO  AuthenticatedBroadcast:148 - ############################################################
+2019-05-15 21:10:43 INFO  AuthenticatedBroadcast:108 - Starting Echo from 0 to 2: 
+2019-05-15 21:21:24 INFO  AuthenticatedBroadcast:109 - Starting Echo from 3 to 1: 
+2019-05-15 21:21:24 INFO  AuthenticatedBroadcast:109 - Starting Echo from 3 to 2: 
+2019-05-15 21:23:31 INFO  AuthenticatedBroadcast:109 - Starting Echo from 0 to 2: 
+2019-05-15 21:23:31 INFO  AuthenticatedBroadcast:109 - Starting Echo from 0 to 3: 
+2019-05-15 21:31:17 INFO  AuthenticatedBroadcast:109 - Starting Echo from 0 to 1: 
+2019-05-15 21:31:17 INFO  AuthenticatedBroadcast:109 - Starting Echo from 2 to 3: 
+2019-05-15 21:38:25 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 0: 
+2019-05-15 21:38:25 INFO  AuthenticatedBroadcast:108 - Starting Echo from 3 to 0: 
+2019-05-15 21:38:25 INFO  AuthenticatedBroadcast:108 - Starting Echo from 3 to 1: 
+2019-05-15 21:43:31 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 0: 
+2019-05-15 21:43:31 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 1: 
+2019-05-15 21:43:31 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 3: 
+2019-05-15 21:44:34 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 0: 
+2019-05-15 21:44:34 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 1: 
+2019-05-15 21:44:34 INFO  AuthenticatedBroadcast:108 - Starting Echo from 2 to 3: 
+2019-05-15 21:51:56 INFO  AuthenticatedBroadcast:108 - Starting Echo from 0 to 1: 
+2019-05-15 21:51:56 INFO  AuthenticatedBroadcast:108 - Starting Echo from 0 to 3: 
+2019-05-15 22:04:39 INFO  AuthenticatedBroadcast:108 - Starting Echo from 0 to 3: 
+2019-05-15 22:04:39 INFO  AuthenticatedBroadcast:108 - Starting Echo from 1 to 2: 
+2019-05-15 22:10:42 INFO  AuthenticatedBroadcast:109 - Starting Echo from 1 to 0: 
+2019-05-15 22:10:43 INFO  AuthenticatedBroadcast:109 - Starting Echo from 1 to 3: 
+2019-05-15 22:10:43 INFO  AuthenticatedBroadcast:109 - Starting Echo from 2 to 3: 
+2019-05-15 22:29:46 INFO  AuthenticatedBroadcast:102 - Starting Echo from 2 to 0: 
+2019-05-15 22:29:46 INFO  AuthenticatedBroadcast:102 - Starting Echo from 2 to 1: 
+2019-05-15 22:31:09 INFO  AuthenticatedBroadcast:102 - Starting Echo from 2 to 1: 
+2019-05-15 22:31:09 INFO  AuthenticatedBroadcast:102 - Starting Echo from 2 to 3: 
+2019-05-15 22:31:25 INFO  AuthenticatedBroadcast:102 - Starting Echo from 3 to 2: 
+2019-05-15 22:31:32 INFO  AuthenticatedBroadcast:102 - Starting Echo from 3 to 0: 
+2019-05-15 22:31:32 INFO  AuthenticatedBroadcast:50 - Starting Ready from 0 to 2: 
+2019-05-15 22:31:32 INFO  AuthenticatedBroadcast:102 - Starting Echo from 3 to 2: 
+2019-05-15 22:34:40 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 2: 
+2019-05-15 22:34:40 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 3: 
+2019-05-15 22:36:08 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 0: 
+2019-05-15 22:36:08 INFO  AuthenticatedBroadcast:102 - Starting Echo from 3 to 2: 
+2019-05-15 22:36:08 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 2: 
+2019-05-15 22:36:08 INFO  AuthenticatedBroadcast:127 - |Echo :) 2 Achieved QORUM|
+2019-05-15 22:37:10 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 0: 
+2019-05-15 22:40:12 INFO  AuthenticatedBroadcast:102 - Starting Echo from 2 to 0: 
+2019-05-15 22:40:12 INFO  AuthenticatedBroadcast:102 - Starting Echo from 2 to 1: 
+2019-05-15 22:46:49 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 0: 
+2019-05-15 22:46:49 INFO  AuthenticatedBroadcast:102 - Starting Echo from 1 to 2: 
+2019-05-15 22:55:01 INFO  AuthenticatedBroadcast:105 - Starting Echo from 2 to 1: 
+2019-05-15 22:57:07 INFO  AuthenticatedBroadcast:105 - Starting Echo from 3 to 0: 
+2019-05-15 23:19:04 INFO  AuthenticatedBroadcast:100 - Starting Echo from 3 to 1: 
+2019-05-15 23:19:04 INFO  AuthenticatedBroadcast:100 - Starting Echo from 0 to 1: 
+2019-05-15 23:19:04 INFO  AuthenticatedBroadcast:100 - Starting Echo from 3 to 2: 
+2019-05-15 23:19:04 INFO  AuthenticatedBroadcast:100 - Starting Echo from 0 to 2: 
+2019-05-15 23:19:04 INFO  AuthenticatedBroadcast:111 - |Echo :) 2 Achieved QORUM|
+2019-05-15 23:20:28 INFO  AuthenticatedBroadcast:100 - Starting Echo from 1 to 0: 
+2019-05-15 23:20:28 INFO  AuthenticatedBroadcast:100 - Starting Echo from 1 to 2: 
+2019-05-15 23:20:28 INFO  AuthenticatedBroadcast:100 - Starting Echo from 1 to 3: 
+2019-05-15 23:22:13 INFO  AuthenticatedBroadcast:100 - Starting Echo from 2 to 0: 
+2019-05-15 23:22:18 INFO  AuthenticatedBroadcast:59 - {"Message":"{\"Action\":\"intentionToSell\",\"wts\":4,\"Seller\":\"user2\",\"Good\":\"good20\",\"rid\":4,\"Timestamp\":1557958937837,\"signer\":\"user2\"}","Hash":"DDi+6YTtBTTEyFUlzHOmkVOH4fOxL9xq9uveD0eG28GAfH2da4EQlvEaFLWs+vWpcCWYq8eKmZWV\nFrOhqYe7x3WoKyOsBBULKnyiVO+xR8zqgvDlP4qc6oJiSOyaUA2SKmuZPWE18Ky7ujDBzYbMXpSa\n4uEsSQdvURsEVygR7BmPCylynfc9eKMAEQZyHWFgJ65IzqhwfsSd+PrRMd+bVfoYskoDfeBAU+L1\nZc80sVP+OzjNkjL6GK965DEHznB7XSX2NvbcY/uWhLbWtQ4CEF+oduY9icw31lotoWEltL4jpI9y\n25D2UVL82zxVvxbheCXNlKpn+J1rbNWv07+psw=="}
+2019-05-15 23:22:18 INFO  AuthenticatedBroadcast:100 - Starting Echo from 1 to 0: 
+2019-05-15 23:22:18 INFO  AuthenticatedBroadcast:100 - Starting Echo from 2 to 0: 
+2019-05-15 23:26:55 INFO  AuthenticatedBroadcast:100 - Starting Echo from 1 to 2: 
+2019-05-15 23:26:55 INFO  AuthenticatedBroadcast:100 - Starting Echo from 0 to 2: 
+2019-05-15 23:26:55 INFO  AuthenticatedBroadcast:111 - |Echo :) 2 Achieved QORUM|
+2019-05-15 23:31:09 INFO  AuthenticatedBroadcast:100 - Starting Echo from 2 to 0: 
+2019-05-15 23:31:09 INFO  AuthenticatedBroadcast:100 - Starting Echo from 3 to 0: 

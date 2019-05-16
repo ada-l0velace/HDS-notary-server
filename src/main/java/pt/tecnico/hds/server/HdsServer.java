@@ -5,8 +5,11 @@ import java.net.Socket;
 import java.net.SocketException;
 
 
-
+import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.sqlite.date.ExceptionUtils;
 
 public class HdsServer implements Runnable {
 
@@ -17,6 +20,7 @@ public class HdsServer implements Runnable {
     private Notary nt;
     private DataOutputStream dos;
     private String a;
+    public final static Logger logger = LoggerFactory.getLogger(HdsServer.class);
 
 
 
@@ -26,19 +30,27 @@ public class HdsServer implements Runnable {
         this.dis = dis;
         this.dos = dos;
         this.nt = nt;
+    }
 
-
+    public String getStackTrace(final Throwable throwable) {
+        final StringWriter sw = new StringWriter();
+        final PrintWriter pw = new PrintWriter(sw, true);
+        throwable.printStackTrace(pw);
+        return sw.getBuffer().toString();
     }
 
     public void run() {
         String received = "";
         String toreturn = "";
-        System.out.println("Server " + this.connection + " Opens...");
+        //System.out.println("Server " + this.connection + " Opens...");
         try {
              // receive the answer from client
+             if (dis.available() == 0) {
+                dos.writeUTF("");
+                return;
+             }
 
              received = dis.readUTF();
-             System.out.println(received);
              this.TimeStamp = new java.util.Date().toString();
              // write on output stream based on the
              // answer from the client
@@ -60,9 +72,10 @@ public class HdsServer implements Runnable {
              //String signature;
              JSONObject message;
              JSONObject value = new JSONObject(json.getString("Message"));
-             System.out.println(received);
+             //System.out.println(received);
              Broadcast broadcaster;
              String good;
+             JSONObject _value;
              switch (received) {
 
                  case "transferGood":
@@ -70,7 +83,7 @@ public class HdsServer implements Runnable {
                      nt.getBroadcasterLock(good).acquire();
                      broadcaster = nt.getBroadcaster(good);
 
-                     broadcaster.broadcast(json);
+                     broadcaster.broadcast(json.toString());
 
                      if(broadcaster.isDelivered()) {
                          JSONObject message2 = new JSONObject(json.getString("Message2"));
@@ -79,8 +92,9 @@ public class HdsServer implements Runnable {
                      else {
                          jsontr = new JSONObject();
                          jsontr.put("Action", "NO");
+
                      }
-                     broadcaster.init();
+                     broadcaster.clear();
                      nt.getBroadcasterLock(good).release();
                      toreturn = nt.buildReply(jsontr).toString();
                      dos.writeUTF(toreturn);
@@ -91,7 +105,8 @@ public class HdsServer implements Runnable {
                      good = jsonObj.getString("Good");
                      nt.getBroadcasterLock(good).acquire();
                      broadcaster = nt.getBroadcaster(good);
-                     broadcaster.broadcast(json);
+                     broadcaster.broadcast(json.toString());
+                     System.out.println("DELIVERED"+ broadcaster.isDelivered());
                      if(broadcaster.isDelivered()) {
                          jsontr = nt.intentionToSell(jsonObj, hash);
                      }
@@ -99,10 +114,10 @@ public class HdsServer implements Runnable {
                          jsontr = new JSONObject();
                          jsontr.put("Action", "NO");
                      }
-                     broadcaster.init();
+                     broadcaster.clear();
                      nt.getBroadcasterLock(good).release();
                      toreturn = nt.buildReply(jsontr).toString();
-                     System.out.println(toreturn);
+                     //System.out.println(toreturn);
                      dos.writeUTF(toreturn);
                      System.out.println("Returning message is: " + toreturn);
                      break;
@@ -118,25 +133,27 @@ public class HdsServer implements Runnable {
                      break;
 
                  case "Echo":
-                     JSONObject _value = new JSONObject(jsonObj.getString("Value"));
+                     _value = new JSONObject(jsonObj.getString("Value"));
                      message = new JSONObject(_value.getString("Message"));
                      good = message.getString("Good");
                      broadcaster = nt.getBroadcaster(good);
-                     System.out.println("new echo from: "+json.toString());
+                     //System.out.println("new echo from: "+json.toString());
                      broadcaster.echo(jsonObj.getInt("pid"), jsonObj.getString("Value"));
 
 
                      break;
 
                  case "Ready":
-                     good = jsonObj.getString("Good");
+                     _value = new JSONObject(jsonObj.getString("Value"));
+                     message = new JSONObject(_value.getString("Message"));
+                     good = message.getString("Good");
                      broadcaster = nt.getBroadcaster(good);
-                     System.out.println("Ready phase from: "+json.toString());
-                     broadcaster.ready(json);
+                     //System.out.println("new ready from: "+json.toString());
+                     broadcaster.ready(jsonObj.getInt("pid"), jsonObj.getString("Value"));
                      break;
 
                  case "WriteBack":
-                     System.out.println(received);
+                     //System.out.println(received);
                      message = nt.writeback(json);
                      toreturn = nt.buildReply(message).toString();
                      dos.writeUTF(toreturn);
@@ -151,29 +168,32 @@ public class HdsServer implements Runnable {
                      break;
              }
         } catch (EOFException | SocketException eofError) { // Normally Occurs when the client socket dies
-            eofError.printStackTrace();
-            nt.reset();
+            //eofError.printStackTrace();
+            logger.info(getStackTrace(eofError));
+            //nt.reset();
         }
 
           catch (Exception e) {
              e.printStackTrace();
-             nt.reset();
+             //nt.reset();
              System.out.println("ERROR: " + received );
+             logger.info(getStackTrace(e));
              try {
                  dos.writeUTF("Invalid input");
              } catch (IOException e1) {
-                 e1.printStackTrace();
+                 //e1.printStackTrace();
+                 logger.info(getStackTrace(e));
              }
          }
          try {
-             System.out.println("Client " + this.connection + " sends exit...");
-             this.connection.close();
-             System.out.println("Connection closed");
+             //System.out.println("Client " + this.connection + " sends exit...");
+             //System.out.println("Connection closed");
              this.dis.close();
              this.dos.close();
+             this.connection.close();
          } catch (Exception e) {
-             nt.reset();
-             e.printStackTrace();
+             //nt.reset();
+             logger.info(getStackTrace(e));
          }
     }
 }

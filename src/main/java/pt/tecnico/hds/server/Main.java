@@ -1,5 +1,7 @@
 package pt.tecnico.hds.server;
 
+import org.apache.log4j.PropertyConfigurator;
+
 public class Main {
 
     public static Boolean debug = true;

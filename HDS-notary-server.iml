@@ -33,5 +33,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: com.github.virtuald:curvesapi:1.04" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: postgresql:postgresql:8.4-701.jdbc3" level="project" />
     <orderEntry type="library" name="Maven: pteidlibj:pteidlibj:0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.jcabi:jcabi-log:0.17.1" level="project" />
+    <orderEntry type="library" name="Maven: com.jcabi:jcabi-aspects:0.22" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
   </component>
 </module>

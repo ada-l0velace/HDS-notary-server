@@ -19,6 +19,7 @@ public class NotaryStarter implements Runnable  {
         try {
             ServerSocket socket1 = new ServerSocket(_port);
             socket1.setReuseAddress(true);
+            //socket1.setSoTimeout(10*1000);
             //System.out.println("HDS Client Server Starter Initialized");
             while (true) {
                 Socket connection = socket1.accept();

@@ -5,11 +5,11 @@ import org.json.JSONObject;
 import java.util.concurrent.Semaphore;
 
 public interface Broadcast {
-    void init();
-    void broadcast(JSONObject request) throws InterruptedException;
+    void clear();
+    void broadcast(String request) throws InterruptedException;
     void echo(int pid, String message);
-    void ready(JSONObject ready);
-    void doubleEcho(JSONObject request);
+    void ready(int pid, String message);
+    void doubleEcho(String request);
     boolean isDelivered();
     Semaphore getLock();
 }

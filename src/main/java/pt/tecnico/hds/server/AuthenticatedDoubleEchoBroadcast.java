@@ -2,85 +2,70 @@ package pt.tecnico.hds.server;
 
 import org.json.JSONObject;
 
-import java.util.concurrent.Semaphore;
 
 public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     BroadcastValue[] reads;
-
+    int [] responses2;
+    int [] acks2;
     public AuthenticatedDoubleEchoBroadcast(Notary notary) {
         super(notary);
         reads = new BroadcastValue[notary.nServers];
         echos = new BroadcastValue[notary.nServers];
+        acks2 = new int[notary.nServers];
+        responses2 = new int[notary.nServers];
     }
 
     @Override
     public void init() {
        super.init();
        reads = new BroadcastValue[notary.nServers];
-        //sem = new Semaphore(2);
     }
 
-    public JSONObject buildMessage2(JSONObject request) {
-
+    public String buildMessage2(String request) {
         JSONObject echoMessage = new JSONObject();
         echoMessage.put("Action","Ready");
         echoMessage.put("pid",notary.notaryIndex);
-        if (request.has("Message"))
-            echoMessage.put("Value",request.toString());
-        return notary.buildReply(echoMessage);
+        echoMessage.put("Value",request);
+        return notary.buildReply(echoMessage).toString();
     }
 
     @Override
-    public void doubleEcho(JSONObject request) {
-        System.out.println("STARTING DOUBLE ECHO !!!!!!!!!!!!!!!!!!!!!!!");
-        if (!sentReady) {
-            sentReady = true;
-            for (int i = 0; i < Main.N; i++) {
-                System.out.println(buildMessage2(request).toString());
-                //new BroadcastThread(notary,"localhost", notary._port+i, buildMessage(request));
-                notary.connectToServer("localhost", notary._port + i, buildMessage2(request).toString());
-            }
+    public void doubleEcho(String request) {
+        for (int i = 0; i < Main.N; i++) {
+            notary.connectToServer("localhost", notary._port + i, buildMessage2(request));
         }
     }
 
     @Override
-    public void ready(JSONObject echo) {
-        System.out.println("Receiving ready "+echo);
-        responses++;
-        JSONObject messageE = new JSONObject(echo.getString("Message"));
-        int pid = messageE.getInt("pid");
-        BroadcastValue bv = new BroadcastValue(echo, pid);
+    public void ready(int pid, String message) {
+        int ni = notary.notaryIndex;
+        logger.info(String.format("Starting Ready from %d to %d: ", pid, notary.notaryIndex));
+
+        BroadcastValue bv = new BroadcastValue(message, pid);
 
         if(reads[pid] == null) {
+            responses2[ni]++;
             reads[pid] = bv;
             for (int i = 0; i < notary.nServers; i++) {
-                System.out.println("###################DOUBLE###################");
-                System.out.println(reads[i]);
-                System.out.println(bv);
-                System.out.println("#############################################");
                 if(reads[i]!= null && reads[i].equals(bv)) {
-                    acks2++;
-                    System.out.println("ack ready from: "+ bv+ " total acks: "+ acks);
-                    System.out.println(acks>Main.f);
-                    System.out.println(acks>2*Main.f);
-                    if(acks2>Main.f && !sentReady) {
-                        doubleEcho(bv.message);
+                    acks2[ni]++;
+                    if(acks2[ni]>Main.f && !sentReady[ni]) {
+                        sentReady[pid] = true;
+                        doubleEcho(message);
                     }
-                    if(acks2>2*Main.f && !this.delivered) {
-                        delivered=true;
-                        sem.release();
-                        System.out.println("###################WIN#######################");
-                        System.out.println(reads[i]);
-                        System.out.println("#############################################");
-
-
+                    if(acks2[ni]>2*Main.f && !this.delivered[i]) {
+                        delivered[i]=true;
+                        logger.info(String.format("|Ready :) %d Achieved QORUM|",notary.notaryIndex));
+                        //logger.info(message);
+                        releaseLock();
                     }
                 }
             }
-            if(responses > (Main.N+Main.f)/2 && acks<2f) {
-                //sem.release();
+            if(responses2[ni] > (Main.N+Main.f)/2 && acks2[ni]<2*Main.f) {
+                logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
+                //releaseLock();
             }
-        }
 
+        }
     }
 }

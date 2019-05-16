@@ -84,7 +84,7 @@ public class Utils {
     }
 
     public static Key read(String keyPath) throws IOException {
-        System.out.println("Reading key from file " + keyPath + " ...");
+        //System.out.println("Reading key from file " + keyPath + " ...");
         FileInputStream fis = new FileInputStream(keyPath);
         byte[] encoded = new byte[fis.available()];
         fis.read(encoded);
