@@ -12,12 +12,13 @@ import java.util.concurrent.TimeUnit;
 
 public class AuthenticatedBroadcast implements Broadcast {
     Notary notary;
-    boolean[] sentEcho;
-    boolean[] delivered;
-    boolean[] sentReady;
-    int[] acks;
-    int[] responses;
-    Mutex mutex;
+    boolean sentEcho;
+    boolean delivered;
+    boolean sentReady;
+    int acks;
+    int responses;
+    long waitID;
+    Mutex[] mutex;
     int ni;
     Mutex echoMutex;
     Semaphore[] sem;
@@ -35,16 +36,19 @@ public class AuthenticatedBroadcast implements Broadcast {
     public void init() {
 
         echos = new BroadcastValue[notary.nServers];
-        mutex = new Mutex();
+        mutex = new Mutex[notary.nServers];
         echoMutex = new Mutex();
-        sem=new Semaphore[notary.nServers];
-        sentEcho = new boolean[notary.nServers];
-        delivered = new boolean[notary.nServers];
-        sentReady = new boolean[notary.nServers];
-        acks = new int[notary.nServers];
-        responses = new int[notary.nServers];
+        sem= new Semaphore[notary.nServers];
+        sentEcho = false;
+        delivered = false;
+        sentReady = false;
+        acks = 0;
+        responses = 0;
         for (int i = 0; i < Main.N; i++) {
             sem[i] = new Semaphore(0);
+        }
+        for (int i = 0; i < Main.N; i++) {
+            mutex[i] = new Mutex();
         }
 
     }
@@ -54,23 +58,27 @@ public class AuthenticatedBroadcast implements Broadcast {
     }
 
     @Override
-    public void broadcast(String request) {
-        if (!sentEcho[ni]) {
-            sentEcho[ni] = true;
+    public synchronized void broadcast(String request) {
+        if (!sentEcho) {
+            sentEcho = true;
             for (int i = 0; i < notary.nServers; i++) {
                 notary.connectToServer("localhost", notary._port + i, buildMessage(request));
             }
         }
 
-        if (!delivered[ni]) {
+        while (!delivered) {
 
             try {
                 logger.info(String.format("#########%d is LOCKED########", notary.notaryIndex));
-                getLock().acquire();
+                waitID=Thread.currentThread().getId();
+                wait();
+
+                //getLock().acquire();
                 //sem.acquire();
             } catch (InterruptedException e) {
-                getLock().release();
                 e.printStackTrace();
+                return;
+                //getLock().release();
             }
 
         }
@@ -91,28 +99,36 @@ public class AuthenticatedBroadcast implements Broadcast {
     }
 
     @Override
-    public void echo(int pid, String message) {
+    public synchronized void echo(int pid, String message) {
+        //echoMutex.lock();
         logger.info(String.format("Starting Echo from %d to %d: ", pid, notary.notaryIndex));
         BroadcastValue bv = new BroadcastValue(message, pid);
 
         if (echos[pid] == null) {
-            responses[ni]++;
+            responses++;
             echos[pid] = bv;
             for (int i = 0; i < Main.N; i++) {
                 if (echos[i] != null && echos[i].equals(bv)) {
-                    acks[ni]++;
+                    acks++;
                 }
-                if (!sentReady[ni] && acks[ni] > (Main.N + Main.f) / 2) {
+                if (!sentReady && acks > (Main.N + Main.f) / 2) {
                     logger.info(String.format("|Echo :) %d Achieved QORUM|",notary.notaryIndex));
-                    sentReady[ni] = true;
+                    sentReady = true;
                     doubleEcho(message);
                 }
-                else if (responses[ni] > (Main.N + Main.f) / 2 && acks[ni] < 2 * Main.f) {
-                    logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
+                else if (responses > (Main.N + Main.f) / 2 && acks < 2 * Main.f) {
+                    Thread[] list = new Thread[Thread.activeCount()];
+                    Thread.currentThread().getThreadGroup().enumerate(list);
+                    for(Thread t:list) {
+                        if (t.getId()==waitID) {
+                            t.interrupt();
+                        }
+                    }
                 }
             }
 
         }
+        //echoMutex.unlock();
     }
 
     public void ready(int pid, String message){}
@@ -120,7 +136,7 @@ public class AuthenticatedBroadcast implements Broadcast {
     public void doubleEcho(String ready) {}
 
     public boolean isDelivered(){
-        return delivered[ni];
+        return delivered;
     }
 
     @Override

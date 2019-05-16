@@ -172,3 +172,4 @@ local.properties
 
 # VirtualEnv
 .env
+logs/*.out

@@ -6,7 +6,7 @@ import java.util.concurrent.Semaphore;
 
 public interface Broadcast {
     void clear();
-    void broadcast(String request) throws InterruptedException;
+    void broadcast(String request);
     void echo(int pid, String message);
     void ready(int pid, String message);
     void doubleEcho(String request);

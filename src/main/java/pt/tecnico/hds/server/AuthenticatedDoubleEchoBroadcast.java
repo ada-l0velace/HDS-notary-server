@@ -5,20 +5,21 @@ import org.json.JSONObject;
 
 public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     BroadcastValue[] reads;
-    int [] responses2;
-    int [] acks2;
+    int responses2;
+    int acks2;
     public AuthenticatedDoubleEchoBroadcast(Notary notary) {
         super(notary);
         reads = new BroadcastValue[notary.nServers];
-        echos = new BroadcastValue[notary.nServers];
-        acks2 = new int[notary.nServers];
-        responses2 = new int[notary.nServers];
+        acks2 = 0;
+        responses2 = 0;
     }
 
     @Override
     public void init() {
        super.init();
        reads = new BroadcastValue[notary.nServers];
+       acks2 = 0;
+       responses2 = 0;
     }
 
     public String buildMessage2(String request) {
@@ -37,35 +38,46 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     }
 
     @Override
-    public void ready(int pid, String message) {
-        int ni = notary.notaryIndex;
+    public synchronized void ready(int pid, String message) {
         logger.info(String.format("Starting Ready from %d to %d: ", pid, notary.notaryIndex));
 
         BroadcastValue bv = new BroadcastValue(message, pid);
 
         if(reads[pid] == null) {
-            responses2[ni]++;
+            responses2++;
             reads[pid] = bv;
             for (int i = 0; i < notary.nServers; i++) {
                 if(reads[i]!= null && reads[i].equals(bv)) {
-                    acks2[ni]++;
-                    if(acks2[ni]>Main.f && !sentReady[ni]) {
-                        sentReady[pid] = true;
+                    acks2++;
+                    if(acks2>Main.f && !sentReady) {
+                        sentReady = true;
                         doubleEcho(message);
                     }
-                    if(acks2[ni]>2*Main.f && !this.delivered[i]) {
-                        delivered[i]=true;
+                    if(acks2>2*Main.f && !this.delivered) {
+                        //releaseLock();
+                        delivered=true;
+                        notifyAll();
                         logger.info(String.format("|Ready :) %d Achieved QORUM|",notary.notaryIndex));
                         //logger.info(message);
-                        releaseLock();
+
                     }
                 }
             }
-            if(responses2[ni] > (Main.N+Main.f)/2 && acks2[ni]<2*Main.f) {
+            if(responses2 > (Main.N+Main.f)/2 && acks2<2*Main.f) {
                 logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
+                Thread[] list = new Thread[Thread.activeCount()];
+                Thread.currentThread().getThreadGroup().enumerate(list);
+                for(Thread t:list) {
+                    if (t.getId()==waitID) {
+                        t.interrupt();
+                    }
+                }
+
+
+            }
                 //releaseLock();
             }
 
         }
     }
-}
+
