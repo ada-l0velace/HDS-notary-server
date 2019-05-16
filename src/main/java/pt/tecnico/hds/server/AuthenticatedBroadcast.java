@@ -36,12 +36,12 @@ public class AuthenticatedBroadcast implements Broadcast {
 
     public void init() {
 
-        echos = new BroadcastValue[notary.nServers];
+        echos = new BroadcastValue[Notary.nServers];
         echoMutex = new Mutex();
-        sem= new Semaphore[notary.nServers];
-        sentEcho = new boolean[notary.nServers];
-        delivered = new boolean[notary.nServers];
-        sentReady = new boolean[notary.nServers];
+        sem= new Semaphore[Notary.nServers];
+        sentEcho = new boolean[Notary.nServers];
+        delivered = new boolean[Notary.nServers];
+        sentReady = new boolean[Notary.nServers];
         acks = new int [Main.N];
         responses = new int [Main.N];
         for (int i = 0; i < Main.N; i++) {
@@ -58,9 +58,9 @@ public class AuthenticatedBroadcast implements Broadcast {
     public void broadcast(String request) {
         if (!sentEcho[ni]) {
             sentEcho[ni] = true;
-            for (int i = 0; i < notary.nServers; i++) {
+            for (int i = 0; i < Notary.nServers; i++) {
                 //new BroadcastThread(notary,"localhost", notary._port + i, buildMessage(request)).run();
-                notary.connectToServer("localhost", notary._port + i, buildMessage(request));
+                notary.connectToServer("localhost", Notary._port + i, buildMessage(request));
             }
 
         }

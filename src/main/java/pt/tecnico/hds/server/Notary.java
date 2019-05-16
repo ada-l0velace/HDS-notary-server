@@ -192,7 +192,7 @@ public class Notary {
     	JSONObject reply = new JSONObject();
     	//System.out.println("Starting GetStateOfGood");
     	try {
-    		Connection conn = this.connect();
+    		Connection conn = connect();
     		String buyer = message.getString("Buyer");
     		if (isReal("userid", "users", buyer, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash,"assymetricKeys/" + buyer + ".pub")) {
     			String good = message.getString("Good");
@@ -235,7 +235,7 @@ public class Notary {
 		String sql = "UPDATE notary SET onSale = FALSE , userId = ? WHERE goodsId = ?";
 		
     	try {
-    		Connection conn = this.connect();
+    		Connection conn = connect();
     		PreparedStatement pstmt = conn.prepareStatement(sql);
     		String seller = message.getString("Seller");
     		String buyer = message.getString("Buyer");
@@ -287,7 +287,7 @@ public class Notary {
         String sql = "UPDATE notary SET onSale = ? WHERE goodsId = ?";
         String goodsId = message.getString("Good");
         try {
-        	Connection conn = this.connect();
+        	Connection conn = connect();
         	PreparedStatement pstmt = conn.prepareStatement(sql);
         	if (isReal("userid", "users", seller, conn) && Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + seller + ".pub") && verifyReplay(hash, conn)) {
         		addToRequests(hash, message.toString(), conn);
@@ -339,7 +339,6 @@ public class Notary {
 		j.put("signer", cc.getKeyName());
         reply.put("Message", j.toString());
 
-
 		try {
 			reply.put("Hash", cc.signWithPrivateKey(j.toString()));
 		} catch (JSONException e) {
@@ -349,7 +348,14 @@ public class Notary {
 		}
         return reply;
     }
-    
+
+	public String resend() {
+		JSONObject reply = new JSONObject();
+		reply.put("Action", "Resend");
+		return buildReply(reply).toString();
+	}
+
+
     public JSONObject invalid() {
     	JSONObject reply = new JSONObject();
     	reply.put("Action", "NO");

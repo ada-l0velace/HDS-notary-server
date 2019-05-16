@@ -15,6 +15,6 @@ public class BroadcastThread implements Runnable {
     }
 
     public void run() {
-        notary.connectToServer("localhost", notary._port, jsonObject);
+        notary.connectToServer("localhost", Notary._port, jsonObject);
     }
 }

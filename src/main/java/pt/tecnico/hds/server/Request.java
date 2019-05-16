@@ -44,7 +44,7 @@ public class Request {
 
     public Boolean verifySignature(JSONObject request) throws SQLException {
         JSONObject message = new JSONObject(request.getString("Message"));
-        Connection conn = notary.connect();
+        Connection conn = Notary.connect();
         String signature = request.getString("Hash");
         if (notary.isReal("userid", "users", message.getString("User"), conn) &&
                 Utils.verifySignWithPubKeyFile(message.toString(), signature , "assymetricKeys/"+message.getString("User") + ".pub") &&

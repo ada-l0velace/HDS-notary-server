@@ -22,6 +22,7 @@ public class BroadcastValue {
     public String signer2="";
 
     public BroadcastValue(String request, int pid) {
+
         this.pid = pid;
         JSONObject r = new JSONObject(request);
         //System.out.println(r.getString("Message"));

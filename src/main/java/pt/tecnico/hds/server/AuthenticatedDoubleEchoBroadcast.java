@@ -5,8 +5,8 @@ import org.json.JSONObject;
 
 public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     BroadcastValue[] reads;
-    int responses2[];
-    int acks2[];
+    int[] responses2;
+    int[] acks2;
 
     public AuthenticatedDoubleEchoBroadcast(Notary notary) {
         super(notary);
@@ -16,18 +16,18 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     @Override
     public void init() {
         super.init();
-        reads = new BroadcastValue[notary.nServers];
-        acks2 = new int[notary.nServers];
-        responses2 = new int[notary.nServers];
+        reads = new BroadcastValue[Notary.nServers];
+        acks2 = new int[Notary.nServers];
+        responses2 = new int[Notary.nServers];
 
     }
 
     @Override
     public void clear() {
         super.init();
-        reads = new BroadcastValue[notary.nServers];
-        acks2 = new int[notary.nServers];
-        responses2 = new int[notary.nServers];
+        reads = new BroadcastValue[Notary.nServers];
+        acks2 = new int[Notary.nServers];
+        responses2 = new int[Notary.nServers];
 
     }
 
@@ -42,7 +42,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     @Override
     public void doubleEcho(String request) {
         for (int i = 0; i < Main.N; i++) {
-            notary.connectToServer("localhost", notary._port + i, buildMessage2(request));
+            notary.connectToServer("localhost", Notary._port + i, buildMessage2(request));
         }
     }
 
@@ -55,7 +55,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
         if (reads[pid] == null) {
             responses2[ni]++;
             reads[pid] = bv;
-            for (int i = 0; i < notary.nServers; i++) {
+            for (int i = 0; i < Notary.nServers; i++) {
                 if (reads[i] != null && reads[i].equals(bv)) {
                     acks2[ni]++;
                     if (acks2[ni] > Main.f && !sentReady[ni]) {

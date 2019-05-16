@@ -74,7 +74,7 @@ public class Utils {
             Signature sig = Signature.getInstance("SHA256withRSA");
 
             sig.initSign(priv);
-            sig.update(message.getBytes("UTF-8"));
+            sig.update(message.getBytes(StandardCharsets.UTF_8));
             return new BASE64Encoder().encode(sig.sign());
         }
         catch (Exception e) {

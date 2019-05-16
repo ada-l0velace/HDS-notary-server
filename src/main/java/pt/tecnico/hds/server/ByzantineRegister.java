@@ -32,7 +32,7 @@ public abstract class ByzantineRegister {
         Boolean onSale;
         JSONObject value = new JSONObject();
         try {
-            Connection conn = notary.connect();
+            Connection conn = Notary.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
