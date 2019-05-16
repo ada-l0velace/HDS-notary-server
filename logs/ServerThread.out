@@ -16702,3 +16702,1405 @@
 2019-05-16 00:51:09 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
 2019-05-16 00:51:09 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
 2019-05-16 00:51:09 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:68 - #########0 is LOCKED########
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:106 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:106 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:106 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:68 - #########1 is LOCKED########
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:106 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:68 - #########3 is LOCKED########
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:26:03 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:68 - #########2 is LOCKED########
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:106 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:26:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:68 - #########3 is LOCKED########
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:68 - #########1 is LOCKED########
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:68 - #########2 is LOCKED########
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:68 - #########0 is LOCKED########
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:27:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:27:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:27:35 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 0: 
+2019-05-16 02:27:35 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 1: 
+2019-05-16 02:27:35 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 2: 
+2019-05-16 02:27:35 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:106 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:27:36 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:27:37 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:68 - #########3 is LOCKED########
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 2: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:68 - #########0 is LOCKED########
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:68 - #########2 is LOCKED########
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:106 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:26 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:68 - #########1 is LOCKED########
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:68 - #########3 is LOCKED########
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:68 - #########2 is LOCKED########
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:106 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:43 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:44 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:68 - #########2 is LOCKED########
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 2 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 3 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 1 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:106 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:95 - Starting Echo from 0 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:28:53 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:70 - #########1 is LOCKED########
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:70 - #########2 is LOCKED########
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:70 - #########3 is LOCKED########
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:70 - #########0 is LOCKED########
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:21 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:22 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:21 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:22 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:22 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:34:22 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:34:22 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:34:22 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:22 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:31 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:34:31 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:34:31 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:34:31 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:70 - #########3 is LOCKED########
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:34:32 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:34:32 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:32 INFO  HdsServer:180 - java.lang.NullPointerException
+	at pt.tecnico.hds.server.AuthenticatedBroadcast.interrupt(AuthenticatedBroadcast.java:127)
+	at pt.tecnico.hds.server.AuthenticatedDoubleEchoBroadcast.ready(AuthenticatedDoubleEchoBroadcast.java:59)
+	at pt.tecnico.hds.server.HdsServer.run(HdsServer.java:152)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:34:32 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:70 - #########1 is LOCKED########
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:70 - #########2 is LOCKED########
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:70 - #########3 is LOCKED########
+2019-05-16 02:36:51 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:36:52 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:00 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:37:00 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:37:00 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:01 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:14 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:37:23 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:24 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:35 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:47 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:37:47 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:37:47 INFO  AuthenticatedBroadcast:70 - #########3 is LOCKED########
+2019-05-16 02:37:47 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:37:47 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:70 - #########0 is LOCKED########
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:37:48 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########2 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########3 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########1 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########0 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########1 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########0 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########3 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:70 - #########2 is LOCKED########
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:38:06 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:70 - #########2 is LOCKED########
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:109 - |Echo :) 1 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:39:26 INFO  AuthenticatedBroadcast:70 - #########1 is LOCKED########
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:109 - |Echo :) 2 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:109 - |Echo :) 0 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:109 - |Echo :) 3 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 1 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 2 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 3 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:98 - Starting Echo from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 3 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 1 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 2 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:58 - |Ready :) 0 Achieved QORUM|
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 1 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 0: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 3: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 1: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 0 to 2: 
+2019-05-16 02:39:27 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 2: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:42 - Starting Ready from 2 to 3: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 0: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 2: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 1: 
+2019-05-16 02:39:28 INFO  AuthenticatedBroadcast:98 - Starting Echo from 3 to 3: 

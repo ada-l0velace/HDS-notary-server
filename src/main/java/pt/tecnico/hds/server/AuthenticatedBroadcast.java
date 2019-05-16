@@ -18,6 +18,8 @@ public class AuthenticatedBroadcast implements Broadcast {
     int[] acks;
     int[] responses;
     Mutex mutex;
+
+    long waitID;
     int ni;
     Mutex echoMutex;
     Semaphore[] sem;
@@ -66,6 +68,7 @@ public class AuthenticatedBroadcast implements Broadcast {
 
             try {
                 logger.info(String.format("#########%d is LOCKED########", notary.notaryIndex));
+                waitID=Thread.currentThread().getId();
                 getLock().acquire();
                 //sem.acquire();
             } catch (InterruptedException e) {
@@ -107,12 +110,14 @@ public class AuthenticatedBroadcast implements Broadcast {
                     sentReady[ni] = true;
                     doubleEcho(message);
                 }
-                else if (responses[ni] > (Main.N + Main.f) / 2 && acks[ni] < 2 * Main.f) {
-                    logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
-                }
+            }
+            if (responses[ni] > (Main.N + Main.f) / 2 && acks[ni] < 2 * Main.f) {
+                logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
+                releaseLock();
             }
 
         }
+
     }
 
     public void ready(int pid, String message){}

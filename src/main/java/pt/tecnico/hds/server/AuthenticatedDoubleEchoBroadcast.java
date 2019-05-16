@@ -53,8 +53,8 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
                         sentReady[pid] = true;
                         doubleEcho(message);
                     }
-                    if(acks2[ni]>2*Main.f && !this.delivered[i]) {
-                        delivered[i]=true;
+                    if(acks2[ni]>2*Main.f && !this.delivered[ni]) {
+                        delivered[ni]=true;
                         logger.info(String.format("|Ready :) %d Achieved QORUM|",notary.notaryIndex));
                         //logger.info(message);
                         releaseLock();
@@ -63,7 +63,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
             }
             if(responses2[ni] > (Main.N+Main.f)/2 && acks2[ni]<2*Main.f) {
                 logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
-                //releaseLock();
+                releaseLock();
             }
 
         }
