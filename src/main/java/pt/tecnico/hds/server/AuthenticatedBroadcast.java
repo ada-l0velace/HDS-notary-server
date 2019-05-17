@@ -104,7 +104,7 @@ public class AuthenticatedBroadcast implements Broadcast {
             responses[ni]++;
             echos[pid] = bv;
             for (int i = 0; i < Main.N; i++) {
-                if (echos[i] != null && echos[i].equals(bv)) {
+                if (echos[i] != null && echos[i].equals(bv) && bv.verifySignature()) {
                     acks[ni]++;
                 }
                 if (!sentReady[ni] && acks[ni] > (Main.N + Main.f) / 2) {

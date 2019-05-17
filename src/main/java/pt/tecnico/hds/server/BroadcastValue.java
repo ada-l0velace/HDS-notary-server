@@ -20,14 +20,18 @@ public class BroadcastValue {
     public String buyer2="";
     public String good2="";
     public String signer2="";
+    public String _message="";
+    public String signature="";
 
     public BroadcastValue(String request, int pid) {
 
         this.pid = pid;
         JSONObject r = new JSONObject(request);
+        this.signature = r.getString("Hash");
+
         //System.out.println(r.getString("Message"));
-        JSONObject m0 = new JSONObject(r.getString("Message"));
-        JSONObject message = m0;
+        JSONObject message = new JSONObject(r.getString("Message"));
+        this._message = message.toString();
         if (message.has("rid"))
             rid = message.getLong("rid");
         else
@@ -71,6 +75,10 @@ public class BroadcastValue {
             good2 =message2.getString("Good");
             signer2 = message2.getString("signer");
         }
+    }
+
+    public boolean verifySignature(){
+        return Utils.verifySignWithPubKeyFile(_message, this.signature, "assymetricKeys/" + signer + ".pub");
     }
 
     @Override

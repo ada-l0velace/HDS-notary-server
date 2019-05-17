@@ -279,6 +279,41 @@ public class Notary {
         return reply;
     }
 
+    public boolean isFromAKnownServer(String keyFile){
+		for (int i = 0; i < Main.N; i++) {
+			if(keyFile.equals(String.format("serverDebug%d", i)))
+				return true;
+		}
+		// in case it's a cc signature
+		if (keyFile.equals("server"))
+			return true;
+		else
+			return false;
+	}
+
+	public boolean verifySignatureAndFreshness(JSONObject message, String hash) {
+		try {
+			Connection conn = connect();
+			String signer = message.getString("signer");
+			if (!isFromAKnownServer(signer)) {
+				conn.close();
+				return false;
+			}
+			boolean signature = Utils.verifySignWithPubKeyFile(message.toString(), hash, "assymetricKeys/" + signer + ".pub");
+			//boolean replay = verifyReplay(hash, conn);
+			//boolean b =  signature && replay;
+			//System.out.println(signature + " " + replay);
+			//if (b) {
+			//	addToRequests(hash,message.toString(),conn);
+			//}
+			conn.close();
+			return signature;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+	}
+
     public JSONObject intentionToSell(JSONObject message, String hash) {
         String seller = message.getString("Seller");
 		//System.out.println("Starting IntentionToSell");

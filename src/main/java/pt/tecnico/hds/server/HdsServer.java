@@ -69,11 +69,20 @@ public class HdsServer implements Runnable {
                 else
                     received = "Error";
             } else {
-                received = action;
+                //System.out.println(json.toString());
+                //must be signed by a server
+                if (nt.verifySignatureAndFreshness(jsonObj, hash))
+                    received = action;
+                else {
+
+                    dis.close();
+                    dos.close();
+                    connection.close();
+                    return;
+                }
             }
             //String signature;
             JSONObject message;
-            JSONObject value = new JSONObject(json.getString("Message"));
             //System.out.println(received);
             Broadcast broadcaster;
             String good;

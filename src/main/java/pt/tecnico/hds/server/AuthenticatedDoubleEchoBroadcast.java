@@ -56,7 +56,7 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
             responses2[ni]++;
             reads[pid] = bv;
             for (int i = 0; i < Notary.nServers; i++) {
-                if (reads[i] != null && reads[i].equals(bv)) {
+                if (reads[i] != null && reads[i].equals(bv) && bv.verifySignature()) {
                     acks2[ni]++;
                     if (acks2[ni] > Main.f && !sentReady[ni]) {
                         sentReady[ni] = true;
