@@ -15,8 +15,8 @@ public class AuthenticatedBroadcast implements Broadcast {
     boolean[] sentEcho;
     boolean[] delivered;
     boolean[] sentReady;
-    int[] acks;
-    int[] responses;
+    int[][] acks;
+    int[][] responses;
     Mutex mutex;
 
     long waitID;
@@ -42,8 +42,8 @@ public class AuthenticatedBroadcast implements Broadcast {
         sentEcho = new boolean[Notary.nServers];
         delivered = new boolean[Notary.nServers];
         sentReady = new boolean[Notary.nServers];
-        acks = new int [Main.N];
-        responses = new int [Main.N];
+        acks = new int [Main.N][Main.N];
+        responses = new int [Main.N][Main.N];
         for (int i = 0; i < Main.N; i++) {
             sem[i] = new Semaphore(0);
         }
@@ -101,19 +101,19 @@ public class AuthenticatedBroadcast implements Broadcast {
         BroadcastValue bv = new BroadcastValue(message, pid);
 
         if (echos[pid] == null) {
-            responses[ni]++;
+            responses[ni][pid]++;
             echos[pid] = bv;
             for (int i = 0; i < Main.N; i++) {
                 if (echos[i] != null && echos[i].equals(bv) && bv.verifySignature()) {
-                    acks[ni]++;
+                    acks[ni][pid]++;
                 }
-                if (!sentReady[ni] && acks[ni] > (Main.N + Main.f) / 2) {
-                    logger.info(String.format("|Echo :) %d Achieved QORUM|",notary.notaryIndex));
+                if (!sentReady[ni] && acks[ni][pid] > (Main.N + Main.f) / 2) {
+                    logger.info(String.format("|Echo :) %d Achieved QORUM with %d acks|",notary.notaryIndex, acks[ni][pid]));
                     sentReady[ni] = true;
                     doubleEcho(message);
                 }
             }
-            if (responses[ni] > (Main.N + Main.f) / 2 && acks[ni] < 2 * Main.f) {
+            if (responses[ni][pid] > (Main.N + Main.f) / 2 && acks[ni][pid] < 2 * Main.f) {
                 logger.info(String.format("|Replay QORUM not achieved :( %d |",notary.notaryIndex));
                 releaseLock();
             }

@@ -34,7 +34,7 @@ public class Notary {
 	public ByzantineRegister reg;
 	public final static Logger logger = LoggerFactory.getLogger(HdsServer.class);
 
-	public Broadcast getBroadcaster(String good) {
+	public synchronized Broadcast getBroadcaster(String good) {
 		if (!broadcasters.containsKey(good))
 			broadcasters.put(good, new AuthenticatedDoubleEchoBroadcast(this));
 		return broadcasters.get(good);

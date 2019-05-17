@@ -5,8 +5,8 @@ import org.json.JSONObject;
 
 public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     BroadcastValue[] reads;
-    int[] responses2;
-    int[] acks2;
+    int[][] responses2;
+    int[][] acks2;
 
     public AuthenticatedDoubleEchoBroadcast(Notary notary) {
         super(notary);
@@ -17,8 +17,8 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     public void init() {
         super.init();
         reads = new BroadcastValue[Notary.nServers];
-        acks2 = new int[Notary.nServers];
-        responses2 = new int[Notary.nServers];
+        acks2 = new int[Notary.nServers][Notary.nServers];
+        responses2 = new int[Notary.nServers][Notary.nServers];
 
     }
 
@@ -26,8 +26,8 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
     public void clear() {
         super.init();
         reads = new BroadcastValue[Notary.nServers];
-        acks2 = new int[Notary.nServers];
-        responses2 = new int[Notary.nServers];
+        acks2 = new int[Notary.nServers][Notary.nServers];
+        responses2 = new int[Notary.nServers][Notary.nServers];
 
     }
 
@@ -53,25 +53,26 @@ public class AuthenticatedDoubleEchoBroadcast extends AuthenticatedBroadcast {
         BroadcastValue bv = new BroadcastValue(message, pid);
 
         if (reads[pid] == null) {
-            responses2[ni]++;
+            responses2[ni][pid]++;
             reads[pid] = bv;
             for (int i = 0; i < Notary.nServers; i++) {
                 if (reads[i] != null && reads[i].equals(bv) && bv.verifySignature()) {
-                    acks2[ni]++;
-                    if (acks2[ni] > Main.f && !sentReady[ni]) {
-                        sentReady[ni] = true;
-                        doubleEcho(message);
-                    }
-
-                    if (acks2[ni] > 2 * Main.f && !this.delivered[ni]) {
-                        delivered[ni] = true;
-                        logger.info(String.format("|Ready :) %d Achieved QORUM|", notary.notaryIndex));
-                        //logger.info(message);
-                        releaseLock();
-                    }
+                    acks2[ni][pid]++;
                 }
+                if (acks2[ni][pid]> Main.f && !sentReady[ni]) {
+                    sentReady[ni] = true;
+                    doubleEcho(message);
+                }
+
+                if (acks2[ni][pid] > 2 * Main.f && !this.delivered[ni]) {
+                    delivered[ni] = true;
+                    logger.info(String.format("|Ready :) %d Achieved QORUM|", notary.notaryIndex));
+                    //logger.info(message);
+                    releaseLock();
+                }
+
             }
-            if (responses2[ni] > (Main.N + Main.f) / 2 && acks2[ni] < 2 * Main.f) {
+            if (responses2[ni][pid] > (Main.N + Main.f) / 2 && acks2[ni][pid] < 2 * Main.f) {
                 logger.info(String.format("|Replay QORUM not achieved :( %d |", notary.notaryIndex));
                 releaseLock();
             }
